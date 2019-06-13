@@ -27,7 +27,7 @@ const footwear = {
 
 const outfitMap = {
 
-  'very_hot:casual': [headwear.cap, ],
+  'very_hot:casual': [headwear.cap ],
   'very_hot:formal': 'very_hot',
   'very_hot:bussiness_casual': 'very_hot',
 
@@ -40,7 +40,7 @@ const outfitMap = {
   'warm:bussiness_casual': 'warm',
 
   'chilly:casual': 'wear a shirt, pants and tennis shoes. It\'s nice out',
-  'chilly:formal': 'chilly',
+  'chilly:formal': [headwear.cap],
   'chilly:bussiness_casual': 'chilly',
 
   'cold:casual': 'wear a shirt, pants and tennis shoes. It\'s nice out',
@@ -58,6 +58,7 @@ const outfitMap = {
 }
 
 interface Hourly {
+  data;
   apparentTemperature: number;
   humidity: number;
   icon: string;
@@ -73,10 +74,12 @@ interface Currently {
   apparentTemperature: number;
   icon: string;
   humidity: number;
+  time:number;
 }
 
 interface ApiData {
   currently: Currently;
+  hourly: Hourly;
 }
 
 @Component({
@@ -87,7 +90,6 @@ interface ApiData {
 export class AppComponent {
   title = 'final-project';
 
-  hourly: Hourly[] = [];
 
   apparentTemperature;
   currently;
@@ -97,6 +99,7 @@ export class AppComponent {
   long: number;
   weatherType: string;
   eventType: string = 'casual';
+  theHour;
 
 
   constructor(private api: Api) {
@@ -214,7 +217,7 @@ export class AppComponent {
 
 
   getEvent = () => {
-    console.log(outfitMap[`${this.weatherType}:${this.eventType}`] );
+    return outfitMap[`${this.weatherType}:${this.eventType}`];
     
   }
 
