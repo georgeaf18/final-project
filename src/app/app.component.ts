@@ -1,5 +1,22 @@
 import { Component } from '@angular/core';
-import {Api} from './services/api.services';
+import { Api } from './services/api.services';
+
+interface Hourly {
+  apparentTemperature: number;
+  humidity: number;
+  icon: string;
+  precipProbability: number;
+  summary: string;
+  temperature: number;
+  time: number;
+  windSpeed: number;
+}
+
+interface Location {
+  Latitude: number;
+  Longitude: number;
+  error: string;
+}
 
 interface Currently {
   apparentTemperature: number;
@@ -18,6 +35,9 @@ interface ApiData {
 })
 export class AppComponent {
   title = 'final-project';
+
+  hourly: Hourly[] = [];
+
   apparentTemperature;
   currently;
   icon;
@@ -27,9 +47,19 @@ export class AppComponent {
   weatherType: string;
   eventType: string = 'casual';
 
+
   constructor(private api: Api) {
 
   }
+
+
+
+
+
+
+
+
+
 
   getLocation = () => {
     if (navigator.geolocation) {
@@ -43,16 +73,69 @@ export class AppComponent {
     this.getData();
   }
 
+
   getData = () => {
     this.api.getWeather(this.lat, this.long).subscribe((data:ApiData) => {
       this.apparentTemperature = data.currently.apparentTemperature;
       this.icon = data.currently.icon;
       this.humidity = data.currently.humidity;
       console.log(data);
+
+      console.log(`the time: ${data.currently.time}`);
+      // console.log(`the alert: ${data.flags.sources[0]}`);
+
+
+      // THIS IS IMPORTANT
+      // I ACTUALLY WAS ABLE TO RETURN WHAT WE NEED
+      // LOOK HERE
+      // YAYAYAYAYAYAYAY
+      this.theHour = data.hourly.data;
+      console.log(`hourly: ${this.theHour[0].apparentTemperature}`);
+
+
+
+
+      // if (navigator.geolocation) {
+      //   navigator.geolocation.getCurrentPosition(this.showPosition);
+      // } else {
+      //   this.location = "Geolocation is not supported by this browser.";
+      // }
+      console.log(navigator.geolocation.getCurrentPosition((42.3601,-71.0589));
+      // function showPosition(position) {
+      //   this.location = "Latitude: " + position.coords.latitude +
+      //     "<br>Longitude: " + position.coords.longitude;
+      //   console.log(this.location);
+      // }
+
+      /// HOW THE FUCK DO I DO THIS????
+      /// HOW DO I GET THE GETCURRENTPOSITION FUNCTION TO WORK FOR GEOLOCATION??????
+
+
+
+    
+
+      // Create a new JavaScript Date object based on the timestamp
+      // multiplied by 1000 so that the argument is in milliseconds, not seconds.
+      let date = new Date(data.currently.time * 1000);
+      // Hours part from the timestamp
+      let hours = date.getHours();
+      // Minutes part from the timestamp
+      let minutes = "0" + date.getMinutes();
+      // Seconds part from the timestamp
+      let seconds = "0" + date.getSeconds();
+
+      // Will display time in 10:30:23 format
+      let formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+
+      console.log(`formatted time: ${formattedTime}`);
+
+      // console.log(`the location is: latitude=${data.latitude}, longitude=${data.longitude}`);
+
       
       if (typeof this.apparentTemperature === 'number'){
         this.getOutfit();
       }
+
     })
     
   }
@@ -93,6 +176,7 @@ export class AppComponent {
     
   }
 
+
   getEvent = () => {
 
     if ( this.weatherType === 'warm' && this.eventType === 'casual'){
@@ -101,5 +185,6 @@ export class AppComponent {
         console.log('wear a jacket, a shirt, pants and tennis shoes. It\'s chilly');
       }
   }
+
 
 }
