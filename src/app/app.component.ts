@@ -1,6 +1,38 @@
 import { Component } from '@angular/core';
 import {Api} from './services/api.services';
 
+const outfitMap = {
+
+  'very_hot:casual': 'wear a shirt, pants and tennis shoes. It\'s very_hot',
+  'very_hot:formal': 'very_hot',
+  'very_hot:bussiness_casual': 'very_hot',
+
+  'hot:casual': 'wear a shirt, pants and tennis shoes. It\'s hot',
+  'hot:formal': 'hot',
+  'hot:bussiness_casual': 'hot',
+
+  'warm:casual': 'wear a shirt, pants and tennis shoes. It\'s nice out',
+  'warm:formal': 'warm',
+  'warm:bussiness_casual': 'warm',
+
+  'chilly:casual': 'wear a shirt, pants and tennis shoes. It\'s nice out',
+  'chilly:formal': 'chilly',
+  'chilly:bussiness_casual': 'chilly',
+
+  'cold:casual': 'wear a shirt, pants and tennis shoes. It\'s nice out',
+  'cold:formal': 'cold',
+  'cold:bussiness_casual': 'cold',
+
+  'very_cold:casual': 'wear a shirt, pants and tennis shoes. It\'s nice out',
+  'very_cold:formal': 'very_cold',
+  'very_cold:bussiness_casual': 'very_cold',
+
+  'extremely_cold:casual': 'We recommend to avoid going out due to the extreme tempertures',
+  'extremely_cold:formal': 'We recommend to avoid going out due to the extreme tempertures',
+  'extremely_cold:bussiness_casual': 'We recommend to avoid going out'
+
+}
+
 interface Currently {
   apparentTemperature: number;
   icon: string;
@@ -60,9 +92,9 @@ export class AppComponent {
   getOutfit = () => {
     if (this.apparentTemperature >= 95){
       this.weatherType = 'very hot';
+      
     } else if (this.apparentTemperature >= 80 && this.apparentTemperature <= 94){
       this.weatherType = 'hot';
-     
 
     }else if (this.apparentTemperature > 69 && this.apparentTemperature <= 79){
       this.weatherType = 'warm';
@@ -94,12 +126,8 @@ export class AppComponent {
   }
 
   getEvent = () => {
-
-    if ( this.weatherType === 'warm' && this.eventType === 'casual'){
-      console.log('wear a shirt, pants and tennis shoes. It\'s nice out');
-    } else if ( this.weatherType === 'chilly' && this.eventType === 'casual'){
-        console.log('wear a jacket, a shirt, pants and tennis shoes. It\'s chilly');
-      }
+    console.log(outfitMap[`${this.weatherType}:${this.eventType}`] );
+    
   }
 
 }
