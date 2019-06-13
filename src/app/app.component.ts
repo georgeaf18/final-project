@@ -1,9 +1,33 @@
 import { Component } from '@angular/core';
 import { Api } from './services/api.services';
 
+// 1) Head
+// 2) Face
+// 3) Upper Body
+// 4) Upper Body Outerwear
+// 5) Lower Body
+// 6) Feet
+
+const headwear = {
+  cap: 'url'
+}
+const facewear = {
+  glasses: 'url'
+}
+const upperbody = {
+  shirt: 'url'
+}
+const lowerbody = {
+  jeans: 'url'
+}
+
+const footwear = {
+  shoes: 'url'
+}
+
 const outfitMap = {
 
-  'very_hot:casual': 'wear a shirt, pants and tennis shoes. It\'s very_hot',
+  'very_hot:casual': [headwear.cap, ],
   'very_hot:formal': 'very_hot',
   'very_hot:bussiness_casual': 'very_hot',
 
