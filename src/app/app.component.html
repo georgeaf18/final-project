@@ -1,10 +1,18 @@
-<button (click)= 'getLocation()'>click</button>
+<button (click)='getLocation()'>click</button>
 
-<select [(ngModel)] = 'eventType' name="" id="">
+<select [(ngModel)]='eventType' name="" id="">
   <option selected value="casual">Casual</option>
   <option value="formal">Formal</option>
   <option value="bussiness_casual"> Bussiness Casual</option>
 </select>
 
+<!-- images/visor.jpeg -->
+<p>
+  <img src="../assets/{{urlHeadwear}}" />
+  <img src="../assets/images/visor.jpeg">
+  <!-- <img src=>
+<img>
+<img> -->
+</p>
 
 <router-outlet></router-outlet>
