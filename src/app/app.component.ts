@@ -9,42 +9,60 @@ import { Api } from './services/api.services';
 // 6) Feet
 
 const headwear = {
-  cap: 'url'
+  baseballCap: 'url',
+  beanie: '',
+  visor: 'images/visor.jpeg'
 }
 const facewear = {
-  glasses: 'url'
+  glasses: '',
+  sunglasses: 'url'
 }
 const upperbody = {
-  shirt: 'url'
+  tshirt: 'images/tshirt.jpeg',
+  polo: 'url',
+  longsleeve: 'url'
+}
+const upperbodyOuterwear = {
+  rainJacket: 'url',
+  parka: 'url'
 }
 const lowerbody = {
-  jeans: 'url'
+  jeans: 'url',
+  chinos: 'url',
+  shorts: 'images/shorts.jpeg',
+  skirt: 'url'
 }
-
 const footwear = {
-  shoes: 'url'
+  sneakers: 'url',
+  dressShoes: 'url',
+  boatShoes: 'images/quoddy.jpeg',
+  heels: 'url'
 }
 
 const outfitMap = {
 
-  'very_hot:casual': [headwear.cap ],
+
+  'very_hot:casual': [headwear.visor ],
+
   'very_hot:formal': 'very_hot',
   'very_hot:bussiness_casual': 'very_hot',
 
   'hot:casual': 'wear a shirt, pants and tennis shoes. It\'s hot',
-  'hot:formal': 'hot',
+  'hot:formal': [headwear.visor, upperbody.tshirt],
   'hot:bussiness_casual': 'hot',
 
   'warm:casual': 'wear a shirt, pants and tennis shoes. It\'s nice out',
-  'warm:formal': 'warm',
+  'warm:formal': [headwear.visor, upperbody.tshirt],
   'warm:bussiness_casual': 'warm',
 
   'chilly:casual': 'wear a shirt, pants and tennis shoes. It\'s nice out',
-  'chilly:formal': [headwear.cap],
+
+  'chilly:formal': [headwear.visor, upperbody.tshirt],
+
   'chilly:bussiness_casual': 'chilly',
 
   'cold:casual': 'wear a shirt, pants and tennis shoes. It\'s nice out',
-  'cold:formal': 'cold',
+  'cold:formal': [headwear.visor, upperbody.tshirt],
   'cold:bussiness_casual': 'cold',
 
   'very_cold:casual': 'wear a shirt, pants and tennis shoes. It\'s nice out',
@@ -101,6 +119,8 @@ export class AppComponent {
   eventType: string = 'casual';
   theHour;
 
+
+  urlHeadwear = [];
 
   constructor(private api: Api) {
 
@@ -217,9 +237,13 @@ export class AppComponent {
 
 
   getEvent = () => {
-    return outfitMap[`${this.weatherType}:${this.eventType}`];
-    
+
+    // console.log(outfitMap[`${this.weatherType}:${this.eventType}`] );
+    this.urlHeadwear = outfitMap[`${this.weatherType}:${this.eventType}`][0];
+    console.log(this.urlHeadwear);
+
   }
+
 
 
 }
