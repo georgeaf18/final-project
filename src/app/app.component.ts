@@ -1,23 +1,6 @@
 import { Component } from '@angular/core';
 import { Api } from './services/api.services';
 
-interface Hourly {
-  apparentTemperature: number;
-  humidity: number;
-  icon: string;
-  precipProbability: number;
-  summary: string;
-  temperature: number;
-  time: number;
-  windSpeed: number;
-}
-
-interface Location {
-  Latitude: number;
-  Longitude: number;
-  error: string;
-}
-
 const outfitMap = {
 
   'very_hot:casual': 'wear a shirt, pants and tennis shoes. It\'s very_hot',
@@ -49,6 +32,18 @@ const outfitMap = {
   'extremely_cold:bussiness_casual': 'We recommend to avoid going out'
 
 }
+
+interface Hourly {
+  apparentTemperature: number;
+  humidity: number;
+  icon: string;
+  precipProbability: number;
+  summary: string;
+  temperature: number;
+  time: number;
+  windSpeed: number;
+}
+
 
 interface Currently {
   apparentTemperature: number;
@@ -126,21 +121,6 @@ export class AppComponent {
 
 
 
-
-      // if (navigator.geolocation) {
-      //   navigator.geolocation.getCurrentPosition(this.showPosition);
-      // } else {
-      //   this.location = "Geolocation is not supported by this browser.";
-      // }
-      console.log(navigator.geolocation.getCurrentPosition((42.3601,-71.0589));
-      // function showPosition(position) {
-      //   this.location = "Latitude: " + position.coords.latitude +
-      //     "<br>Longitude: " + position.coords.longitude;
-      //   console.log(this.location);
-      // }
-
-      /// HOW THE FUCK DO I DO THIS????
-      /// HOW DO I GET THE GETCURRENTPOSITION FUNCTION TO WORK FOR GEOLOCATION??????
 
 
 

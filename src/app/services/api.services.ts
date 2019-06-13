@@ -23,7 +23,7 @@ export class Api {
     getWeather = (lat, long) => {
        return this.http.get(`${this.server}${this.apiUrl}/${this.apiKey}/${lat},${long}`)
 
-
+    }
   
 
 
