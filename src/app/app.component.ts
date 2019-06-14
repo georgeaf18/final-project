@@ -9,16 +9,16 @@ import { Api } from './services/api.services';
 // 6) Feet
 
 const headwear = {
-  baseballCap: 'url',
+  baseballCap: 'images/hat.png',
   beanie: '',
   visor: 'images/visor.jpeg'
 }
 const facewear = {
   glasses: '',
-  sunglasses: 'url'
+  sunglasses: 'images/sungalsses.png'
 }
 const upperbody = {
-  tshirt: 'images/tshirt.jpeg',
+  tshirt: 'images/tshirt1.png',
   polo: 'url',
   longsleeve: 'url'
 }
@@ -28,46 +28,46 @@ const upperbodyOuterwear = {
 }
 const lowerbody = {
   jeans: 'url',
-  chinos: 'url',
+  chinos: 'images/pants1.png',
   shorts: 'images/shorts.jpeg',
   skirt: 'url'
 }
 const footwear = {
   sneakers: 'url',
-  dressShoes: 'url',
+  dressShoes: 'images/boott.png',
   boatShoes: 'images/quoddy.jpeg',
   heels: 'url'
 }
 
 const outfitMap = {
 
-  'very_hot:casual': [headwear.visor ],
-  'very_hot:formal': 'very_hot',
-  'very_hot:bussiness_casual': 'very_hot',
+  'very_hot:casual': [headwear.visor],
+  'very_hot:formal': [headwear.visor, upperbody.tshirt],
+  'very_hot:bussiness_casual': [headwear.visor, upperbody.tshirt],
 
-  'hot:casual': 'wear a shirt, pants and tennis shoes. It\'s hot',
+  'hot:casual': [headwear.visor, upperbody.tshirt],
   'hot:formal': [headwear.visor, upperbody.tshirt],
-  'hot:bussiness_casual': 'hot',
+  'hot:bussiness_casual': [headwear.visor, upperbody.tshirt],
 
-  'warm:casual': 'wear a shirt, pants and tennis shoes. It\'s nice out',
+  'warm:casual': [headwear.visor, upperbody.tshirt],
   'warm:formal': [headwear.visor, upperbody.tshirt],
-  'warm:bussiness_casual': 'warm',
+  'warm:bussiness_casual': [headwear.visor, upperbody.tshirt],
 
-  'chilly:casual': 'wear a shirt, pants and tennis shoes. It\'s nice out',
+  'chilly:casual': [headwear.visor, upperbody.tshirt],
   'chilly:formal': [headwear.visor, upperbody.tshirt],
-  'chilly:bussiness_casual': 'chilly',
+  'chilly:bussiness_casual': [headwear.visor, upperbody.tshirt],
 
-  'cold:casual': 'wear a shirt, pants and tennis shoes. It\'s nice out',
+  'cold:casual': [headwear.visor, upperbody.tshirt],
   'cold:formal': [headwear.visor, upperbody.tshirt],
-  'cold:bussiness_casual': 'cold',
+  'cold:bussiness_casual': [headwear.visor, upperbody.tshirt],
 
-  'very_cold:casual': 'wear a shirt, pants and tennis shoes. It\'s nice out',
-  'very_cold:formal': 'very_cold',
-  'very_cold:bussiness_casual': 'very_cold',
+  'very_cold:casual': [headwear.visor, upperbody.tshirt],
+  'very_cold:formal': [headwear.visor, upperbody.tshirt],
+  'very_cold:bussiness_casual': [headwear.visor, upperbody.tshirt],
 
-  'extremely_cold:casual': 'We recommend to avoid going out due to the extreme tempertures',
-  'extremely_cold:formal': 'We recommend to avoid going out due to the extreme tempertures',
-  'extremely_cold:bussiness_casual': 'We recommend to avoid going out'
+  'extremely_cold:casual': [headwear.visor, upperbody.tshirt],
+  'extremely_cold:formal': [headwear.visor, upperbody.tshirt],
+  'extremely_cold:bussiness_casual': [headwear.visor, upperbody.tshirt]
 
 }
 
@@ -87,10 +87,14 @@ interface Currently {
   apparentTemperature: number;
   icon: string;
   humidity: number;
+  time;
+  theHour;
+  hourly;
 }
 
 interface ApiData {
   currently: Currently;
+  hourly
 }
 
 @Component({
@@ -112,12 +116,78 @@ export class AppComponent {
   weatherType: string;
   eventType: string = 'casual';
 
+  theHour;
+
 
   urlHeadwear = [];
 
   constructor(private api: Api) {
 
   }
+
+
+  // selectedDevice = 'two';
+  // onChange(newValue) {
+  //   console.log(newValue);
+  //   this.selectedDevice = newValue;
+  // ... do other stuff here ...
+  // }
+
+
+  // shirt1;
+  // shirt2;
+  // shirt3;
+  // shirts = {
+  //   shirt1: 'red',
+  //   shirt2: 'blue',
+  //   shirt3: 'green'
+  // }
+  // devices = 'one two three'.split(' ');
+
+
+
+
+  // shirts = ['red','blue','green'];
+  // selectedShirt = 'red';
+
+  styles = ['formal', 'casual', 'bussiness_casual'];
+  selectedStyle = 'casual';
+  onChange = (newValue) => {
+    console.log(`newValue: ${newValue}`);
+    console.log(`selectedShirt before change: ${this.eventType}`);
+    this.eventType = newValue;
+    console.log(`selectedShirt after change: ${this.eventType}`);
+    this.displayClothing(newValue);
+  }
+
+  displayClothing = (input) => {
+    // if (this.selectedStyle = 'formal') {
+    if (input === 'formal') {
+      // console.log(`selectedStyle before change: ${this.selectedStyle}`)
+      this.eventType = this.styles[0];
+      console.log(`selectedStyle: ${this.eventType}`)
+    // } else if (this.selectedStyle = 'casual') {
+    } else if (input === 'casual') {
+      // console.log(`selectedStyle before change: ${this.selectedStyle}`)
+      this.eventType = this.styles[1];
+      console.log(`selectedStyle: ${this.eventType}`)
+    // } else if (this.selectedStyle = 'party') {
+    } else if (input === 'party') {
+      // console.log(`selectedStyle before change: ${this.selectedStyle}`)
+      this.eventType = this.styles[2];
+      console.log(`selectedStyle: ${this.eventType}`)
+    }
+  }
+
+  // changeEventStyle = () => {
+  //   // console.log(outfitMap[`${this.weatherType}:${this.eventType}`] );
+  //   this.urlHeadwear = outfitMap[`${this.weatherType}:${this.selectedStyle}`][0];
+  //   console.log(this.urlHeadwear);
+  // }
+
+
+
+
 
 
 
@@ -142,7 +212,7 @@ export class AppComponent {
 
 
   getData = () => {
-    this.api.getWeather(this.lat, this.long).subscribe((data:ApiData) => {
+    this.api.getWeather(this.lat, this.long).subscribe((data: ApiData) => {
       this.apparentTemperature = data.currently.apparentTemperature;
       this.icon = data.currently.icon;
       this.humidity = data.currently.humidity;
@@ -164,7 +234,7 @@ export class AppComponent {
 
 
 
-    
+
 
       // Create a new JavaScript Date object based on the timestamp
       // multiplied by 1000 so that the argument is in milliseconds, not seconds.
@@ -183,49 +253,49 @@ export class AppComponent {
 
       // console.log(`the location is: latitude=${data.latitude}, longitude=${data.longitude}`);
 
-      
-      if (typeof this.apparentTemperature === 'number'){
+
+      if (typeof this.apparentTemperature === 'number') {
         this.getOutfit();
       }
 
     })
-    
+
   }
 
   getOutfit = () => {
-    if (this.apparentTemperature >= 95){
+    if (this.apparentTemperature >= 95) {
       this.weatherType = 'very hot';
-      
-    } else if (this.apparentTemperature >= 80 && this.apparentTemperature <= 94){
+
+    } else if (this.apparentTemperature >= 80 && this.apparentTemperature <= 94) {
       this.weatherType = 'hot';
 
-    }else if (this.apparentTemperature > 69 && this.apparentTemperature <= 79){
+    } else if (this.apparentTemperature > 69 && this.apparentTemperature <= 79) {
       this.weatherType = 'warm';
 
-      
-    }else if (this.apparentTemperature > 50 && this.apparentTemperature <= 68){
+
+    } else if (this.apparentTemperature > 50 && this.apparentTemperature <= 68) {
       this.weatherType = 'chilly';
 
-      
-    }else if (this.apparentTemperature > 33 && this.apparentTemperature <= 49){
+
+    } else if (this.apparentTemperature > 33 && this.apparentTemperature <= 49) {
       this.weatherType = 'cold';
 
-      
-    }else if (this.apparentTemperature > 1 && this.apparentTemperature <= 32){
+
+    } else if (this.apparentTemperature > 1 && this.apparentTemperature <= 32) {
       this.weatherType = 'very cold';
 
-      
-    }else if (this.apparentTemperature < 0 ){
+
+    } else if (this.apparentTemperature < 0) {
       this.weatherType = 'extremely cold';
 
-      
+
     }
 
-    if (typeof this.weatherType === 'string' ){
+    if (typeof this.weatherType === 'string') {
       this.getEvent();
 
     }
-    
+
   }
 
 
