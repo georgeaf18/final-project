@@ -40,6 +40,8 @@ const lowerbody = {
 }
 const footwear = {
 
+
+
   tennisShoes: 'url',
   dressShoes: 'url',
   rainBoots: 'images/quoddy.jpeg',
@@ -49,7 +51,9 @@ const footwear = {
 
 }
 
+
 const outfitMap = {
+
 
 //******************************** very hot */
 
@@ -403,6 +407,7 @@ export class AppComponent {
 
 
   getEvent = () => {
+
 
     // console.log(outfitMap[`${this.weatherType}:${this.eventType}`] );
     this.urlHeadwear = outfitMap[`${this.weatherType}:${this.eventType}`][this.gender][0];
