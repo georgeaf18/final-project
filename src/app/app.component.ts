@@ -8,6 +8,8 @@ import { Api } from './services/api.services';
 // 5) Lower Body
 // 6) Feet
 
+
+// THIS IS THE IMAGES SECTION FOR TESTING ... 
 const headwear = {
   baseballCap: 'images/hat.png',
   beanie: '',
@@ -38,6 +40,8 @@ const footwear = {
   boatShoes: 'images/quoddy.jpeg',
   heels: 'url'
 }
+// THIS IS THE END OF THE TESTING SECTION FOR IMAGES
+
 
 const outfitMap = {
 
