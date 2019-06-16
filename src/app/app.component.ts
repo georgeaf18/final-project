@@ -215,10 +215,11 @@ export class AppComponent {
   eventType: string = 'casual';
   theHour;
 
-  theHour;
+  // theHour;
 
 
   urlHeadwear = [];
+  gender: any;
 
   constructor(private api: Api) {
 

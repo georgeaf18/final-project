@@ -17,7 +17,6 @@ div{
 
 nav{
 border-bottom: 4px solid whitesmoke;
-height: 10%;
 }
 
 .navBar{
@@ -29,9 +28,8 @@ justify-content: space-between;
 .bottomHalf, .topHalf{
 height: 45%;
 display: flex;
-justify-content: space-evenly;
+justify-content: space-between;
 align-items: center;
-text-align: center;
 }
 
 .topHalf{
@@ -58,10 +56,24 @@ ul{
 }
 
 .swipe{
-  float: right;
+  float: right; 
   margin: 10% 1% 10% 10%;
   height: 40%;
-  width: 5%;
+  /* width: 5%; */
   border-radius: 7%;
   border-style: none;
+}
+
+.mannequin{
+  width: auto;
+  max-height: 80%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  
+}
+
+.clothing{
+  min-height: 5px;
+  object-fit: contain;
 }
