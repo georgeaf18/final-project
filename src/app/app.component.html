@@ -16,38 +16,50 @@
     </ul>
   </nav>
   <div class="topHalf">
-    <div class='weatherDisplay'>
-      <img class='weatherImg'>placeholderImage
+    <div class='weatherPanel'>
+        <img class='weatherImg' src='../assets/images/amWeather.PNG'>
     </div>
-    <div class='weatherDisplay'>
-        <img class='weatherImg'>placeholderImage
-     </div>
+    <div class='weatherPanel'>
+            <img class='weatherImg' src='../assets/images/pmWeather.PNG'>
+      </div>
      <button class='swipe'>></button>
   </div>
   <div class="bottomHalf">
-    <select [ngModel]="selectedStyle" (change)="onChange($event.target.value)">
+    <!-- ******Needs updates to match component.ts******* -->
+      <div class='radioContainer' *ngFor="let style of styles">
+        <div class='radio'>
+          <input
+            class='radioInput'
+            type="radio"
+            name="radio"
+            id="radio-{{style}}"
+            [(ngModel)]="selectedStyle" 
+            (change)="onChange($event.target.value)"
+            [value]="style"
+            [checked]=''
+            />
+          <label for="radio-{{style}}">{{style}}</label>
+        </div>
+        <br>
+        
+      </div>
+          <!-- ********************************************************* -->
+    <!-- *****Can delete once replaced by Radio Buttons***** -->
+    <!-- <select [ngModel]="selectedStyle" (change)="onChange($event.target.value)">
       <option *ngFor="let style of styles">{{style}}</option>
-    </select>
+    </select> -->
+    <!-- ********************************** -->
     <div class='mannequin'>
-      
         <img class='clothing' src="../assets/images/hat.png">
-     
         <img class='clothing' src="../assets/images/sunglasses.png">
-     
         <img class='clothing' src="../assets/images/tshirt1.png">
-    
         <img class='clothing' src="../assets/images/Parka.png">
-     
         <img class='clothing' src="../assets/images/pants1.png">
-     
         <img class='clothing' src="../assets/images/boot.png">
     </div>
     <button class='swipe'>></button>
   </div>
-  
 </div>
-
-
 
 
   <!-- **CAN THIS BE DELETED???**

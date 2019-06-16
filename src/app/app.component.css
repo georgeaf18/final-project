@@ -38,17 +38,13 @@ align-items: center;
 
 .bottomHalf{
   border-top: 2px solid whitesmoke;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 
-li{
-  list-style: none;
-}
-
-ul{
-  padding: 0px;
-  list-style-type: none;
-  margin: 0px;
-
+.weatherPanel{
+  width: 50%;
+  object-fit: contain;
 }
 
 .navButton{
@@ -57,9 +53,8 @@ ul{
 
 .swipe{
   float: right; 
-  margin: 10% 1% 10% 10%;
-  height: 40%;
-  /* width: 5%; */
+  margin: 0;
+  height: 70%;
   border-radius: 7%;
   border-style: none;
 }
@@ -76,4 +71,17 @@ ul{
 .clothing{
   min-height: 5px;
   object-fit: contain;
+}
+
+.weatherImg{
+  overflow: hidden;
+  min-height: 5px;
+  min-width: 5px;
+  height: auto;
+  width: 100%;
+}
+
+.radio, .radioInput, .radioContainer{
+  display: flex;
+  clear: both;
 }
