@@ -3,41 +3,44 @@ import { Api } from './services/api.services';
 import { headersToString } from 'selenium-webdriver/http';
 
 //****************************************** clothing items */
-
 const headwear = {
 
-  baseballCap: 'd',
-  winterHat: 'hat'
+  baseballCap: '',
+  winterHat: 'images/hat.png',
+
 }
 
 const facewear = {
 
-  sunglasses: 'd',
-  scarf: 'd'
+  sunglasses: 'images/sunglasses.png',
+  scarf: ''
+
 
 }
 
 const upperbody = {
 
-  tshirt: 'images/tshirt.jpeg',
+  tshirt: 'images/tshirt1.png',
   longsleeve: 'url',
   formalShirtTie: 'url',
   dressTop: 'd'
 
 }
 const upperbodyOuterwear = {
-  lightJacketHoodie: 'd',
+
+  lightJacketHoodie: 'images/Parka.png',
   raincoat: 'url',
   suitCoat: 'd',
   winterCoat: 'url'
 }
 const lowerbody = {
-  pants: 'url',
+  pants: 'images/pants1.png',
   formalPants: 'url',
   shorts: 'images/shorts.jpeg',
   dressBottom: 'url'
 }
 const footwear = {
+
 
 
 
@@ -48,14 +51,14 @@ const footwear = {
   winterBoots: 'winterBoot',
   flipFlops: 'FlipFlops'
 
+
+
 }
 
 
 const outfitMap = {
 
-
 //******************************** very hot */
-
 
   'very_hot:casual': {
    male: [headwear.baseballCap, facewear.sunglasses, upperbody.tshirt, {}, lowerbody.shorts, footwear.flipFlops ],
@@ -214,6 +217,7 @@ export class AppComponent {
   eventType: string = 'casual';
   theHour;
 
+
   headwearUrl;
   facewearUrl;
   upperbodyUrl;
@@ -222,6 +226,7 @@ export class AppComponent {
   footwearUrl;
   
   gender: string = 'male';
+
 
 
 
