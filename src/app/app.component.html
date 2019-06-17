@@ -33,37 +33,16 @@
     <div class="navBar">
       <!-- ******Needs updates to match component.ts******* -->
       <div class="slidecontainer">
-        <input type="range" min="1" max="3" value="2" class="slider" id="myRange">
+        <input type="range" min="1" max="3" [(ngModel)]='preGender' class="slider" id="myRange"/>
           <div class='sliderLabels'>
               <i class="fas fa-user"></i>
               <i class="fas fa-user-tie"></i>
               <i class="fas fa-user-secret"></i>
         </div>
       </div>
-      <!-- *****************Using Radio Buttons***************
-    <div class='radioContainer'>
-      <div class='radio' *ngFor="let style of styles">
-        <input
-          class='radioInput'
-          type="radio"
-          name="radio"
-          id="radio-{{style}}"
-          [(ngModel)]="selectedStyle" 
-          (change)="onChange($event.target.value)"
-          [value]="style"
-          [checked]=''
-          />
-        <label for="radio-{{style}}">{{style}}</label>
-      </div>
-    </div>
-    ****************************************************** -->
+     
 
 
-    <!-- *********Can delete once replaced by icons / radio buttons********* -->
-    <!-- <select [ngModel]="selectedStyle" (change)="onChange($event.target.value)">
-      <option *ngFor="let style of styles">{{style}}</option>
-    </select> -->
-    <!-- *************************************************** -->
       <div class='gender'>
         <i (click)= 'setMale()' class='fas fa-male fa-2x' id='male'></i>
         <i (click)= 'setFemale()' class='fas fa-female fa-2x' id='female'></i>
@@ -81,10 +60,12 @@
   </div>
   <div class="bottomHalf">
 
-    <button (click)= 'setFormal()'>Formal</button>
+    <!-- <button (click)= 'setFormal()'>Formal</button>
     <button (click)= 'setCasual()'>Casual</button>
-    <button (click)= 'setBusinessCasual()'>Business Casual</button>
+    <button (click)= 'setBusinessCasual()'>Business Casual</button> -->
 
+
+<<<<<<< HEAD
     <!-- ******Needs updates to match component.ts******* -->
       <div class='radioContainer' *ngFor="let style of styles">
         <div class='radio'>
@@ -110,6 +91,8 @@
     </select> -->
     <!-- ********************************** -->
 
+=======
+>>>>>>> 35fc29b914ce4cf62053001fad44e96100c404ed
     <div class='mannequin'>
         <img class='clothing' src="../assets/images/hat.png">
         <img class='clothing' src="../assets/images/sunglasses.png">
@@ -122,6 +105,7 @@
   </div>
 </div>
 
+<<<<<<< HEAD
 
   <!-- ****************CAN THIS BE DELETED???*************
 <select [ngModel]="selectedDevice" (ngModelChange)="onChange($event)" name="sel2">
@@ -130,3 +114,6 @@
 ****************************************************** -->
   <router-outlet></router-outlet> 
 
+=======
+  <router-outlet></router-outlet> 
+>>>>>>> 35fc29b914ce4cf62053001fad44e96100c404ed
