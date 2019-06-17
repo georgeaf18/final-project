@@ -33,24 +33,22 @@
   </div>
   <div class="bottomHalf">
     <!-- ******Needs updates to match component.ts******* -->
-      <div class='radioContainer' *ngFor="let style of styles">
-        <div class='radio'>
-          <input
-            class='radioInput'
-            type="radio"
-            name="radio"
-            id="radio-{{style}}"
-            [(ngModel)]="selectedStyle" 
-            (change)="onChange($event.target.value)"
-            [value]="style"
-            [checked]=''
-            />
-          <label for="radio-{{style}}">{{style}}</label>
-        </div>
-        <br>
-        
+    <div class='radioContainer'>
+      <div class='radio' *ngFor="let style of styles">
+        <input
+          class='radioInput'
+          type="radio"
+          name="radio"
+          id="radio-{{style}}"
+          [(ngModel)]="selectedStyle" 
+          (change)="onChange($event.target.value)"
+          [value]="style"
+          [checked]=''
+          />
+        <label for="radio-{{style}}">{{style}}</label>
       </div>
-          <!-- ********************************************************* -->
+    </div>
+    <!-- ********************************************************* -->
     <!-- *****Can delete once replaced by Radio Buttons***** -->
     <!-- <select [ngModel]="selectedStyle" (change)="onChange($event.target.value)">
       <option *ngFor="let style of styles">{{style}}</option>
@@ -69,9 +67,9 @@
 </div>
 
 
-  <!-- **CAN THIS BE DELETED???**
+  <!-- ****************CAN THIS BE DELETED???*************
 <select [ngModel]="selectedDevice" (ngModelChange)="onChange($event)" name="sel2">
   <option [value]="i" *ngFor="let i of devices">{{i}}</option>
-</select> -->
-
+</select>
+****************************************************** -->
   <router-outlet></router-outlet> 
