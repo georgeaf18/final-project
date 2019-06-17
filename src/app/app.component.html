@@ -1,10 +1,51 @@
+
 <button (click)='getLocation()'>click</button>
 
 <select [(ngModel)]='eventType' name="" id="">
+
   <option selected value="casual">Casual</option>
   <option value="formal">Formal</option>
   <option value="bussiness_casual"> Bussiness Casual</option>
-</select>
+</select> -->
+
+<div class='fullPage'>
+
+  <nav>
+      <ul class="navBar">
+        <li class='navButton'><a href="https://google.com" target="Blank">Home</a></li>
+        <li class='navButton'><a href="https://google.com" target="Blank">Settings</a></li>
+      </ul>
+    </nav>
+  <div class="topHalf">
+    <div class='weatherDisplay'>
+      <img class='weatherImg'>placeholderImage
+    </div>
+      <ul class='clothes'>
+        <li>Head</li>
+        <li>Face</li>
+        <li>Upper Body</li>
+        <li>Upper Body Outerwear</li>
+        <li>Lower Body</li>
+        <li>Feet</li>
+      </ul>
+      <button class='swipe'>></button>
+  </div>
+
+  <div class="bottomHalf">
+      <div class='weatherDisplay'>
+          <img class='weatherImg'>placeholderImage
+        </div>
+      <ul class='clothes'>
+          <li>Head</li>
+          <li>Face</li>
+          <li>Upper Body</li>
+          <li>Upper Body Outerwear</li>
+          <li>Lower Body</li>
+          <li>Feet</li>
+      </ul>
+      <button class='swipe'>></button>
+  </div>
+</div>
 
 
 <select [ngModel]="selectedStyle" (change)="onChange($event.target.value)">
