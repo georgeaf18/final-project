@@ -1,39 +1,28 @@
  <!-- **TEST CODE - CAN BE DELETED**
-<button (click)='getLocation()'>click</button>
 
-<select [(ngModel)]='eventType' name="" id="">
+  
+  <select [(ngModel)]='eventType' name="" id="">
+    
+    <option selected value="casual">Casual</option>
+    <option value="formal">Formal</option>
+    <option value="bussiness_casual"> Bussiness Casual</option>
+  </select> 
+  
+  
+  <button (click)= 'setMale()'>Male</button>
+  <button (click)= 'setFemale()'>Female</button> -->
+  
+  <!-- ****************************** division ********************************** -->
+  
+  
+  <div class='fullPage'>
+      <button (click)='getLocation()'>click</button>
 
-  <option selected value="casual">Casual</option>
-  <option value="formal">Formal</option>
-  <option value="bussiness_casual"> Bussiness Casual</option>
-</select> 
-
-
-<button (click)= 'setMale()'>Male</button>
-<button (click)= 'setFemale()'>Female</button> -->
-
-<!-- ****************************** division ********************************** -->
-
-
-
-
-
-<daytime-component></daytime-component>
-
-
-
-
-
-
-
-
-
-<div class='fullPage'>
   <nav>
     <div class="navBar">
       <!-- ******Needs updates to match component.ts******* -->
       <div class="slidecontainer">
-        <input type="range" min="1" max="3" [(ngModel)]='preGender' class="slider" id="myRange"/>
+        <input type="range" min="1" max="3" [(ngModel)]='preEvent' (change) = 'getEvent()' class="slider" id="myRange"/>
           <div class='sliderLabels'>
               <i class="fas fa-user"></i>
               <i class="fas fa-user-tie"></i>
@@ -65,34 +54,7 @@
     <button (click)= 'setBusinessCasual()'>Business Casual</button> -->
 
 
-<<<<<<< HEAD
-    <!-- ******Needs updates to match component.ts******* -->
-      <div class='radioContainer' *ngFor="let style of styles">
-        <div class='radio'>
-          <input
-            class='radioInput'
-            type="radio"
-            name="radio"
-            id="radio-{{style}}"
-            [(ngModel)]="selectedStyle" 
-            (change)="onChange($event.target.value)"
-            [value]="style"
-            [checked]=''
-            />
-          <label for="radio-{{style}}">{{style}}</label>
-        </div>
-        <br>
-        
-      </div>
-          <!-- ********************************************************* -->
-    <!-- *****Can delete once replaced by Radio Buttons***** -->
-    <!-- <select [ngModel]="selectedStyle" (change)="onChange($event.target.value)">
-      <option *ngFor="let style of styles">{{style}}</option>
-    </select> -->
-    <!-- ********************************** -->
 
-=======
->>>>>>> 35fc29b914ce4cf62053001fad44e96100c404ed
     <div class='mannequin'>
         <img class='clothing' src="../assets/images/hat.png">
         <img class='clothing' src="../assets/images/sunglasses.png">
@@ -105,15 +67,4 @@
   </div>
 </div>
 
-<<<<<<< HEAD
 
-  <!-- ****************CAN THIS BE DELETED???*************
-<select [ngModel]="selectedDevice" (ngModelChange)="onChange($event)" name="sel2">
-  <option [value]="i" *ngFor="let i of devices">{{i}}</option>
-</select>
-****************************************************** -->
-  <router-outlet></router-outlet> 
-
-=======
-  <router-outlet></router-outlet> 
->>>>>>> 35fc29b914ce4cf62053001fad44e96100c404ed
