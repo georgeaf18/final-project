@@ -203,6 +203,9 @@ interface ApiData {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+
+
 export class AppComponent {
   title = 'final-project';
 
@@ -216,6 +219,7 @@ export class AppComponent {
   weatherType: string;
   eventType: string = 'casual';
   theHour;
+  preEvent: number = 1;
 
 
   headwearUrl;
@@ -418,14 +422,14 @@ export class AppComponent {
     
 
     if (typeof this.weatherType === 'string') {
-      this.getEvent();
+      this.getOutfitUrl();
 
     }
 
   }
 
 
-  getEvent = () => {
+  getOutfitUrl = () => {
 
 
     // console.log(outfitMap[`${this.weatherType}:${this.eventType}`] );
@@ -471,6 +475,16 @@ export class AppComponent {
 
   }
 
+  getEvent = () => {
+    console.log(this.preEvent);
+    if (this.preEvent === 1) {
+      this.eventType = 'casual';
+    } else if (this.preEvent === 2) {
+      this.eventType = 'business_casual';
+    } else if (this.preEvent === 3) {
+      this.eventType = 'formal';
+    }
+  }
 
 
 }

@@ -1,26 +1,26 @@
  <!-- **TEST CODE - CAN BE DELETED**
-<button (click)='getLocation()'>click</button>
-
-<select [(ngModel)]='eventType' name="" id="">
-
-  <option selected value="casual">Casual</option>
-  <option value="formal">Formal</option>
-  <option value="bussiness_casual"> Bussiness Casual</option>
-</select> 
-
-
-<button (click)= 'setMale()'>Male</button>
-<button (click)= 'setFemale()'>Female</button> -->
-
-<!-- ****************************** division ********************************** -->
-
-
-<div class='fullPage'>
+  
+  <select [(ngModel)]='eventType' name="" id="">
+    
+    <option selected value="casual">Casual</option>
+    <option value="formal">Formal</option>
+    <option value="bussiness_casual"> Bussiness Casual</option>
+  </select> 
+  
+  
+  <button (click)= 'setMale()'>Male</button>
+  <button (click)= 'setFemale()'>Female</button> -->
+  
+  <!-- ****************************** division ********************************** -->
+  
+  
+  <div class='fullPage'>
+      <button (click)='getLocation()'>click</button>
   <nav>
     <div class="navBar">
       <!-- ******Needs updates to match component.ts******* -->
       <div class="slidecontainer">
-        <input type="range" min="1" max="3" [(ngModel)]='preGender' class="slider" id="myRange"/>
+        <input type="range" min="1" max="3" [(ngModel)]='preEvent' (change) = 'getEvent()' class="slider" id="myRange"/>
           <div class='sliderLabels'>
               <i class="fas fa-user"></i>
               <i class="fas fa-user-tie"></i>
