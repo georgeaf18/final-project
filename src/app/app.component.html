@@ -1,4 +1,4 @@
-<!-- **TEST CODE - CAN BE DELETED**
+ <!-- **TEST CODE - CAN BE DELETED**
 <button (click)='getLocation()'>click</button>
 
 <select [(ngModel)]='eventType' name="" id="">
@@ -10,7 +10,7 @@
 
 
 <button (click)= 'setMale()'>Male</button>
-<button (click)= 'setFemale()'>Female</button>
+<button (click)= 'setFemale()'>Female</button> -->
 
 <!-- ****************************** division ********************************** -->
 
@@ -67,6 +67,38 @@
      <button class='swipe'>></button>
   </div>
   <div class="bottomHalf">
+<<<<<<< HEAD
+
+    <button (click)= 'setFormal()'>Formal</button>
+    <button (click)= 'setCasual()'>Casual</button>
+    <button (click)= 'setBusinessCasual()'>Business Casual</button>
+
+    <!-- ******Needs updates to match component.ts******* -->
+      <div class='radioContainer' *ngFor="let style of styles">
+        <div class='radio'>
+          <input
+            class='radioInput'
+            type="radio"
+            name="radio"
+            id="radio-{{style}}"
+            [(ngModel)]="selectedStyle" 
+            (change)="onChange($event.target.value)"
+            [value]="style"
+            [checked]=''
+            />
+          <label for="radio-{{style}}">{{style}}</label>
+        </div>
+        <br>
+        
+      </div>
+          <!-- ********************************************************* -->
+    <!-- *****Can delete once replaced by Radio Buttons***** -->
+    <!-- <select [ngModel]="selectedStyle" (change)="onChange($event.target.value)">
+      <option *ngFor="let style of styles">{{style}}</option>
+    </select> -->
+    <!-- ********************************** -->
+=======
+>>>>>>> b92e8ef9b2e7167a519dbacf8c81242bbd57c25f
     <div class='mannequin'>
         <img class='clothing' src="../assets/images/hat.png">
         <img class='clothing' src="../assets/images/sunglasses.png">
