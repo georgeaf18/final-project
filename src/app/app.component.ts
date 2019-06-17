@@ -8,7 +8,6 @@ const headwear = {
   baseballCap: '',
   winterHat: 'images/hat.png',
 
-
 }
 
 const facewear = {
@@ -45,12 +44,13 @@ const footwear = {
 
 
 
-  tennisShoes: 'url',
-  dressShoes: 'url',
-  rainBoots: 'images/quoddy.jpeg',
-  heels: 'url',
-  winterBoots: 'd',
-  flipFlops: 'd'
+  tennisShoes: 'tennisShoes',
+  dressShoes: 'dressShoes',
+  rainBoots: 'rainBoots',
+  heels: 'heels',
+  winterBoots: 'winterBoot',
+  flipFlops: 'FlipFlops'
+
 
 
 }
@@ -370,6 +370,7 @@ export class AppComponent {
 
       if (typeof this.apparentTemperature === 'number') {
         this.getOutfit();
+        
       }
 
     })
@@ -386,13 +387,19 @@ export class AppComponent {
 
     } else if (this.apparentTemperature >= 80 && this.apparentTemperature <= 94) {
       this.weatherType = 'hot';
+      console.log('1');
+
 
     } else if (this.apparentTemperature > 69 && this.apparentTemperature <= 79) {
       this.weatherType = 'warm';
+      console.log('1');
+
 
 
     } else if (this.apparentTemperature > 50 && this.apparentTemperature <= 68) {
       this.weatherType = 'chilly';
+      console.log('1');
+
 
 
     } else if (this.apparentTemperature > 33 && this.apparentTemperature <= 49) {
@@ -408,6 +415,7 @@ export class AppComponent {
 
 
     }
+    
 
     if (typeof this.weatherType === 'string') {
       this.getEvent();
@@ -435,6 +443,16 @@ export class AppComponent {
     console.log("TCL: getEvent -> this.footwearUrl", this.footwearUrl)
 
   }
+
+  setMale = () => {
+    this.gender = 'male';
+    this.getLocation();
+  };
+
+  setFemale = () => {
+    this.gender = 'female';
+    this.getLocation();
+  };
 
 
 
