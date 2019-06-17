@@ -1,4 +1,4 @@
-
+<!-- **TEST CODE - CAN BE DELETED**
 <button (click)='getLocation()'>click</button>
 
 <select [(ngModel)]='eventType' name="" id="">
@@ -9,60 +9,62 @@
 </select> -->
 
 <div class='fullPage'>
-
   <nav>
-      <ul class="navBar">
-        <li class='navButton'><a href="https://google.com" target="Blank">Home</a></li>
-        <li class='navButton'><a href="https://google.com" target="Blank">Settings</a></li>
-      </ul>
-    </nav>
+    <ul class="navBar">
+      <li class='navButton'><a href="https://google.com" target="Blank">Home</a></li>
+      <li class='navButton'><a href="https://google.com" target="Blank">Settings</a></li>
+    </ul>
+  </nav>
   <div class="topHalf">
-    <div class='weatherDisplay'>
-      <img class='weatherImg'>placeholderImage
+    <div class='weatherPanel'>
+        <img class='weatherImg' src='../assets/images/amWeather.PNG'>
     </div>
-      <ul class='clothes'>
-        <li>Head</li>
-        <li>Face</li>
-        <li>Upper Body</li>
-        <li>Upper Body Outerwear</li>
-        <li>Lower Body</li>
-        <li>Feet</li>
-      </ul>
-      <button class='swipe'>></button>
+    <div class='weatherPanel'>
+            <img class='weatherImg' src='../assets/images/pmWeather.PNG'>
+      </div>
+     <button class='swipe'>></button>
   </div>
-
   <div class="bottomHalf">
-      <div class='weatherDisplay'>
-          <img class='weatherImg'>placeholderImage
+    <!-- ******Needs updates to match component.ts******* -->
+      <div class='radioContainer' *ngFor="let style of styles">
+        <div class='radio'>
+          <input
+            class='radioInput'
+            type="radio"
+            name="radio"
+            id="radio-{{style}}"
+            [(ngModel)]="selectedStyle" 
+            (change)="onChange($event.target.value)"
+            [value]="style"
+            [checked]=''
+            />
+          <label for="radio-{{style}}">{{style}}</label>
         </div>
-      <ul class='clothes'>
-          <li>Head</li>
-          <li>Face</li>
-          <li>Upper Body</li>
-          <li>Upper Body Outerwear</li>
-          <li>Lower Body</li>
-          <li>Feet</li>
-      </ul>
-      <button class='swipe'>></button>
+        <br>
+        
+      </div>
+          <!-- ********************************************************* -->
+    <!-- *****Can delete once replaced by Radio Buttons***** -->
+    <!-- <select [ngModel]="selectedStyle" (change)="onChange($event.target.value)">
+      <option *ngFor="let style of styles">{{style}}</option>
+    </select> -->
+    <!-- ********************************** -->
+    <div class='mannequin'>
+        <img class='clothing' src="../assets/images/hat.png">
+        <img class='clothing' src="../assets/images/sunglasses.png">
+        <img class='clothing' src="../assets/images/tshirt1.png">
+        <img class='clothing' src="../assets/images/Parka.png">
+        <img class='clothing' src="../assets/images/pants1.png">
+        <img class='clothing' src="../assets/images/boot.png">
+    </div>
+    <button class='swipe'>></button>
   </div>
 </div>
 
 
-<select [ngModel]="selectedStyle" (change)="onChange($event.target.value)">
-  <option *ngFor="let style of styles">{{style}}</option>
-</select>
-
-<!-- <select [ngModel]="selectedDevice" (ngModelChange)="onChange($event)" name="sel2">
+  <!-- **CAN THIS BE DELETED???**
+<select [ngModel]="selectedDevice" (ngModelChange)="onChange($event)" name="sel2">
   <option [value]="i" *ngFor="let i of devices">{{i}}</option>
 </select> -->
 
-<!-- images/visor.jpeg -->
-<p>
-  <!-- <img src="../assets/{{urlHeadwear}}" /> -->
-  <img src="../assets/images/visor.jpeg">
-  <!-- <img src=>
-<img>
-<img> -->
-</p>
-
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet> 

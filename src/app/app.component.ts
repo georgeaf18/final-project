@@ -28,7 +28,8 @@ const upperbody = {
 
 }
 const upperbodyOuterwear = {
-  lightJacketHoodie: 'd',
+
+  lightJacketHoodie: 'images/Parka.png',
   raincoat: 'url',
   suitCoat: 'd',
   winterCoat: 'url'
@@ -216,6 +217,7 @@ export class AppComponent {
   eventType: string = 'casual';
   theHour;
 
+
   headwearUrl;
   facewearUrl;
   upperbodyUrl;
@@ -224,6 +226,7 @@ export class AppComponent {
   footwearUrl;
   
   gender: string = 'male';
+
 
 
 
