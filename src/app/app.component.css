@@ -80,8 +80,3 @@ align-items: center;
   height: auto;
   width: 100%;
 }
-
-.radio, .radioInput, .radioContainer{
-  display: flex;
-  clear: both;
-}
