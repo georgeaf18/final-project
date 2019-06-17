@@ -69,7 +69,7 @@ const outfitMap = {
     male: [ {}, {}, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat ,lowerbody.formalPants, footwear.dressShoes ],
     female:[ {}, {}, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat ,lowerbody.formalPants, footwear.heels]
    },
-  'very_hot:bussiness_casual': {
+  'very_hot:business_casual': {
     male: [ {},{}, upperbody.formalShirtTie, {}, lowerbody.formalPants, footwear.dressShoes ],
     female:[ {},{}, upperbody.formalShirtTie, {}, lowerbody.formalPants, footwear.heels]
    },
@@ -84,7 +84,7 @@ const outfitMap = {
     male: [ {}, {},upperbody.formalShirtTie, upperbodyOuterwear.suitCoat ,lowerbody.formalPants, footwear.dressShoes ],
     female:[ {},{},upperbody.formalShirtTie, upperbodyOuterwear.suitCoat ,lowerbody.formalPants, footwear.heels]
    },
-  'hot:bussiness_casual': {
+  'hot:business_casual': {
     male: [ {},{}, upperbody.formalShirtTie, {}, lowerbody.formalPants, footwear.dressShoes ],
     female:[{},{}, upperbody.formalShirtTie, {}, lowerbody.formalPants, footwear.heels]
    },
@@ -100,7 +100,7 @@ const outfitMap = {
     male: [ {},{}, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat , lowerbody.formalPants, footwear.dressShoes ],
     female:[ {},{},upperbody.formalShirtTie, upperbodyOuterwear.suitCoat , lowerbody.formalPants, footwear.heels]
    },
-  'warm:bussiness_casual': {
+  'warm:business_casual': {
     male: [  {},{},upperbody.formalShirtTie,{}, lowerbody.formalPants, footwear.dressShoes ],
     female:[ {},{},upperbody.formalShirtTie,{}, lowerbody.formalPants, footwear.heels]
    },
@@ -118,7 +118,7 @@ const outfitMap = {
     female:[  {},{}, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat , lowerbody.formalPants, footwear.heels]
    },
 
-  'chilly:bussiness_casual': {
+  'chilly:business_casual': {
     male: [ {},{}, upperbody.formalShirtTie, upperbodyOuterwear.lightJacketHoodie , lowerbody.formalPants, footwear.dressShoes ],
     female:[{},{}, upperbody.formalShirtTie, upperbodyOuterwear.lightJacketHoodie , lowerbody.formalPants, footwear.heels]
    },
@@ -132,7 +132,7 @@ const outfitMap = {
     male: [ {},{}, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat , lowerbody.formalPants, footwear.dressShoes ],
     female:[{},{}, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat , lowerbody.formalPants, footwear.dressShoes]
    },
-  'cold:bussiness_casual': {
+  'cold:business_casual': {
     male: [ {},{}, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat , lowerbody.formalPants, footwear.winterBoots ],
     female:[{},{}, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat , lowerbody.formalPants, footwear.winterBoots]
    },
@@ -148,7 +148,7 @@ const outfitMap = {
     male: [ {},{}, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat , lowerbody.formalPants, footwear.dressShoes ],
     female:[{},{}, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat , lowerbody.formalPants, footwear.dressShoes]
    },
-  'very_cold:bussiness_casual': {
+  'very_cold:business_casual': {
     male: [ {},{}, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat , lowerbody.formalPants, footwear.winterBoots ],
     female:[{},{}, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat , lowerbody.formalPants, footwear.winterBoots]
    },
@@ -164,7 +164,7 @@ const outfitMap = {
     male: [ headwear.winterHat, facewear.scarf, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat,  lowerbody.formalPants, footwear.dressShoes ],
     female:[ headwear.winterHat, facewear.scarf, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat,  lowerbody.formalPants, footwear.heels]
    },
-  'extremely_cold:bussiness_casual': {
+  'extremely_cold:business_casual': {
     male: [  headwear.winterHat, facewear.scarf, upperbody.tshirt, upperbodyOuterwear.winterCoat,  lowerbody.pants, footwear.winterBoots ],
     female:[ headwear.winterHat, facewear.scarf, upperbody.tshirt, upperbodyOuterwear.winterCoat,  lowerbody.pants, footwear.winterBoots]
    }
@@ -453,6 +453,23 @@ export class AppComponent {
     this.gender = 'female';
     this.getLocation();
   };
+
+  setFormal = () => {
+    this.eventType = 'formal';
+    this.getLocation();
+  }
+
+  setBusinessCasual = () => {
+    this.eventType = 'business_casual';
+    this.getLocation();
+
+  }
+
+  setCasual = () => {
+    this.eventType = 'casual';
+    this.getLocation();
+
+  }
 
 
 

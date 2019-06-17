@@ -1,4 +1,4 @@
-<!-- **TEST CODE - CAN BE DELETED**
+ **TEST CODE - CAN BE DELETED**
 <button (click)='getLocation()'>click</button>
 
 <select [(ngModel)]='eventType' name="" id="">
@@ -32,6 +32,11 @@
      <button class='swipe'>></button>
   </div>
   <div class="bottomHalf">
+
+    <button (click)= 'setFormal()'>Formal</button>
+    <button (click)= 'setCasual()'>Casual</button>
+    <button (click)= 'setBusinessCasual()'>Business Casual</button>
+
     <!-- ******Needs updates to match component.ts******* -->
       <div class='radioContainer' *ngFor="let style of styles">
         <div class='radio'>
