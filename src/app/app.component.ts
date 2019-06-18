@@ -334,7 +334,7 @@ export class AppComponent {
       this.apparentTemperature = data.currently.apparentTemperature;
       this.icon = data.currently.icon;
       this.humidity = data.currently.humidity;
-      console.log(data);
+
 
       console.log(`the time: ${data.currently.time}`);
       // console.log(`the alert: ${data.flags.sources[0]}`);
@@ -345,8 +345,15 @@ export class AppComponent {
       // LOOK HERE
       // YAYAYAYAYAYAYAY
       this.theHour = data.hourly.data;
-      console.log(`hourly: ${this.theHour[0].apparentTemperature}`);
+      console.log(`hourly temperature 1: ${this.theHour[0].apparentTemperature}`);
+      console.log(`hourly temperature 2: ${this.theHour[1].apparentTemperature}`);
+      console.log(`hourly temperature 3: ${this.theHour[2].apparentTemperature}`);
+      console.log(`hourly temperature 4: ${this.theHour[3].apparentTemperature}`);
+      console.log(`hourly temperature 5: ${this.theHour[4].apparentTemperature}`);
 
+      console.log(`hourly temperature: ${this.theHour[0]}`)
+
+      console.log(`this.apparentTemperature: ${this.apparentTemperature}`);
 
 
 
