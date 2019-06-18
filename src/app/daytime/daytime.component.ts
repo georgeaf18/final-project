@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Api } from '../services/api.services';
 
 
@@ -12,6 +12,10 @@ import { Api } from '../services/api.services';
 export class DaytimeComponent {
     title = 'final-project';
 
+    ngOnInit() {
+        this.callDate();
+    }
+
     constructor(private api: Api) { }
 
     dateString;
@@ -23,8 +27,12 @@ export class DaytimeComponent {
 
     }
 
+    @Input() lowTemp:number;
+    @Input() highTemp:number;
+    @Input() apparentTemperature:number;
+    @Input() realTemp:number;
 
-    
+
 
 
 }
