@@ -5,39 +5,39 @@ import { headersToString } from 'selenium-webdriver/http';
 //****************************************** clothing items */
 const headwear = {
 
-  baseballCap: '',
-  winterHat: 'images/hat.png',
+  baseballCap: 'clothes/baseballCap.png',
+  winterHat: 'clothes/winterHat.png',
 
 }
 
 const facewear = {
 
-  sunglasses: 'images/sunglasses.png',
-  scarf: ''
+  sunglasses: 'clothes/sunglasses.png',
+  scarf: 'clothes/scarf.png'
 
 
 }
 
 const upperbody = {
 
-  tshirt: 'images/tshirt1.png',
-  longsleeve: 'url',
-  formalShirtTie: 'url',
-  dressTop: 'd'
+  tshirt: 'clothes/tshirt.png',
+  longsleeve: 'clothes/longsleeve.png',
+  formalShirtTie: 'clothes/formalShirtTie.png',
+  dressTop: 'clothes/dressTop.png'
 
 }
 const upperbodyOuterwear = {
 
-  lightJacketHoodie: 'images/Parka.png',
-  raincoat: 'url',
-  suitCoat: 'd',
-  winterCoat: 'url'
+  lightJacketHoodie: 'clothes/lightJacketHoodie.png',
+  raincoat: 'clothes/raincoat.png',
+  suitCoat: 'clothes/suitCoat.png',
+  winterCoat: 'clothes/winterCoat.png'
 }
 const lowerbody = {
-  pants: 'images/pants1.png',
-  formalPants: 'url',
-  shorts: 'images/shorts.jpeg',
-  dressBottom: 'url'
+  pants: 'clothes/pants.png',
+  formalPants: 'clothes/formalPants.png',
+  shorts: 'clothes/shorts.png',
+  dressBottom: 'clothes/dressBottoms.png'
 }
 const footwear = {
 
