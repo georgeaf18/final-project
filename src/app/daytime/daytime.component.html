@@ -10,22 +10,20 @@
 
     <div class='icon-and-temp'>
         <div class='sun-icon'>
-            <p>
-                I AM A SUN
-            </p>
+            <img class='sun-pic' src='{{pictureUrl}}'>
         </div>
 
         <div class='temp-number'>
-            <p>
-                I AM THE TEMP
-            </p>
+            <h1>
+                {{ realTemp }}
+            </h1>
         </div>
     </div>
 
 
     <div class='temp-info-more'>
-        <p>HIGH/LOW</p>
-        <P>Feels like</P>
+        <h1>{{ highTemp }} / {{ lowTemp }}</h1>
+        <h1>{{apparentTemperature}}</h1>
     </div>
 
 

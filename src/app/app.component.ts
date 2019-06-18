@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Api } from './services/api.services';
+
 import { headersToString } from 'selenium-webdriver/http';
 
 //****************************************** clothing items */
@@ -207,6 +208,8 @@ interface ApiData {
 
 
 export class AppComponent {
+
+  
   title = 'final-project';
 
 
@@ -232,6 +235,9 @@ export class AppComponent {
   gender: string = 'male';
 
 
+  ngOnInit() {
+    this.getLocation();
+  }
 
 
 
@@ -328,12 +334,38 @@ export class AppComponent {
     this.getData();
   }
 
+  lowTemp;
+  highTemp;
+  realTemp;
+
 
   getData = () => {
     this.api.getWeather(this.lat, this.long).subscribe((data: ApiData) => {
       this.apparentTemperature = data.currently.apparentTemperature;
+      
+      this.realTemp = data.currently.temperature;
+      console.log(`this.realTemp: ${this.realTemp}`);
+
       this.icon = data.currently.icon;
       this.humidity = data.currently.humidity;
+
+
+      // let hourlyData = data.hourly.data;
+      // let i;
+      // for (i = 0; i < hourlyData.length; i++) {
+      //   console.log(`hourlyData.apparentTemperature: ${i.apparentTemperature}`)
+      // }
+      // for (hour in )
+      // this.hourlyArray = data.
+
+
+      console.log(`data.hourly.data: ${data.hourly.data[0]}`);
+      console.log(data);
+
+      this.lowTemp = data.daily.data[0].apparentTemperatureLow;
+      this.highTemp = data.daily.data[0].apparentTemperatureHigh;
+      console.log(`this.lowTemp: ${this.lowTemp}`);
+      console.log(`this.highTemp: ${this.highTemp}`);
 
 
       console.log(`the time: ${data.currently.time}`);
