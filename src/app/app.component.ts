@@ -6,39 +6,39 @@ import { headersToString } from 'selenium-webdriver/http';
 //****************************************** clothing items */
 const headwear = {
 
-  baseballCap: 'clothes/baseballCap.png',
-  winterHat: 'clothes/winterHat.png',
+  baseballCap: 'clothes/head/baseballCap.png',
+  winterHat: 'clothes/head/winterHat.png',
 
 }
 
 const facewear = {
 
-  sunglasses: 'clothes/sunglasses.png',
-  scarf: 'clothes/scarf.png'
+  sunglasses: 'clothes/face/sunglasses.png',
+  scarf: 'clothes/face/scarf.png'
 
 
 }
 
 const upperbody = {
 
-  tshirt: 'clothes/tshirt.png',
-  longsleeve: 'clothes/longsleeve.png',
-  formalShirtTie: 'clothes/formalShirtTie.png',
-  dressTop: 'clothes/dressTop.png'
+  tshirt: 'clothes/upper-body/tshirt.png',
+  longsleeve: 'clothes/upper-body/longsleeve.png',
+  formalShirtTie: 'clothes/upper-body/formalShirtTie.png',
+  dressTop: 'clothes/upper-body/dressTop.png'
 
 }
 const upperbodyOuterwear = {
 
-  lightJacketHoodie: 'clothes/lightJacketHoodie.png',
-  raincoat: 'clothes/raincoat.png',
-  suitCoat: 'clothes/suitCoat.png',
-  winterCoat: 'clothes/winterCoat.png'
+  lightJacketHoodie: 'clothes/upper-body-outer-layer/lightJacketHoodie.png',
+  raincoat: 'clothes/upper-body-outer-layer/raincoat.png',
+  suitCoat: 'clothes/upper-body-outer-layer/suitCoat.png',
+  winterCoat: 'clothes/upper-body-outer-layer/winterCoat.png'
 }
 const lowerbody = {
-  pants: 'clothes/pants.png',
-  formalPants: 'clothes/formalPants.png',
-  shorts: 'clothes/shorts.png',
-  dressBottom: 'clothes/dressBottoms.png'
+  pants: 'clothes/lower-body/pants.png',
+  formalPants: 'clothes/lower-body/formalPants.png',
+  shorts: 'clothes/lower-body/shorts.png',
+  dressBottom: 'clothes/lower-body/dressBottoms.png'
 }
 const footwear = {
 
@@ -192,11 +192,17 @@ interface Currently {
   icon: string;
   humidity: number;
   time: number;
+  temperature: number;
+}
+
+interface Daily {
+  data;
 }
 
 interface ApiData {
   currently: Currently;
   hourly: Hourly;
+  daily: Daily;
 }
 
 @Component({
@@ -209,7 +215,7 @@ interface ApiData {
 
 export class AppComponent {
 
-  
+
   title = 'final-project';
 
 
@@ -231,7 +237,14 @@ export class AppComponent {
   upperbodyOuterUrl;
   lowerbodyUrl;
   footwearUrl;
-  
+
+  showHeadwear: boolean = false;
+  showFacewear: boolean = false;
+  showUpperbody: boolean = false;
+  showUpperbodyOuter: boolean = false;
+  showLowerbody: boolean = false;
+  showFootwear: boolean = false;
+
 
   gender: string = 'male';
 
@@ -269,7 +282,7 @@ export class AppComponent {
   getData = () => {
     this.api.getWeather(this.lat, this.long).subscribe((data: ApiData) => {
       this.apparentTemperature = data.currently.apparentTemperature;
-      
+
       this.realTemp = data.currently.temperature;
       console.log(`this.realTemp: ${this.realTemp}`);
 
@@ -404,14 +417,44 @@ export class AppComponent {
 
   getOutfitUrl = () => {
 
-
-    // console.log(outfitMap[`${this.weatherType}:${this.eventType}`] );
+//this is assigning the correct images to the variables based on the gender, event type and weather
     this.headwearUrl = outfitMap[`${this.weatherType}:${this.eventType}`][this.gender][0];
     this.facewearUrl = outfitMap[`${this.weatherType}:${this.eventType}`][this.gender][1];
     this.upperbodyUrl = outfitMap[`${this.weatherType}:${this.eventType}`][this.gender][2];
     this.upperbodyOuterUrl = outfitMap[`${this.weatherType}:${this.eventType}`][this.gender][3];
     this.lowerbodyUrl = outfitMap[`${this.weatherType}:${this.eventType}`][this.gender][4];
     this.footwearUrl = outfitMap[`${this.weatherType}:${this.eventType}`][this.gender][5];
+
+    // this is making the pictures show if they not of type object which means they're holding a img url
+    if (typeof this.headwearUrl !== 'object') {
+      this.showHeadwear = true;
+
+    }
+
+    if (typeof this.facewearUrl !== 'object') {
+      this.showFacewear = true;
+
+    }
+
+    if (typeof this.upperbodyUrl !== 'object') {
+      this.showUpperbody = true;
+
+    }
+
+    if (typeof this.upperbodyOuterUrl !== 'object') {
+      this.showUpperbodyOuter = true;
+
+    }
+
+    if (typeof this.lowerbodyUrl !== 'object') {
+      this.showLowerbody = true;
+
+    }
+
+    if (typeof this.footwearUrl !== 'object') {
+      this.showFootwear = true;
+    }
+
     console.log(this.headwearUrl);
     console.log("TCL: getEvent -> this.facewearUrl", this.facewearUrl)
     console.log("TCL: getEvent -> this.upperbodyUrl", this.upperbodyUrl)
@@ -449,13 +492,18 @@ export class AppComponent {
   }
 
   getEvent = () => {
-    console.log(this.preEvent);
     if (this.preEvent === 1) {
       this.eventType = 'casual';
+      this.getLocation();
+
     } else if (this.preEvent === 2) {
       this.eventType = 'business_casual';
+      this.getLocation();
+
     } else if (this.preEvent === 3) {
       this.eventType = 'formal';
+      this.getLocation();
+
     }
   }
 

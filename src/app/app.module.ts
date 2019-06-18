@@ -1,18 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {Api} from './services/api.services'
-import { FormsModule} from '@angular/forms';
+import { Api } from './services/api.services'
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { DaytimeComponent } from './daytime/daytime.component';
-
+import { Round } from './pipes/round.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DaytimeComponent
+    DaytimeComponent,
+    Round
   ],
   imports: [
     BrowserModule,
