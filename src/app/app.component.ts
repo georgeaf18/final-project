@@ -58,116 +58,116 @@ const footwear = {
 
 const outfitMap = {
 
-//******************************** very hot */
+  //******************************** very hot */
 
   'very_hot:casual': {
-   male: [headwear.baseballCap, facewear.sunglasses, upperbody.tshirt, {}, lowerbody.shorts, footwear.flipFlops ],
-   female:[headwear.baseballCap, facewear.sunglasses, upperbody.tshirt, {}, lowerbody.shorts, footwear.flipFlops]
+    male: [headwear.baseballCap, facewear.sunglasses, upperbody.tshirt, {}, lowerbody.shorts, footwear.flipFlops],
+    female: [headwear.baseballCap, facewear.sunglasses, upperbody.tshirt, {}, lowerbody.shorts, footwear.flipFlops]
   },
 
   'very_hot:formal': {
-    male: [ {}, {}, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat ,lowerbody.formalPants, footwear.dressShoes ],
-    female:[ {}, {}, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat ,lowerbody.formalPants, footwear.heels]
-   },
+    male: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat, lowerbody.formalPants, footwear.dressShoes],
+    female: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat, lowerbody.formalPants, footwear.heels]
+  },
   'very_hot:business_casual': {
-    male: [ {},{}, upperbody.formalShirtTie, {}, lowerbody.formalPants, footwear.dressShoes ],
-    female:[ {},{}, upperbody.formalShirtTie, {}, lowerbody.formalPants, footwear.heels]
-   },
+    male: [{}, {}, upperbody.formalShirtTie, {}, lowerbody.formalPants, footwear.dressShoes],
+    female: [{}, {}, upperbody.formalShirtTie, {}, lowerbody.formalPants, footwear.heels]
+  },
 
-//******************************** hot */
+  //******************************** hot */
 
   'hot:casual': {
-   male: [headwear.baseballCap, facewear.sunglasses, upperbody.tshirt, {}, lowerbody.shorts, footwear.flipFlops ],
-   female:[headwear.baseballCap, facewear.sunglasses, upperbody.tshirt, {}, lowerbody.shorts, footwear.flipFlops]
+    male: [headwear.baseballCap, facewear.sunglasses, upperbody.tshirt, {}, lowerbody.shorts, footwear.flipFlops],
+    female: [headwear.baseballCap, facewear.sunglasses, upperbody.tshirt, {}, lowerbody.shorts, footwear.flipFlops]
   },
   'hot:formal': {
-    male: [ {}, {},upperbody.formalShirtTie, upperbodyOuterwear.suitCoat ,lowerbody.formalPants, footwear.dressShoes ],
-    female:[ {},{},upperbody.formalShirtTie, upperbodyOuterwear.suitCoat ,lowerbody.formalPants, footwear.heels]
-   },
+    male: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat, lowerbody.formalPants, footwear.dressShoes],
+    female: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat, lowerbody.formalPants, footwear.heels]
+  },
   'hot:business_casual': {
-    male: [ {},{}, upperbody.formalShirtTie, {}, lowerbody.formalPants, footwear.dressShoes ],
-    female:[{},{}, upperbody.formalShirtTie, {}, lowerbody.formalPants, footwear.heels]
-   },
+    male: [{}, {}, upperbody.formalShirtTie, {}, lowerbody.formalPants, footwear.dressShoes],
+    female: [{}, {}, upperbody.formalShirtTie, {}, lowerbody.formalPants, footwear.heels]
+  },
 
-//******************************** warm */
+  //******************************** warm */
 
 
   'warm:casual': {
-    male: [ {},{}, upperbody.tshirt, {}, lowerbody.pants, footwear.tennisShoes ],
-    female:[ {},{},upperbody.tshirt, {}, lowerbody.pants, footwear.tennisShoes]
-   },
+    male: [{}, {}, upperbody.tshirt, {}, lowerbody.pants, footwear.tennisShoes],
+    female: [{}, {}, upperbody.tshirt, {}, lowerbody.pants, footwear.tennisShoes]
+  },
   'warm:formal': {
-    male: [ {},{}, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat , lowerbody.formalPants, footwear.dressShoes ],
-    female:[ {},{},upperbody.formalShirtTie, upperbodyOuterwear.suitCoat , lowerbody.formalPants, footwear.heels]
-   },
+    male: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat, lowerbody.formalPants, footwear.dressShoes],
+    female: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat, lowerbody.formalPants, footwear.heels]
+  },
   'warm:business_casual': {
-    male: [  {},{},upperbody.formalShirtTie,{}, lowerbody.formalPants, footwear.dressShoes ],
-    female:[ {},{},upperbody.formalShirtTie,{}, lowerbody.formalPants, footwear.heels]
-   },
+    male: [{}, {}, upperbody.formalShirtTie, {}, lowerbody.formalPants, footwear.dressShoes],
+    female: [{}, {}, upperbody.formalShirtTie, {}, lowerbody.formalPants, footwear.heels]
+  },
 
-//******************************** chilly */
+  //******************************** chilly */
 
 
   'chilly:casual': {
-    male: [  {},{}, upperbody.tshirt, upperbodyOuterwear.lightJacketHoodie, lowerbody.pants, footwear.tennisShoes ],
-    female:[ {},{}, upperbody.tshirt, upperbodyOuterwear.lightJacketHoodie, facewear.scarf, lowerbody.pants, footwear.tennisShoes]
-   },
+    male: [{}, {}, upperbody.tshirt, upperbodyOuterwear.lightJacketHoodie, lowerbody.pants, footwear.tennisShoes],
+    female: [{}, {}, upperbody.tshirt, upperbodyOuterwear.lightJacketHoodie, facewear.scarf, lowerbody.pants, footwear.tennisShoes]
+  },
 
   'chilly:formal': {
-    male: [ {},{}, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat , lowerbody.formalPants, footwear.dressShoes ],
-    female:[  {},{}, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat , lowerbody.formalPants, footwear.heels]
-   },
+    male: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat, lowerbody.formalPants, footwear.dressShoes],
+    female: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat, lowerbody.formalPants, footwear.heels]
+  },
 
   'chilly:business_casual': {
-    male: [ {},{}, upperbody.formalShirtTie, upperbodyOuterwear.lightJacketHoodie , lowerbody.formalPants, footwear.dressShoes ],
-    female:[{},{}, upperbody.formalShirtTie, upperbodyOuterwear.lightJacketHoodie , lowerbody.formalPants, footwear.heels]
-   },
-//******************************** cold */
+    male: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.lightJacketHoodie, lowerbody.formalPants, footwear.dressShoes],
+    female: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.lightJacketHoodie, lowerbody.formalPants, footwear.heels]
+  },
+  //******************************** cold */
 
   'cold:casual': {
-    male: [  headwear.winterHat, facewear.scarf, upperbody.tshirt, upperbodyOuterwear.winterCoat,  lowerbody.pants, footwear.winterBoots ],
-    female:[ headwear.winterHat,facewear.scarf, upperbody.tshirt, upperbodyOuterwear.winterCoat,  lowerbody.pants, footwear.winterBoots]
-   },
+    male: [headwear.winterHat, facewear.scarf, upperbody.tshirt, upperbodyOuterwear.winterCoat, lowerbody.pants, footwear.winterBoots],
+    female: [headwear.winterHat, facewear.scarf, upperbody.tshirt, upperbodyOuterwear.winterCoat, lowerbody.pants, footwear.winterBoots]
+  },
   'cold:formal': {
-    male: [ {},{}, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat , lowerbody.formalPants, footwear.dressShoes ],
-    female:[{},{}, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat , lowerbody.formalPants, footwear.dressShoes]
-   },
+    male: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat, lowerbody.formalPants, footwear.dressShoes],
+    female: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat, lowerbody.formalPants, footwear.dressShoes]
+  },
   'cold:business_casual': {
-    male: [ {},{}, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat , lowerbody.formalPants, footwear.winterBoots ],
-    female:[{},{}, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat , lowerbody.formalPants, footwear.winterBoots]
-   },
+    male: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat, lowerbody.formalPants, footwear.winterBoots],
+    female: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat, lowerbody.formalPants, footwear.winterBoots]
+  },
 
-//******************************** very cold*/
+  //******************************** very cold*/
 
 
   'very_cold:casual': {
-    male: [  headwear.winterHat,facewear.scarf, upperbody.tshirt, upperbodyOuterwear.winterCoat, lowerbody.pants, footwear.winterBoots ],
-    female:[ headwear.winterHat, facewear.scarf, upperbody.tshirt, upperbodyOuterwear.winterCoat,  lowerbody.pants, footwear.winterBoots]
-   },
+    male: [headwear.winterHat, facewear.scarf, upperbody.tshirt, upperbodyOuterwear.winterCoat, lowerbody.pants, footwear.winterBoots],
+    female: [headwear.winterHat, facewear.scarf, upperbody.tshirt, upperbodyOuterwear.winterCoat, lowerbody.pants, footwear.winterBoots]
+  },
   'very_cold:formal': {
-    male: [ {},{}, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat , lowerbody.formalPants, footwear.dressShoes ],
-    female:[{},{}, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat , lowerbody.formalPants, footwear.dressShoes]
-   },
+    male: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat, lowerbody.formalPants, footwear.dressShoes],
+    female: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat, lowerbody.formalPants, footwear.dressShoes]
+  },
   'very_cold:business_casual': {
-    male: [ {},{}, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat , lowerbody.formalPants, footwear.winterBoots ],
-    female:[{},{}, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat , lowerbody.formalPants, footwear.winterBoots]
-   },
+    male: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat, lowerbody.formalPants, footwear.winterBoots],
+    female: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat, lowerbody.formalPants, footwear.winterBoots]
+  },
 
-//******************************** extremely cold */
-  
+  //******************************** extremely cold */
+
 
   'extremely_cold:casual': {
-    male: [  headwear.winterHat, facewear.scarf, upperbody.tshirt, upperbodyOuterwear.winterCoat,  lowerbody.pants, footwear.winterBoots ],
-    female:[ headwear.winterHat, facewear.scarf, upperbody.tshirt, upperbodyOuterwear.winterCoat, , lowerbody.pants, footwear.winterBoots]
-   },
+    male: [headwear.winterHat, facewear.scarf, upperbody.tshirt, upperbodyOuterwear.winterCoat, lowerbody.pants, footwear.winterBoots],
+    female: [headwear.winterHat, facewear.scarf, upperbody.tshirt, upperbodyOuterwear.winterCoat, , lowerbody.pants, footwear.winterBoots]
+  },
   'extremely_cold:formal': {
-    male: [ headwear.winterHat, facewear.scarf, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat,  lowerbody.formalPants, footwear.dressShoes ],
-    female:[ headwear.winterHat, facewear.scarf, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat,  lowerbody.formalPants, footwear.heels]
-   },
+    male: [headwear.winterHat, facewear.scarf, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat, lowerbody.formalPants, footwear.dressShoes],
+    female: [headwear.winterHat, facewear.scarf, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat, lowerbody.formalPants, footwear.heels]
+  },
   'extremely_cold:business_casual': {
-    male: [  headwear.winterHat, facewear.scarf, upperbody.tshirt, upperbodyOuterwear.winterCoat,  lowerbody.pants, footwear.winterBoots ],
-    female:[ headwear.winterHat, facewear.scarf, upperbody.tshirt, upperbodyOuterwear.winterCoat,  lowerbody.pants, footwear.winterBoots]
-   }
+    male: [headwear.winterHat, facewear.scarf, upperbody.tshirt, upperbodyOuterwear.winterCoat, lowerbody.pants, footwear.winterBoots],
+    female: [headwear.winterHat, facewear.scarf, upperbody.tshirt, upperbodyOuterwear.winterCoat, lowerbody.pants, footwear.winterBoots]
+  }
 
 }
 
@@ -190,7 +190,7 @@ interface Currently {
   apparentTemperature: number;
   icon: string;
   humidity: number;
-  time:number;
+  time: number;
 }
 
 interface ApiData {
@@ -229,6 +229,7 @@ export class AppComponent {
   lowerbodyUrl;
   footwearUrl;
   
+
   gender: string = 'male';
 
 
@@ -239,82 +240,7 @@ export class AppComponent {
 
   }
 
-
-
-  // selectedDevice = 'two';
-  // onChange(newValue) {
-  //   console.log(newValue);
-  //   this.selectedDevice = newValue;
-  // ... do other stuff here ...
-  // }
-
-
-  // shirt1;
-  // shirt2;
-  // shirt3;
-  // shirts = {
-  //   shirt1: 'red',
-  //   shirt2: 'blue',
-  //   shirt3: 'green'
-  // }
-  // devices = 'one two three'.split(' ');
-
-
-
-
-  // shirts = ['red','blue','green'];
-  // selectedShirt = 'red';
-
-  styles = ['formal', 'casual', 'bussiness_casual'];
-  selectedStyle = 'casual';
-  onChange = (newValue) => {
-    console.log(`newValue: ${newValue}`);
-    console.log(`selectedShirt before change: ${this.eventType}`);
-    this.eventType = newValue;
-    console.log(`selectedShirt after change: ${this.eventType}`);
-    this.displayClothing(newValue);
-  }
-
-  displayClothing = (input) => {
-    // if (this.selectedStyle = 'formal') {
-    if (input === 'formal') {
-      // console.log(`selectedStyle before change: ${this.selectedStyle}`)
-      this.eventType = this.styles[0];
-      console.log(`selectedStyle: ${this.eventType}`)
-    // } else if (this.selectedStyle = 'casual') {
-    } else if (input === 'casual') {
-      // console.log(`selectedStyle before change: ${this.selectedStyle}`)
-      this.eventType = this.styles[1];
-      console.log(`selectedStyle: ${this.eventType}`)
-    // } else if (this.selectedStyle = 'party') {
-    } else if (input === 'party') {
-      // console.log(`selectedStyle before change: ${this.selectedStyle}`)
-      this.eventType = this.styles[2];
-      console.log(`selectedStyle: ${this.eventType}`)
-    }
-  }
-
-  // changeEventStyle = () => {
-  //   // console.log(outfitMap[`${this.weatherType}:${this.eventType}`] );
-  //   this.urlHeadwear = outfitMap[`${this.weatherType}:${this.selectedStyle}`][0];
-  //   console.log(this.urlHeadwear);
-  // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//******************************** */ 
+  //******************************** get location through navigator's geolocation function */ 
 
   getLocation = () => {
     if (navigator.geolocation) {
@@ -327,6 +253,7 @@ export class AppComponent {
     this.long = position.coords.longitude;
     this.getData();
   }
+  //******************************** gets data from Dark Sky api  */ 
 
 
   getData = () => {
@@ -371,10 +298,12 @@ export class AppComponent {
 
       // console.log(`the location is: latitude=${data.latitude}, longitude=${data.longitude}`);
 
-
+      // will get the outfit once the temperature is on hand
       if (typeof this.apparentTemperature === 'number') {
         this.getOutfit();
-        
+        console.log(this.apparentTemperature);
+
+
       }
 
     })
@@ -382,32 +311,36 @@ export class AppComponent {
   }
 
 
-  
+
   //******************** returns a weather type depending the temperature ********************/
 
   getOutfit = () => {
     if (this.apparentTemperature >= 95) {
       this.weatherType = 'very hot';
+      console.log('works');
+
 
     } else if (this.apparentTemperature >= 80 && this.apparentTemperature <= 94) {
       this.weatherType = 'hot';
-      console.log('1');
+      console.log('works');
 
 
     } else if (this.apparentTemperature > 69 && this.apparentTemperature <= 79) {
       this.weatherType = 'warm';
-      console.log('1');
+      console.log('works');
 
 
 
     } else if (this.apparentTemperature > 50 && this.apparentTemperature <= 68) {
       this.weatherType = 'chilly';
-      console.log('1');
+      console.log('works');
 
 
 
     } else if (this.apparentTemperature > 33 && this.apparentTemperature <= 49) {
       this.weatherType = 'cold';
+      console.log('works');
+
 
 
     } else if (this.apparentTemperature > 1 && this.apparentTemperature <= 32) {
@@ -419,7 +352,7 @@ export class AppComponent {
 
 
     }
-    
+
 
     if (typeof this.weatherType === 'string') {
       this.getOutfitUrl();
