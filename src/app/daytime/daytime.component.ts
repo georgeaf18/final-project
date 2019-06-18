@@ -19,6 +19,7 @@ export class DaytimeComponent {
     constructor(private api: Api) { }
 
     dateString;
+    pictureUrl = '../../assets/images/sun-pic.png';
 
     callDate = () => {
         let now = new Date();
@@ -31,6 +32,7 @@ export class DaytimeComponent {
     @Input() highTemp:number;
     @Input() apparentTemperature:number;
     @Input() realTemp:number;
+
 
 
 
