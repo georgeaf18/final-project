@@ -5,39 +5,39 @@ import { headersToString } from 'selenium-webdriver/http';
 //****************************************** clothing items */
 const headwear = {
 
-  baseballCap: '',
-  winterHat: 'images/hat.png',
+  baseballCap: 'clothes/baseballCap.png',
+  winterHat: 'clothes/winterHat.png',
 
 }
 
 const facewear = {
 
-  sunglasses: 'images/sunglasses.png',
-  scarf: ''
+  sunglasses: 'clothes/sunglasses.png',
+  scarf: 'clothes/scarf.png'
 
 
 }
 
 const upperbody = {
 
-  tshirt: 'images/tshirt1.png',
-  longsleeve: 'url',
-  formalShirtTie: 'url',
-  dressTop: 'd'
+  tshirt: 'clothes/tshirt.png',
+  longsleeve: 'clothes/longsleeve.png',
+  formalShirtTie: 'clothes/formalShirtTie.png',
+  dressTop: 'clothes/dressTop.png'
 
 }
 const upperbodyOuterwear = {
 
-  lightJacketHoodie: 'images/Parka.png',
-  raincoat: 'url',
-  suitCoat: 'd',
-  winterCoat: 'url'
+  lightJacketHoodie: 'clothes/lightJacketHoodie.png',
+  raincoat: 'clothes/raincoat.png',
+  suitCoat: 'clothes/suitCoat.png',
+  winterCoat: 'clothes/winterCoat.png'
 }
 const lowerbody = {
-  pants: 'images/pants1.png',
-  formalPants: 'url',
-  shorts: 'images/shorts.jpeg',
-  dressBottom: 'url'
+  pants: 'clothes/pants.png',
+  formalPants: 'clothes/formalPants.png',
+  shorts: 'clothes/shorts.png',
+  dressBottom: 'clothes/dressBottoms.png'
 }
 const footwear = {
 
@@ -263,6 +263,7 @@ export class AppComponent {
       this.humidity = data.currently.humidity;
       console.log(data);
 
+
       console.log(`the time: ${data.currently.time}`);
       // console.log(`the alert: ${data.flags.sources[0]}`);
 
@@ -272,8 +273,15 @@ export class AppComponent {
       // LOOK HERE
       // YAYAYAYAYAYAYAY
       this.theHour = data.hourly.data;
-      console.log(`hourly: ${this.theHour[0].apparentTemperature}`);
+      console.log(`hourly temperature 1: ${this.theHour[0].apparentTemperature}`);
+      console.log(`hourly temperature 2: ${this.theHour[1].apparentTemperature}`);
+      console.log(`hourly temperature 3: ${this.theHour[2].apparentTemperature}`);
+      console.log(`hourly temperature 4: ${this.theHour[3].apparentTemperature}`);
+      console.log(`hourly temperature 5: ${this.theHour[4].apparentTemperature}`);
 
+      console.log(`hourly temperature: ${this.theHour[0]}`)
+
+      console.log(`this.apparentTemperature: ${this.apparentTemperature}`);
 
 
 
