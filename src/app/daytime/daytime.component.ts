@@ -12,10 +12,19 @@ import { Api } from '../services/api.services';
 export class DaytimeComponent {
     title = 'final-project';
 
+    constructor(private api: Api) { }
+
+    dateString;
+
+    callDate = () => {
+        let now = new Date();
+        this.dateString = now; 
+        console.log(`now: ${now}`);
+
+    }
 
 
-    constructor(private api: Api) {
+    
 
 
-
-    }}
+}
