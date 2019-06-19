@@ -76,11 +76,27 @@ align-items: center;
   display: flex;
   flex-direction: column;
   overflow: hidden; 
+  z-index: 0;
+}
+
+
+#shirt{
+  z-index: 0;
+  position: relative; 
+}
+/* *********top 85px will need to be changed for a scalable solution***** */
+#jacket{
+  z-index: 2;
+  position: relative;
+  top: 85px;
+
 }
 
 .clothing{
   min-height: 5px;
   object-fit: contain;
+  z-index: 1;
+  position: relative;
 }
 
 .weatherImg{

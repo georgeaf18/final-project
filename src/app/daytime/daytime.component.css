@@ -20,8 +20,8 @@ box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 .day-rectangle {
     display: flex;
     flex-direction: column;
-    /* align-items: center;
-    justify-content: center; */
+    align-items: center;
+    /* justify-content: center; */
     width: auto;
     height: 100%;
     left: 0px;
