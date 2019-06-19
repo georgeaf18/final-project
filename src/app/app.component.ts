@@ -318,37 +318,37 @@ export class AppComponent {
 
 
       this.theHour = data.hourly.data;
-      let hourCounter: number;
-      for (hourCounter = 5; hourCounter < 12; hourCounter++) {
-        let currentAppTemp = this.theHour[hourCounter].apparentTemperature;
-        this.morningTempAverage += currentAppTemp;
-        this.morningTempArray.push(currentAppTemp);
-        console.log(currentAppTemp);
-      };
-      console.log(`this.morningTempAverage: ${this.morningTempAverage}`);
-      this.morningTempAverage = this.morningTempAverage / this.morningTempArray.length;
-      for (hourCounter = 12; hourCounter < 25; hourCounter++) {
-        let currentAppTemp = this.theHour[hourCounter].apparentTemperature;
-        this.afternoonTempAverage += currentAppTemp;
-        this.afternoonTempArray.push(currentAppTemp);
-        console.log(currentAppTemp);
-      };
-      this.afternoonTempAverage = this.afternoonTempAverage / this.afternoonTempArray.length;
-      console.log(`this.morningTempArray: ${this.morningTempArray}`);
-      this.morningMin = Math.min.apply(null, this.morningTempArray);
-      this.morningMax = Math.max.apply(null, this.morningTempArray);
-      console.log(this.morningMin);
-      console.log(this.morningMax);
-      console.log(this.morningTempArray.length)
-      console.log(`this.morningTempAverage: ${this.morningTempAverage}`);
+      // let hourCounter: number;
+      // for (hourCounter = 5; hourCounter < 12; hourCounter++) {
+      //   let currentAppTemp = this.theHour[hourCounter].apparentTemperature;
+      //   this.morningTempAverage += currentAppTemp;
+      //   this.morningTempArray.push(currentAppTemp);
+      //   console.log(currentAppTemp);
+      // };
+      // console.log(`this.morningTempAverage: ${this.morningTempAverage}`);
+      // this.morningTempAverage = this.morningTempAverage / this.morningTempArray.length;
+      // for (hourCounter = 12; hourCounter < 25; hourCounter++) {
+      //   let currentAppTemp = this.theHour[hourCounter].apparentTemperature;
+      //   this.afternoonTempAverage += currentAppTemp;
+      //   this.afternoonTempArray.push(currentAppTemp);
+      //   console.log(currentAppTemp);
+      // };
+      // this.afternoonTempAverage = this.afternoonTempAverage / this.afternoonTempArray.length;
+      // console.log(`this.morningTempArray: ${this.morningTempArray}`);
+      // this.morningMin = Math.min.apply(null, this.morningTempArray);
+      // this.morningMax = Math.max.apply(null, this.morningTempArray);
+      // console.log(this.morningMin);
+      // console.log(this.morningMax);
+      // console.log(this.morningTempArray.length)
+      // console.log(`this.morningTempAverage: ${this.morningTempAverage}`);
 
-      console.log(`this.afternoonTempArray: ${this.afternoonTempArray}`);
-      console.log(this.afternoonTempArray.length)
-      console.log(`this.afternoonTempAverage: ${this.afternoonTempAverage}`);
-      this.afternoonMin = Math.min.apply(null, this.afternoonTempArray);
-      this.afternoonMax = Math.max.apply(null, this.afternoonTempArray);
-      console.log(this.afternoonMin);
-      console.log(this.afternoonMax);
+      // console.log(`this.afternoonTempArray: ${this.afternoonTempArray}`);
+      // console.log(this.afternoonTempArray.length)
+      // console.log(`this.afternoonTempAverage: ${this.afternoonTempAverage}`);
+      // this.afternoonMin = Math.min.apply(null, this.afternoonTempArray);
+      // this.afternoonMax = Math.max.apply(null, this.afternoonTempArray);
+      // console.log(this.afternoonMin);
+      // console.log(this.afternoonMax);
       
 
       // need to call the Time Machine Request by feeding it the unix value of the 9am and 6pm times for that day
@@ -414,7 +414,9 @@ export class AppComponent {
 
       }
 
-    })
+    }, error => {
+      console.log(error.message);
+    });
 
   }
 

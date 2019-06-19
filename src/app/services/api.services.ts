@@ -8,9 +8,9 @@ import { HttpClient } from '@angular/common/http';
 export class Api {
 
 
-    ngOnInit() {
-        this.callDate();
-    }
+    // ngOnInit() {
+    //     this.callDate();
+    // }
 
     server = 'https://thingproxy.freeboard.io/fetch/'
     apiUrl = 'https://api.darksky.net/forecast';
@@ -26,8 +26,8 @@ export class Api {
 
     constructor(private http: HttpClient) { }
 
-    latitudeTest = '42.3601';
-    longitudeTest = '-71.0589';
+    // latitudeTest = '42.3601';
+    // longitudeTest = '-71.0589';
 
 
     dateString;
