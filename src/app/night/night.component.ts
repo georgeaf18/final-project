@@ -19,7 +19,7 @@ export class NightComponent {
     constructor(private api: Api) { }
 
     dateString;
-    pictureUrl = '../../assets/images/sun-pic.png';
+    pictureUrl = '../../assets/images/moon-cloud.png';
 
     callDate = () => {
         let now = new Date();
@@ -33,6 +33,16 @@ export class NightComponent {
     @Input() apparentTemperature:number;
     @Input() realTemp:number;
 
+
+    @Input() theHour;
+    @Input() morningTempArray = [];
+    @Input() morningTempAverage:number;
+    @Input() morningMin;
+    @Input() morningMax;
+    @Input() afternoonTempArray = [];
+    @Input() afternoonTempAverage: number;
+    @Input() afternoonMin;
+    @Input() afternoonMax;
 
 
 
