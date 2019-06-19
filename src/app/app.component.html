@@ -45,7 +45,8 @@
    <daytime-component [lowTemp]='lowTemp' [highTemp]='highTemp' [realTemp]='realTemp'
      [apparentTemperature]='apparentTemperature'></daytime-component>
    <div class="topHalf">
-
+      <night-component [lowTemp]='lowTemp' [highTemp]='highTemp' [realTemp]='realTemp'
+      [apparentTemperature]='apparentTemperature'></night-component>
 
      <!-- 
 
@@ -58,6 +59,7 @@
      <button class='swipe'>></button> -->
    </div>
    <div class="bottomHalf">
+     
 
      <!-- <button (click)= 'setFormal()'>Formal</button>
     <button (click)= 'setCasual()'>Casual</button>
