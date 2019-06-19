@@ -34,7 +34,15 @@ export class DaytimeComponent {
     @Input() realTemp:number;
 
 
-
+    @Input() theHour;
+    @Input() morningTempArray = [];
+    @Input() morningTempAverage:number;
+    @Input() morningMin;
+    @Input() morningMax;
+    @Input() afternoonTempArray = [];
+    @Input() afternoonTempAverage: number;
+    @Input() afternoonMin;
+    @Input() afternoonMax;
 
 
 }

@@ -244,7 +244,6 @@ export class AppComponent {
   long: number;
   weatherType: string;
   eventType: string = 'casual';
-  theHour;
   preEvent: number = 1;
 
 
@@ -295,6 +294,15 @@ export class AppComponent {
   highTemp;
   realTemp;
 
+  theHour;
+  morningTempArray = [];
+  morningTempAverage: number = 0;
+  morningMin;
+  morningMax;
+  afternoonTempArray = [];
+  afternoonTempAverage: number = 0;
+  afternoonMin;
+  afternoonMax;
 
   getData = () => {
     this.api.getWeather(this.lat, this.long).subscribe((data: ApiData) => {
@@ -306,6 +314,50 @@ export class AppComponent {
       this.icon = data.currently.icon;
       this.humidity = data.currently.humidity;
       console.log(data);
+
+
+
+      this.theHour = data.hourly.data;
+      let hourCounter: number;
+      for (hourCounter = 5; hourCounter < 12; hourCounter++) {
+        let currentAppTemp = this.theHour[hourCounter].apparentTemperature;
+        this.morningTempAverage += currentAppTemp;
+        this.morningTempArray.push(currentAppTemp);
+        console.log(currentAppTemp);
+      };
+      console.log(`this.morningTempAverage: ${this.morningTempAverage}`);
+      this.morningTempAverage = this.morningTempAverage / this.morningTempArray.length;
+      for (hourCounter = 12; hourCounter < 25; hourCounter++) {
+        let currentAppTemp = this.theHour[hourCounter].apparentTemperature;
+        this.afternoonTempAverage += currentAppTemp;
+        this.afternoonTempArray.push(currentAppTemp);
+        console.log(currentAppTemp);
+      };
+      this.afternoonTempAverage = this.afternoonTempAverage / this.afternoonTempArray.length;
+      console.log(`this.morningTempArray: ${this.morningTempArray}`);
+      this.morningMin = Math.min.apply(null, this.morningTempArray);
+      this.morningMax = Math.max.apply(null, this.morningTempArray);
+      console.log(this.morningMin);
+      console.log(this.morningMax);
+      console.log(this.morningTempArray.length)
+      console.log(`this.morningTempAverage: ${this.morningTempAverage}`);
+
+      console.log(`this.afternoonTempArray: ${this.afternoonTempArray}`);
+      console.log(this.afternoonTempArray.length)
+      console.log(`this.afternoonTempAverage: ${this.afternoonTempAverage}`);
+      this.afternoonMin = Math.min.apply(null, this.afternoonTempArray);
+      this.afternoonMax = Math.max.apply(null, this.afternoonTempArray);
+      console.log(this.afternoonMin);
+      console.log(this.afternoonMax);
+      
+
+      // need to call the Time Machine Request by feeding it the unix value of the 9am and 6pm times for that day
+      // and then feed the temp results into the night and daytime components
+      //          https://api.darksky.net/forecast/[key]/[latitude],[longitude],[time]
+
+
+
+
 
 
       // let hourlyData = data.hourly.data;
@@ -330,20 +382,6 @@ export class AppComponent {
       // console.log(`the alert: ${data.flags.sources[0]}`);
 
 
-      // THIS IS IMPORTANT
-      // I ACTUALLY WAS ABLE TO RETURN WHAT WE NEED
-      // LOOK HERE
-      // YAYAYAYAYAYAYAY
-      this.theHour = data.hourly.data;
-      console.log(`hourly temperature 1: ${this.theHour[0].apparentTemperature}`);
-      console.log(`hourly temperature 2: ${this.theHour[1].apparentTemperature}`);
-      console.log(`hourly temperature 3: ${this.theHour[2].apparentTemperature}`);
-      console.log(`hourly temperature 4: ${this.theHour[3].apparentTemperature}`);
-      console.log(`hourly temperature 5: ${this.theHour[4].apparentTemperature}`);
-
-      console.log(`hourly temperature: ${this.theHour[0]}`)
-
-      console.log(`this.apparentTemperature: ${this.apparentTemperature}`);
 
 
 
@@ -434,7 +472,7 @@ export class AppComponent {
 
   getOutfitUrl = () => {
 
-//this is assigning the correct images to the variables based on the gender, event type and weather
+    //this is assigning the correct images to the variables based on the gender, event type and weather
     this.headwearUrl = outfitMap[`${this.weatherType}:${this.eventType}`][this.gender][0];
     this.facewearUrl = outfitMap[`${this.weatherType}:${this.eventType}`][this.gender][1];
     this.upperbodyUrl = outfitMap[`${this.weatherType}:${this.eventType}`][this.gender][2];
@@ -523,6 +561,12 @@ export class AppComponent {
 
     }
   }
+
+
+
+
+
+
 
 
 }

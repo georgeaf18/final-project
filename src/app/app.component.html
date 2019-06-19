@@ -20,7 +20,9 @@
 
 
  <div class='fullPage'>
-   <button (click)='getLocation()'>click</button>
+   <br><br>
+   <!-- <button (click)='displayTestData()'>click meeee</button> -->
+   <br><br><br>
 
    <nav>
      <div class="navBar">
@@ -43,10 +45,16 @@
      </div>
    </nav>
    <daytime-component [lowTemp]='lowTemp' [highTemp]='highTemp' [realTemp]='realTemp'
-     [apparentTemperature]='apparentTemperature'></daytime-component>
+     [apparentTemperature]='apparentTemperature' [theHour]='theHour' [morningTempArray]='morningTempArray' 
+     [morningTempAverage]='morningTempAverage' [morningMin]='morningMin' [morningMax]='morningMax'
+     [afternoonTempArray]='afternoonTempArray' [afternoonTempAverage]='afternoonTempAverage'
+     [afternoonMin]='afternoonMin' [afternoonMax]='afternoonMax'></daytime-component>
    <div class="topHalf">
       <night-component [lowTemp]='lowTemp' [highTemp]='highTemp' [realTemp]='realTemp'
-      [apparentTemperature]='apparentTemperature'></night-component>
+      [apparentTemperature]='apparentTemperature' [theHour]='theHour' [morningTempArray]='morningTempArray' 
+      [morningTempAverage]='morningTempAverage' [morningMin]='morningMin' [morningMax]='morningMax'
+      [afternoonTempArray]='afternoonTempArray' [afternoonTempAverage]='afternoonTempAverage'
+      [afternoonMin]='afternoonMin' [afternoonMax]='afternoonMax'></night-component>
 
      <!-- 
 

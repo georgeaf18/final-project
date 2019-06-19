@@ -15,15 +15,15 @@
 <!-- All these  numbers are being rounded by the round pipe I created in the pipes folder -->
         <div class='temp-number'>
             <h1>
-                {{ realTemp | round }}
+                {{ morningTempAverage | round }}
             </h1>
         </div>
     </div>
 
 
     <div class='temp-info-more'>
-        <h1>{{ highTemp | round }} / {{ lowTemp | round }}</h1>
-        <h1>{{apparentTemperature | round}}</h1>
+        <h1>{{ morningMax | round }} / {{ morningMin | round }}</h1>
+        <h1>Feels like {{morningTempAverage | round}}</h1>
     </div>
 
 
