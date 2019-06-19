@@ -169,3 +169,9 @@ align-items: center;
   display: flex;
   justify-content: space-between;
 }
+
+.logo {
+  width: 300px;
+  display: block;
+  margin: 0 auto;
+}
