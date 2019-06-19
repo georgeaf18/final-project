@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DaytimeComponent } from './daytime/daytime.component';
+import { NightComponent } from './night/night.component';
 import { Round } from './pipes/round.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     DaytimeComponent,
+    NightComponent,
     Round
   ],
   imports: [

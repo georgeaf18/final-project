@@ -20,11 +20,13 @@ justify-content: space-between;
 .bottomHalf, .topHalf{
 height: 45%;
 display: flex;
-justify-content: space-between;
-align-items: center;
+/* justify-content: space-between; */
+/* align-items: center; */
 }
 
 .topHalf{
+  display: flex;
+  flex-direction: column;
   border-bottom: 2px solid whitesmoke;
   object-fit: contain;
 }
