@@ -20,9 +20,9 @@
 
 
  <div class='fullPage'>
-   <br><br>
-   <!-- <button (click)='displayTestData()'>click meeee</button> -->
-   <br><br><br>
+   <!-- <br><br>
+   <button (click)='displayTestData()'>click meeee</button>
+   <br><br><br> -->
 
    <nav>
      <div class="navBar">
@@ -35,60 +35,41 @@
            <i class="fas fa-user-secret"></i>
          </div>
        </div>
-
-
-
        <div class='gender'>
          <i (click)='setMale()' class='fas fa-male fa-2x' id='male'></i>
          <i (click)='setFemale()' class='fas fa-female fa-2x' id='female'></i>
        </div>
      </div>
    </nav>
-   <daytime-component [lowTemp]='lowTemp' [highTemp]='highTemp' [realTemp]='realTemp'
-     [apparentTemperature]='apparentTemperature' [theHour]='theHour' [morningTempArray]='morningTempArray' 
-     [morningTempAverage]='morningTempAverage' [morningMin]='morningMin' [morningMax]='morningMax'
-     [afternoonTempArray]='afternoonTempArray' [afternoonTempAverage]='afternoonTempAverage'
-     [afternoonMin]='afternoonMin' [afternoonMax]='afternoonMax'></daytime-component>
+
    <div class="topHalf">
-      <night-component [lowTemp]='lowTemp' [highTemp]='highTemp' [realTemp]='realTemp'
+      <daytime-component [lowTemp]='lowTemp' [highTemp]='highTemp' [realTemp]='realTemp'
       [apparentTemperature]='apparentTemperature' [theHour]='theHour' [morningTempArray]='morningTempArray' 
       [morningTempAverage]='morningTempAverage' [morningMin]='morningMin' [morningMax]='morningMax'
       [afternoonTempArray]='afternoonTempArray' [afternoonTempAverage]='afternoonTempAverage'
-      [afternoonMin]='afternoonMin' [afternoonMax]='afternoonMax'></night-component>
+      [afternoonMin]='afternoonMin' [afternoonMax]='afternoonMax'></daytime-component>
+      <!-- <night-component [lowTemp]='lowTemp' [highTemp]='highTemp' [realTemp]='realTemp'
+      [apparentTemperature]='apparentTemperature' [theHour]='theHour' [morningTempArray]='morningTempArray' 
+      [morningTempAverage]='morningTempAverage' [morningMin]='morningMin' [morningMax]='morningMax'
+      [afternoonTempArray]='afternoonTempArray' [afternoonTempAverage]='afternoonTempAverage'
+      [afternoonMin]='afternoonMin' [afternoonMax]='afternoonMax'></night-component> -->
 
-     <!-- 
-
-    <div class='weatherPanel'>
-        <img class='weatherImg' src='../assets/images/amWeather.PNG'>
-    </div>
-    <div class='weatherPanel'>
-            <img class='weatherImg' src='../assets/images/pmWeather.PNG'>
-      </div>
-     <button class='swipe'>></button> -->
    </div>
    <div class="bottomHalf">
-     
-
-     <!-- <button (click)= 'setFormal()'>Formal</button>
-    <button (click)= 'setCasual()'>Casual</button>
-    <button (click)= 'setBusinessCasual()'>Business Casual</button> -->
 
 
-    <div class='outfitBox'>
-         <img *ngIf='showHeadWear' class='clothing' src='../assets/{{headwearUrl}}'>
-       <img *ngIf='showFaceWear' class='clothing' src="../assets/{{facewearUrl}}">
-       <img *ngIf='showUpperbody' class='clothing' src="../assets/{{upperbodyUrl}}">
-       <img *ngIf='showUpperbodyOuter' class='clothing' src="../assets/{{upperbodyOuterUrl}}">
-       <img *ngIf='showLowerbody' class='clothing' src="../assets/{{lowerbodyUrl}}">
-       <img *ngIf='showFootwear' class='clothing' src="../assets/{{footwearUrl}}">
-     
-       <!-- <img class='clothing' src="../assets/images/hat.png">
-        <img class='clothing' src="../assets/images/sunglasses.png">
-        <img class='clothing' src="../assets/images/tshirt1.png">
-        <img class='clothing' src="../assets/images/Parka.png">
-        <img class='clothing' src="../assets/images/pants1.png">
-        <img class='clothing' src="../assets/images/boot.png"> -->
+    <div class='mannequin'>
+        <img *ngIf='showHeadWear' class='clothing' src='../assets/{{headwearUrl}}'>
+        <img *ngIf='showFaceWear' class='clothing' src="../assets/{{facewearUrl}}">
+      <div class='upperBody'>
+        <img *ngIf='showUpperbodyOuter' id='jacket' class='clothing' src="../assets/{{upperbodyOuterUrl}}">
+        <img *ngIf='showUpperbody' id='shirt' class='clothing' src="../assets/{{upperbodyUrl}}">
+      </div>
+        <img *ngIf='showLowerbody' class='clothing' src="../assets/{{lowerbodyUrl}}">
+        <img *ngIf='showFootwear' class='clothing' src="../assets/{{footwearUrl}}">
     </div>
+
+
     <!-- <button class='swipe'>></button> -->
   </div>
 </div>

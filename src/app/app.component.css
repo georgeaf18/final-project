@@ -1,3 +1,11 @@
+body{
+  background-color: aqua;
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
 div{
   margin: 0;
 }
@@ -20,22 +28,20 @@ justify-content: space-between;
 .bottomHalf, .topHalf{
 height: 45%;
 display: flex;
-/* justify-content: space-between; */
-/* align-items: center; */
+justify-content: space-between;
+align-items: center;
 }
 
 .topHalf{
-  display: flex;
-  flex-direction: column;
   border-bottom: 2px solid whitesmoke;
   object-fit: contain;
 }
 
 .bottomHalf{
   border-top: 2px solid whitesmoke;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  object-fit: contain;
 }
 
 .weatherPanel{
@@ -55,30 +61,42 @@ display: flex;
   border-style: none;
 }
 
-.outfitBox{
-
-position: relative;
-/* width: 100%; */
-/* height: 100%; */
-
-
+.mannequin{
+  width: auto;
+  max-height: 80%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  
 }
 
-.mannequin{
-
-  
+.upperBody{
   width: auto;
-  height: 200px;
-  position: absolute;
-  /* top: 50%; */
-  /* right: 10%; */
-  /* transform: translate(-50%,-50%); */
+  max-height: 80%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; 
+  z-index: 0;
+}
+
+
+#shirt{
+  z-index: 0;
+  position: relative; 
+}
+/* *********top 85px will need to be changed for a scalable solution***** */
+#jacket{
+  z-index: 2;
+  position: relative;
+  top: 85px;
 
 }
 
 .clothing{
   min-height: 5px;
   object-fit: contain;
+  z-index: 1;
+  position: relative;
 }
 
 .weatherImg{
