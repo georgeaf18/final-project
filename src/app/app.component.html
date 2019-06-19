@@ -1,64 +1,79 @@
  <!-- **TEST CODE - CAN BE DELETED**
-<button (click)='getLocation()'>click</button>
 
-<select [(ngModel)]='eventType' name="" id="">
+  
+  <select [(ngModel)]='eventType' name="" id="">
+    
+    <option selected value="casual">Casual</option>
+    <option value="formal">Formal</option>
+    <option value="bussiness_casual"> Bussiness Casual</option>
+  </select> 
+  
+  
+  <button (click)= 'setMale()'>Male</button>
+  <button (click)= 'setFemale()'>Female</button> -->
 
-  <option selected value="casual">Casual</option>
-  <option value="formal">Formal</option>
-  <option value="bussiness_casual"> Bussiness Casual</option>
-</select> 
-
-
-<button (click)= 'setMale()'>Male</button>
-<button (click)= 'setFemale()'>Female</button> -->
-
-<!-- ****************************** division ********************************** -->
-
-
-<div class='fullPage'>
-  <nav>
-    <div class="navBar">
-      <!-- ******Needs updates to match component.ts******* -->
-      <div class="slidecontainer">
-        <input type="range" min="1" max="3" [(ngModel)]='preGender' class="slider" id="myRange"/>
-          <div class='sliderLabels'>
-              <i class="fas fa-user"></i>
-              <i class="fas fa-user-tie"></i>
-              <i class="fas fa-user-secret"></i>
-        </div>
-      </div>
-     
+ <!-- ****************************** division ********************************** -->
 
 
-      <div class='gender'>
-        <i (click)= 'setMale()' class='fas fa-male fa-2x' id='male'></i>
-        <i (click)= 'setFemale()' class='fas fa-female fa-2x' id='female'></i>
-      </div>
-    </div>
-  </nav>
-  <div class="topHalf">
+
+
+
+
+ <div class='fullPage'>
+   <button (click)='getLocation()'>click</button>
+
+   <nav>
+     <div class="navBar">
+       <!-- ******Needs updates to match component.ts******* -->
+       <div class="slidecontainer">
+         <input type="range" min="1" max="3" [(ngModel)]='preEvent' (change)='getEvent()' class="slider" id="myRange" />
+         <div class='sliderLabels'>
+           <i class="fas fa-user"></i>
+           <i class="fas fa-user-tie"></i>
+           <i class="fas fa-user-secret"></i>
+         </div>
+       </div>
+
+
+
+       <div class='gender'>
+         <i (click)='setMale()' class='fas fa-male fa-2x' id='male'></i>
+         <i (click)='setFemale()' class='fas fa-female fa-2x' id='female'></i>
+       </div>
+     </div>
+   </nav>
+   <daytime-component [lowTemp]='lowTemp' [highTemp]='highTemp' [realTemp]='realTemp'
+     [apparentTemperature]='apparentTemperature'></daytime-component>
+   <div class="topHalf">
+      <night-component [lowTemp]='lowTemp' [highTemp]='highTemp' [realTemp]='realTemp'
+      [apparentTemperature]='apparentTemperature'></night-component>
+
+     <!-- 
+
     <div class='weatherPanel'>
         <img class='weatherImg' src='../assets/images/amWeather.PNG'>
     </div>
     <div class='weatherPanel'>
             <img class='weatherImg' src='../assets/images/pmWeather.PNG'>
       </div>
-     <button class='swipe'>></button>
-  </div>
-  <div class="bottomHalf">
+     <button class='swipe'>></button> -->
+   </div>
+   <div class="bottomHalf">
+     
 
-    <!-- <button (click)= 'setFormal()'>Formal</button>
+     <!-- <button (click)= 'setFormal()'>Formal</button>
     <button (click)= 'setCasual()'>Casual</button>
     <button (click)= 'setBusinessCasual()'>Business Casual</button> -->
 
 
     <div class='outfitBox'>
-        <img class="clothing" src="../assets/clothes/head/baseballCap.png">
-        <img class="clothing" src="../assets/clothes/face/sunglasses.png">
-        <img class="clothing" src="../assets/clothes/outer-body/tshirt.png">
-        <img class="clothing" src="../assets/clothes/lower-body/shorts.png"> 
-        <img class="clothing" src="../assets/clothes/feet/flipFlops.png"> 
-        <img class="clothing" src="../assets/clothes/icon.png">
+         <img *ngIf='showHeadWear' class='clothing' src='../assets/{{headwearUrl}}'>
+       <img *ngIf='showFaceWear' class='clothing' src="../assets/{{facewearUrl}}">
+       <img *ngIf='showUpperbody' class='clothing' src="../assets/{{upperbodyUrl}}">
+       <img *ngIf='showUpperbodyOuter' class='clothing' src="../assets/{{upperbodyOuterUrl}}">
+       <img *ngIf='showLowerbody' class='clothing' src="../assets/{{lowerbodyUrl}}">
+       <img *ngIf='showFootwear' class='clothing' src="../assets/{{footwearUrl}}">
+     
        <!-- <img class='clothing' src="../assets/images/hat.png">
         <img class='clothing' src="../assets/images/sunglasses.png">
         <img class='clothing' src="../assets/images/tshirt1.png">
@@ -70,4 +85,3 @@
   </div>
 </div>
 
-  <router-outlet></router-outlet> 
