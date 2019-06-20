@@ -33,7 +33,7 @@ const upperbodyOuterwear = {
   raincoat: 'clothes/upper-body-outer-layer/raincoat.png',
 
   shawl: 'clothes/upper-body-outer-layer/shawl.png',
-  suitCoat: 'clothes/uppper-body-outer-layer/suitCoat.png',
+  suitCoat: 'clothes/upper-body-outer-layer/suitCoat.png',
 
   winterCoat: 'clothes/upper-body-outer-layer/winterCoat.png'
 }
@@ -72,11 +72,11 @@ const outfitMap = {
   'very_hot:formal': {
 
     male: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat, lowerbody.formalPants, footwear.dressShoes],
-    female: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat, lowerbody.formalPants, footwear.heels]
+    female: [{}, {}, upperbody.dressTop, upperbodyOuterwear.suitCoat, lowerbody.formalPants, footwear.heels]
   },
   'very_hot:business_casual': {
     male: [{}, {}, upperbody.formalShirtTie, {}, lowerbody.formalPants, footwear.dressShoes],
-    female: [{}, {}, upperbody.formalShirtTie, {}, lowerbody.formalPants, footwear.heels]
+    female: [{}, {}, upperbody.dressTop, {}, lowerbody.formalPants, footwear.heels]
   },
 
 
@@ -89,11 +89,11 @@ const outfitMap = {
   'hot:formal': {
 
     male: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat, lowerbody.formalPants, footwear.dressShoes],
-    female: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat, lowerbody.formalPants, footwear.heels]
+    female: [{}, {}, upperbody.dressTop, upperbodyOuterwear.suitCoat, lowerbody.formalPants, footwear.heels]
   },
   'hot:business_casual': {
     male: [{}, {}, upperbody.formalShirtTie, {}, lowerbody.formalPants, footwear.dressShoes],
-    female: [{}, {}, upperbody.formalShirtTie, {}, lowerbody.formalPants, footwear.heels]
+    female: [{}, {}, upperbody.dressTop, {}, lowerbody.formalPants, footwear.heels]
   },
 
 
@@ -107,11 +107,11 @@ const outfitMap = {
   'warm:formal': {
 
     male: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat, lowerbody.formalPants, footwear.dressShoes],
-    female: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat, lowerbody.formalPants, footwear.heels]
+    female: [{}, {}, upperbody.dressTop, upperbodyOuterwear.suitCoat, lowerbody.formalPants, footwear.heels]
   },
   'warm:business_casual': {
     male: [{}, {}, upperbody.formalShirtTie, {}, lowerbody.formalPants, footwear.dressShoes],
-    female: [{}, {}, upperbody.formalShirtTie, {}, lowerbody.formalPants, footwear.heels]
+    female: [{}, {}, upperbody.dressTop, {}, lowerbody.formalPants, footwear.heels]
   },
 
 
@@ -126,12 +126,12 @@ const outfitMap = {
   'chilly:formal': {
 
     male: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat, lowerbody.formalPants, footwear.dressShoes],
-    female: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat, lowerbody.formalPants, footwear.heels]
+    female: [{}, {}, upperbody.dressTop, upperbodyOuterwear.suitCoat, lowerbody.formalPants, footwear.heels]
   },
 
   'chilly:business_casual': {
     male: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.lightJacketHoodie, lowerbody.formalPants, footwear.dressShoes],
-    female: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.lightJacketHoodie, lowerbody.formalPants, footwear.heels]
+    female: [{}, {}, upperbody.dressTop, upperbodyOuterwear.lightJacketHoodie, lowerbody.formalPants, footwear.heels]
   },
   //******************************** cold */
 
@@ -143,11 +143,11 @@ const outfitMap = {
   'cold:formal': {
 
     male: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat, lowerbody.formalPants, footwear.dressShoes],
-    female: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat, lowerbody.formalPants, footwear.dressShoes]
+    female: [{}, {}, upperbody.dressTop, upperbodyOuterwear.winterCoat, lowerbody.formalPants, footwear.dressShoes]
   },
   'cold:business_casual': {
     male: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat, lowerbody.formalPants, footwear.winterBoots],
-    female: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat, lowerbody.formalPants, footwear.winterBoots]
+    female: [{}, {}, upperbody.dressTop, upperbodyOuterwear.winterCoat, lowerbody.formalPants, footwear.winterBoots]
   },
 
 
@@ -161,11 +161,11 @@ const outfitMap = {
   'very_cold:formal': {
 
     male: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat, lowerbody.formalPants, footwear.dressShoes],
-    female: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat, lowerbody.formalPants, footwear.dressShoes]
+    female: [{}, {}, upperbody.dressTop, upperbodyOuterwear.winterCoat, lowerbody.formalPants, footwear.dressShoes]
   },
   'very_cold:business_casual': {
     male: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat, lowerbody.formalPants, footwear.winterBoots],
-    female: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat, lowerbody.formalPants, footwear.winterBoots]
+    female: [{}, {}, upperbody.dressTop, upperbodyOuterwear.winterCoat, lowerbody.formalPants, footwear.winterBoots]
   },
 
   //******************************** extremely cold */
@@ -179,11 +179,11 @@ const outfitMap = {
   'extremely_cold:formal': {
 
     male: [headwear.winterHat, facewear.scarf, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat, lowerbody.formalPants, footwear.dressShoes],
-    female: [headwear.winterHat, facewear.scarf, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat, lowerbody.formalPants, footwear.heels]
+    female: [headwear.winterHat, facewear.scarf, upperbody.dressTop, upperbodyOuterwear.suitCoat, lowerbody.formalPants, footwear.heels]
   },
   'extremely_cold:business_casual': {
-    male: [headwear.winterHat, facewear.scarf, upperbody.tshirt, upperbodyOuterwear.winterCoat, lowerbody.pants, footwear.winterBoots],
-    female: [headwear.winterHat, facewear.scarf, upperbody.tshirt, upperbodyOuterwear.winterCoat, lowerbody.pants, footwear.winterBoots]
+    male: [headwear.winterHat, facewear.scarf, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat, lowerbody.pants, footwear.winterBoots],
+    female: [headwear.winterHat, facewear.scarf, upperbody.dressTop, upperbodyOuterwear.winterCoat, lowerbody.pants, footwear.winterBoots]
   }
 
 
