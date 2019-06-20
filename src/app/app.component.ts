@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Api } from './services/api.services';
 
-import { headersToString } from 'selenium-webdriver/http';
-
 //****************************************** clothing items */
 const headwear = {
 
@@ -278,8 +276,8 @@ export class AppComponent {
   //******************************** get location through navigator's geolocation function */ 
 
   getLocation = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(this.sendLocation);
+    if (window.navigator.geolocation) {
+      window.navigator.geolocation.getCurrentPosition(this.sendLocation);
     }
   }
 
@@ -288,6 +286,7 @@ export class AppComponent {
     this.long = position.coords.longitude;
     this.getData();
   }
+
   //******************************** gets data from Dark Sky api  */ 
 
   lowTemp;
@@ -303,120 +302,133 @@ export class AppComponent {
   afternoonTempAverage: number = 0;
   afternoonMin;
   afternoonMax;
+  dataChildren = [
+    this.apparentTemperature,
+    this.lowTemp,
+    this.highTemp
+  ];
 
   getData = () => {
-    this.api.getWeather(this.lat, this.long).subscribe((data: ApiData) => {
-      this.apparentTemperature = data.currently.apparentTemperature;
+    this.api.weather.subscribe((response:ApiData) => {
+      let data = response
+      if (!data) {
+        this.api.getWeather(this.lat, this.long).subscribe((apiData: ApiData) => {
+          data = apiData;
+          this.api.updateWeather(data);
+          this.apparentTemperature = data.currently.apparentTemperature;
 
-      this.realTemp = data.currently.temperature;
-      console.log(`this.realTemp: ${this.realTemp}`);
+          this.realTemp = data.currently.temperature;
+          console.log(`this.realTemp: ${this.realTemp}`);
 
-      this.icon = data.currently.icon;
-      this.humidity = data.currently.humidity;
-      console.log(data);
-
-
-
-      this.theHour = data.hourly.data;
-      // let hourCounter: number;
-      // for (hourCounter = 5; hourCounter < 12; hourCounter++) {
-      //   let currentAppTemp = this.theHour[hourCounter].apparentTemperature;
-      //   this.morningTempAverage += currentAppTemp;
-      //   this.morningTempArray.push(currentAppTemp);
-      //   console.log(currentAppTemp);
-      // };
-      // console.log(`this.morningTempAverage: ${this.morningTempAverage}`);
-      // this.morningTempAverage = this.morningTempAverage / this.morningTempArray.length;
-      // for (hourCounter = 12; hourCounter < 25; hourCounter++) {
-      //   let currentAppTemp = this.theHour[hourCounter].apparentTemperature;
-      //   this.afternoonTempAverage += currentAppTemp;
-      //   this.afternoonTempArray.push(currentAppTemp);
-      //   console.log(currentAppTemp);
-      // };
-      // this.afternoonTempAverage = this.afternoonTempAverage / this.afternoonTempArray.length;
-      // console.log(`this.morningTempArray: ${this.morningTempArray}`);
-      // this.morningMin = Math.min.apply(null, this.morningTempArray);
-      // this.morningMax = Math.max.apply(null, this.morningTempArray);
-      // console.log(this.morningMin);
-      // console.log(this.morningMax);
-      // console.log(this.morningTempArray.length)
-      // console.log(`this.morningTempAverage: ${this.morningTempAverage}`);
-
-      // console.log(`this.afternoonTempArray: ${this.afternoonTempArray}`);
-      // console.log(this.afternoonTempArray.length)
-      // console.log(`this.afternoonTempAverage: ${this.afternoonTempAverage}`);
-      // this.afternoonMin = Math.min.apply(null, this.afternoonTempArray);
-      // this.afternoonMax = Math.max.apply(null, this.afternoonTempArray);
-      // console.log(this.afternoonMin);
-      // console.log(this.afternoonMax);
-      
-
-      // need to call the Time Machine Request by feeding it the unix value of the 9am and 6pm times for that day
-      // and then feed the temp results into the night and daytime components
-      //          https://api.darksky.net/forecast/[key]/[latitude],[longitude],[time]
+          this.icon = data.currently.icon;
+          this.humidity = data.currently.humidity;
+          console.log(data);
 
 
 
+          this.theHour = data.hourly.data;
+          // let hourCounter: number;
+          // for (hourCounter = 5; hourCounter < 12; hourCounter++) {
+          //   let currentAppTemp = this.theHour[hourCounter].apparentTemperature;
+          //   this.morningTempAverage += currentAppTemp;
+          //   this.morningTempArray.push(currentAppTemp);
+          //   console.log(currentAppTemp);
+          // };
+          // console.log(`this.morningTempAverage: ${this.morningTempAverage}`);
+          // this.morningTempAverage = this.morningTempAverage / this.morningTempArray.length;
+          // for (hourCounter = 12; hourCounter < 25; hourCounter++) {
+          //   let currentAppTemp = this.theHour[hourCounter].apparentTemperature;
+          //   this.afternoonTempAverage += currentAppTemp;
+          //   this.afternoonTempArray.push(currentAppTemp);
+          //   console.log(currentAppTemp);
+          // };
+          // this.afternoonTempAverage = this.afternoonTempAverage / this.afternoonTempArray.length;
+          // console.log(`this.morningTempArray: ${this.morningTempArray}`);
+          // this.morningMin = Math.min.apply(null, this.morningTempArray);
+          // this.morningMax = Math.max.apply(null, this.morningTempArray);
+          // console.log(this.morningMin);
+          // console.log(this.morningMax);
+          // console.log(this.morningTempArray.length)
+          // console.log(`this.morningTempAverage: ${this.morningTempAverage}`);
+
+          // console.log(`this.afternoonTempArray: ${this.afternoonTempArray}`);
+          // console.log(this.afternoonTempArray.length)
+          // console.log(`this.afternoonTempAverage: ${this.afternoonTempAverage}`);
+          // this.afternoonMin = Math.min.apply(null, this.afternoonTempArray);
+          // this.afternoonMax = Math.max.apply(null, this.afternoonTempArray);
+          // console.log(this.afternoonMin);
+          // console.log(this.afternoonMax);
 
 
-
-      // let hourlyData = data.hourly.data;
-      // let i;
-      // for (i = 0; i < hourlyData.length; i++) {
-      //   console.log(`hourlyData.apparentTemperature: ${i.apparentTemperature}`)
-      // }
-      // for (hour in )
-      // this.hourlyArray = data.
-
-
-      console.log(`data.hourly.data: ${data.hourly.data[0]}`);
-      console.log(data);
-
-      this.lowTemp = data.daily.data[0].apparentTemperatureLow;
-      this.highTemp = data.daily.data[0].apparentTemperatureHigh;
-      console.log(`this.lowTemp: ${this.lowTemp}`);
-      console.log(`this.highTemp: ${this.highTemp}`);
-
-
-      console.log(`the time: ${data.currently.time}`);
-      // console.log(`the alert: ${data.flags.sources[0]}`);
+          // need to call the Time Machine Request by feeding it the unix value of the 9am and 6pm times for that day
+          // and then feed the temp results into the night and daytime components
+          //          https://api.darksky.net/forecast/[key]/[latitude],[longitude],[time]
 
 
 
 
 
 
+          // let hourlyData = data.hourly.data;
+          // let i;
+          // for (i = 0; i < hourlyData.length; i++) {
+          //   console.log(`hourlyData.apparentTemperature: ${i.apparentTemperature}`)
+          // }
+          // for (hour in )
+          // this.hourlyArray = data.
+
+
+          console.log(`data.hourly.data: ${data.hourly.data[0]}`);
+          console.log(data);
+
+          this.lowTemp = data.daily.data[0].apparentTemperatureLow;
+          this.highTemp = data.daily.data[0].apparentTemperatureHigh;
+          console.log(`this.lowTemp: ${this.lowTemp}`);
+          console.log(`this.highTemp: ${this.highTemp}`);
+
+
+          console.log(`the time: ${data.currently.time}`);
+          // console.log(`the alert: ${data.flags.sources[0]}`);
 
 
 
-      // Create a new JavaScript Date object based on the timestamp
-      // multiplied by 1000 so that the argument is in milliseconds, not seconds.
-      let date = new Date(data.currently.time * 1000);
-      // Hours part from the timestamp
-      let hours = date.getHours();
-      // Minutes part from the timestamp
-      let minutes = "0" + date.getMinutes();
-      // Seconds part from the timestamp
-      let seconds = "0" + date.getSeconds();
-
-      // Will display time in 10:30:23 format
-      let formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
-
-      console.log(`formatted time: ${formattedTime}`);
-
-      // console.log(`the location is: latitude=${data.latitude}, longitude=${data.longitude}`);
-
-      // will get the outfit once the temperature is on hand
-      if (typeof this.apparentTemperature === 'number') {
-        this.getOutfit();
-        console.log(this.apparentTemperature);
 
 
+
+
+
+
+          // Create a new JavaScript Date object based on the timestamp
+          // multiplied by 1000 so that the argument is in milliseconds, not seconds.
+          let date = new Date(data.currently.time * 1000);
+          // Hours part from the timestamp
+          let hours = date.getHours();
+          // Minutes part from the timestamp
+          let minutes = "0" + date.getMinutes();
+          // Seconds part from the timestamp
+          let seconds = "0" + date.getSeconds();
+
+          // Will display time in 10:30:23 format
+          let formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+
+          console.log(`formatted time: ${formattedTime}`);
+
+          // console.log(`the location is: latitude=${data.latitude}, longitude=${data.longitude}`);
+
+          // will get the outfit once the temperature is on hand
+          if (typeof this.apparentTemperature === 'number') {
+            this.getOutfit();
+            console.log(this.apparentTemperature);
+
+
+          }
+
+        }, error => {
+          console.log(error.message);
+        });
       }
 
-    }, error => {
-      console.log(error.message);
-    });
+    })
 
   }
 
@@ -425,48 +437,40 @@ export class AppComponent {
   //******************** returns a weather type depending the temperature ********************/
 
   getOutfit = () => {
-    if (this.apparentTemperature >= 95) {
-      this.weatherType = 'very hot';
-      console.log('works');
 
+      if ( typeof this.weatherType !== 'string'){
+    if (this.apparentTemperature >= 95) {
+
+      this.weatherType = 'very hot';
 
     } else if (this.apparentTemperature >= 80 && this.apparentTemperature <= 94) {
-      this.weatherType = 'hot';
-      console.log('works');
 
+      this.weatherType = 'hot';
 
     } else if (this.apparentTemperature > 69 && this.apparentTemperature <= 79) {
+
       this.weatherType = 'warm';
-      console.log('works');
-
-
 
     } else if (this.apparentTemperature > 50 && this.apparentTemperature <= 68) {
+
       this.weatherType = 'chilly';
-      console.log('works');
-
-
 
     } else if (this.apparentTemperature > 33 && this.apparentTemperature <= 49) {
+
       this.weatherType = 'cold';
-      console.log('works');
-
-
 
     } else if (this.apparentTemperature > 1 && this.apparentTemperature <= 32) {
+
       this.weatherType = 'very cold';
-
-
+      
     } else if (this.apparentTemperature < 0) {
+
       this.weatherType = 'extremely cold';
-
-
     }
-
+  }
 
     if (typeof this.weatherType === 'string') {
       this.getOutfitUrl();
-
     }
 
   }
@@ -511,13 +515,6 @@ export class AppComponent {
     if (typeof this.footwearUrl !== 'object') {
       this.showFootwear = true;
     }
-
-    console.log(this.headwearUrl);
-    console.log("TCL: getEvent -> this.facewearUrl", this.facewearUrl)
-    console.log("TCL: getEvent -> this.upperbodyUrl", this.upperbodyUrl)
-    console.log("TCL: getEvent -> this.upperbodyOuterUrl", this.upperbodyOuterUrl)
-    console.log("TCL: getEvent -> this.lowerbodyUrl", this.lowerbodyUrl)
-    console.log("TCL: getEvent -> this.footwearUrl", this.footwearUrl)
 
   }
 
