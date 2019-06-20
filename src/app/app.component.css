@@ -61,6 +61,14 @@ align-items: center;
   border-style: none;
 }
 
+.icon{
+  max-height: 50px;
+}
+
+#person{
+
+}
+
 .mannequin{
   width: auto;
   max-height: 80%;
@@ -91,6 +99,12 @@ align-items: center;
   top: 85px;
 
 }
+
+/* #buddy {
+
+  z-index: 0;
+  position: relative; 
+} */
 
 .clothing{
   min-height: 5px;
