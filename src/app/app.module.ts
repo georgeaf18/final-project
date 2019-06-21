@@ -29,8 +29,9 @@ const appRoutes: Routes = [
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes),
-    Skycons
+    Skycons,
+    RouterModule.forRoot(appRoutes)
+    
 
   ],
   providers: [Api],

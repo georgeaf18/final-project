@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Api } from '../services/api.services';
 import { Router } from '@angular/router';
-import {Skycons} from 'skycons';
+import { Skycons } from 'skycons';
 
 
 
@@ -31,15 +31,25 @@ export class DaytimeComponent {
         });
     }
 
-    getSkycon = () => {    
-        let skycons = new Skycons({'color':'pink'});
-
-
-        // var skycons = new Skycons({ "color": "pink" });
+    getSkycon = () => {
+        // by default, icons are black but you can color them
+        var skycons = new Skycons({ "color": "pink" });
         // on Android, a nasty hack is needed: {"resizeClear": true}
 
+        // If you want to add more colors :
+        // var skycons = new Skycons({"monochrome": false});
+        // you can now customize the color of different parts
+        // main, moon, fog, fogbank, cloud, snow, leaf, rain, sun
+        // var skycons = new Skycons({
+        //  "monochrome": false,
+        //  "colors" : {
+        //    "cloud" : "#F00"
+        //  }
+        //  });
+
+
         // you can add a canvas by it's ID...
-        skycons.add("icon1", Skycons.morningIcon);
+        skycons.add("icon1", Skycons.PARTLY_CLOUDY_DAY);
 
         // ...or by the canvas DOM element itself.
         skycons.add(document.getElementById("icon2"), Skycons.RAIN);
@@ -58,6 +68,12 @@ export class DaytimeComponent {
         // want to remove one altogether? no problem:
         skycons.remove("icon2");
     }
+
+
+
+
+
+    
 
     constructor(private api: Api) { }
 

@@ -10,7 +10,7 @@
 
 
 
-    <div class='icon-and-temp'>
+    <div [ngModel]='getSkycon()' class='icon-and-temp'>
         <div class='sun-icon'>
             <img class='sun-pic' src='{{pictureUrl}}'>
             <canvas id="icon1" width="128" height="128"></canvas>
