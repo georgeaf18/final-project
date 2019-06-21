@@ -7,18 +7,16 @@
         {{dateString}}
     </p> -->
 
-    <!-- <p *ngFor='let hour of fullDayArray; index as i'>
-        {{ hour[5] }}
-    </p> -->
-    <!-- <p [ngModel]='hourReturn()'>
-            fullDayArray
-    </p> -->
+
+
 
     <div class='icon-and-temp'>
         <div class='sun-icon'>
             <img class='sun-pic' src='{{pictureUrl}}'>
+            <canvas id="icon1" width="128" height="128"></canvas>
+            <canvas id="icon2" width="128" height="128"></canvas>
         </div>
-<!-- All these  numbers are being rounded by the round pipe I created in the pipes folder -->
+        <!-- All these  numbers are being rounded by the round pipe I created in the pipes folder -->
         <div class='temp-number'>
             <h1>
                 {{ temp | round }}

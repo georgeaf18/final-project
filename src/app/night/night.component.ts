@@ -96,7 +96,6 @@ export class NightComponent {
     @Input() apparentTemperature: number;
     @Input() realTemp: number;
 
-    @Input() fullDayArray: [];
 
     @Input() theHour;
     @Input() morningTempArray = [];

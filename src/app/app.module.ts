@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Api } from './services/api.services'
 import { FormsModule } from '@angular/forms';
+import {Skycons} from 'skycons';
 
 import { AppRoutingModule,  } from './app-routing.module';
 import {RouterModule, Routes} from '@angular/router';
@@ -9,8 +10,6 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DaytimeComponent } from './daytime/daytime.component';
 import { NightComponent } from './night/night.component';
-// import { MannequinComponent } from './mannequin/mannequin.component';
-
 import { Round } from './pipes/round.pipe';
 
 const appRoutes: Routes = [
@@ -23,7 +22,6 @@ const appRoutes: Routes = [
     AppComponent,
     DaytimeComponent,
     NightComponent,
-    // MannequinComponent,
     Round
   ],
   imports: [
@@ -31,7 +29,8 @@ const appRoutes: Routes = [
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    Skycons
 
   ],
   providers: [Api],
