@@ -44,8 +44,6 @@ const lowerbody = {
 const footwear = {
 
 
-
-
   tennisShoes: 'clothes/feet/tennisShoes.png',
   dressShoes: 'clothes/feet/dressShoes.png',
   rainBoots: 'clothes/feet/rainBoots.png',
