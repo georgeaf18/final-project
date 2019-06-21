@@ -1,16 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-// import { AppComponent } from '../app.component';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 
 export class Api {
 
-
-    // ngOnInit() {
-    //     this.callDate();
-    // }
+    private _weather = new BehaviorSubject(null);
+    weather = this._weather.asObservable();
 
     server = 'https://thingproxy.freeboard.io/fetch/'
     apiUrl = 'https://api.darksky.net/forecast';
@@ -18,18 +15,25 @@ export class Api {
     // time = '1996-05-04T12:05:01';
     time = '2019-06-18T00:00:00'; //needed to finish the Time Machine Callback for the Darksky API
     exclude = ''; //'minutely,flags,alerts';
-    // lat = '42.3314';
-    // long = '-83.0458';
     // https://api.darksky.net/forecast/a37531bbb850d56fe736c132b318ead7/42.3314,-83.0458
 
    
-
+    
     constructor(private http: HttpClient) { }
+    
+    
+    updateWeather = (data) => {
+        this._weather.next(data);
+    }
 
-    // latitudeTest = '42.3601';
-    // longitudeTest = '-71.0589';
+    getWeather = (lat, long) => {
+        console.log('called')
+        return this.http.get(`${this.server}${this.apiUrl}/${this.apiKey}/${lat},${long},${this.dateStringShort}${this.time}?exclude=${this.exclude}`)
+
+    }
 
 
+    
     dateString;
     dateStringShort: string = '';
     timeString: string = '';
@@ -48,63 +52,60 @@ export class Api {
     //     console.log(this.dateStringShort);
     // }
   
-    // callDate = () => {
-    //     let now = new Date();
-    //     this.dateString = now.toISOString();
-    //     console.log(this.dateString);
-    //     let i;
-    //     for (i = 0; i < 10; i++) {
-    //         this.dateStringShort += this.dateString[i];
-    //     };
-    //     console.log(`this.dateStringShort: ${this.dateStringShort}`);
-    //     console.log(`this.dateStringShort[-1]: ${this.dateStringShort[this.dateStringShort.length - 1]}`)
+    callDate = () => {
+        let now = new Date();
+        this.dateString = now.toISOString();
+        console.log(this.dateString);
+        let i;
+        for (i = 0; i < 10; i++) {
+            this.dateStringShort += this.dateString[i];
+        };
+        console.log(`this.dateStringShort: ${this.dateStringShort}`);
+        console.log(`this.dateStringShort[-1]: ${this.dateStringShort[this.dateStringShort.length - 1]}`)
 
-    //     let timeStringShort: string = '';
-    //     for (i = 11; i < 13; i++) {
-    //         this.timeString = now.toISOString();
-    //         timeStringShort += this.timeString[i];
+        let timeStringShort: string = '';
+        for (i = 11; i < 13; i++) {
+            this.timeString = now.toISOString();
+            timeStringShort += this.timeString[i];
 
-    //         console.log(`this.timeString[i]: ${this.timeString[i]}`);
-    //     }
-    //     console.log(`this.timeString: ${this.timeString}`);
-    //     console.log(`timeStringShort: ${timeStringShort}`);
-    //     let timeStringNumber = parseInt(timeStringShort);
-    //     if (timeStringNumber >= 20 || timeStringNumber <= 4) {
-    //         let newTimeString: string = '';
-    //         let lastNumberOfDate = parseInt(this.dateStringShort[this.dateStringShort.length - 1]);
-    //         let changeLastNumberOfDate = lastNumberOfDate - 1;
-    //         changeLastNumberOfDate.toString();
-    //         for (i = 0; i < this.dateStringShort.length - 1; i++) {
-    //             newTimeString += this.dateStringShort[i];
-    //             console.log(newTimeString);
-    //         }
-    //         newTimeString += changeLastNumberOfDate;
-    //         newTimeString += 'T00:00:00';
-    //         console.log(`newTimeString: ${newTimeString}`);
-    //         this.dateStringShort = newTimeString;
-    //         this.time = newTimeString;
+            console.log(`this.timeString[i]: ${this.timeString[i]}`);
+        }
+        console.log(`this.timeString: ${this.timeString}`);
+        console.log(`timeStringShort: ${timeStringShort}`);
+        let timeStringNumber = parseInt(timeStringShort);
+        if (timeStringNumber >= 20 || timeStringNumber <= 4) {
+            let newTimeString: string = '';
+            let lastNumberOfDate = parseInt(this.dateStringShort[this.dateStringShort.length - 1]);
+            let changeLastNumberOfDate = lastNumberOfDate - 1;
+            changeLastNumberOfDate.toString();
+            for (i = 0; i < this.dateStringShort.length - 1; i++) {
+                newTimeString += this.dateStringShort[i];
+                console.log(newTimeString);
+            }
+            newTimeString += changeLastNumberOfDate;
+            newTimeString += 'T00:00:00';
+            console.log(`newTimeString: ${newTimeString}`);
+            this.dateStringShort = newTimeString;
+            this.time = newTimeString;
 
-    //         // let changeLastNumber = parseInt(this.dateStringShort[this.dateStringShort.length-1]);
-    //         // console.log(`changeLastNumber: ${changeLastNumber}`);
-    //         // changeLastNumber -= 1;
-    //         // console.log(`changeLastNumber: ${changeLastNumber}`);
-    //         // changeLastNumber.toString();
-    //         // this.dateStringShort = this.dateStringShort.slice(changeLastNumber,this.dateStringShort.length-1);
-    //     }
+            // let changeLastNumber = parseInt(this.dateStringShort[this.dateStringShort.length-1]);
+            // console.log(`changeLastNumber: ${changeLastNumber}`);
+            // changeLastNumber -= 1;
+            // console.log(`changeLastNumber: ${changeLastNumber}`);
+            // changeLastNumber.toString();
+            // this.dateStringShort = this.dateStringShort.slice(changeLastNumber,this.dateStringShort.length-1);
+        }
 
-    //     console.log(`this.dateStringShort: ${this.dateStringShort}`);
-
-    // }
-
-
-
-
-
-
-    getWeather = (lat, long) => {
-        return this.http.get(`${this.server}${this.apiUrl}/${this.apiKey}/${lat},${long},${this.dateStringShort}${this.time}?exclude=${this.exclude}`)
+        console.log(`this.dateStringShort: ${this.dateStringShort}`);
 
     }
+
+
+
+
+    
+
+
 
 
 
