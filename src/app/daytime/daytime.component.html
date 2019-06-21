@@ -1,12 +1,18 @@
 <div class='day-rectangle'>
 
-    <button (click)='callDate()'>
+    <!-- <button (click)='callDate()'>
         CLICK ME
     </button>
     <p>
         {{dateString}}
-    </p>
+    </p> -->
 
+    <!-- <p *ngFor='let hour of fullDayArray; index as i'>
+        {{ hour[5] }}
+    </p> -->
+    <!-- <p [ngModel]='hourReturn()'>
+            fullDayArray
+    </p> -->
 
     <div class='icon-and-temp'>
         <div class='sun-icon'>
@@ -23,7 +29,7 @@
 
     <div class='temp-info-more'>
         <h1>{{ morningMax | round }} / {{ morningMin | round }}</h1>
-        <h1>Feels like {{morningTempAverage | round}}</h1>
+        <!-- <h1>Feels like {{morningTempAverage | round}}</h1> -->
     </div>
 
 

@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DaytimeComponent } from './daytime/daytime.component';
 import { NightComponent } from './night/night.component';
+// import { MannequinComponent } from './mannequin/mannequin.component';
+
 import { Round } from './pipes/round.pipe';
 
 @NgModule({
@@ -15,6 +17,7 @@ import { Round } from './pipes/round.pipe';
     AppComponent,
     DaytimeComponent,
     NightComponent,
+    // MannequinComponent,
     Round
   ],
   imports: [

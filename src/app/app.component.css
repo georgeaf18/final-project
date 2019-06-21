@@ -1,75 +1,74 @@
-div{
+div {
   margin: 0;
 }
-  
+
 .fullPage {
   background-color: rgb(139, 226, 172);
   height: 100vh;
 }
 
-nav{
-border-bottom: 4px solid whitesmoke;
+nav {
+  border-bottom: 4px solid whitesmoke;
 }
 
-.navBar{
-display: flex;
-flex-direction: row;
-justify-content: space-between;
+.navBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-.bottomHalf, .topHalf{
-height: 45%;
-display: flex;
-/* justify-content: space-between; */
-/* align-items: center; */
+.bottomHalf, .topHalf {
+  height: 45%;
+  display: flex;
+  /* justify-content: space-between; */
+  /* align-items: center; */
 }
 
-.topHalf{
+.topHalf {
   display: flex;
   flex-direction: column;
   border-bottom: 2px solid whitesmoke;
   object-fit: contain;
 }
 
-.bottomHalf{
+.bottomHalf {
   border-top: 2px solid whitesmoke;
   flex-direction: row;
   flex-wrap: nowrap;
   object-fit: contain;
 }
 
-.weatherPanel{
+.weatherPanel {
   width: 50%;
   object-fit: contain;
 }
 
-.navButton{
+.navButton {
   margin: 15px;
 }
 
-.swipe{
-  float: right; 
+.swipe {
+  float: right;
   margin: 0;
   height: 70%;
   border-radius: 7%;
   border-style: none;
 }
 
-.mannequin{
+.mannequin {
   width: auto;
   max-height: 80%;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  
 }
 
-.clothing{
+.clothing {
   min-height: 5px;
   object-fit: contain;
 }
 
-.weatherImg{
+.weatherImg {
   overflow: hidden;
   min-height: 5px;
   min-width: 5px;
@@ -77,7 +76,7 @@ display: flex;
   width: 100%;
 }
 
-.gender{
+.gender {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -86,7 +85,7 @@ display: flex;
 }
 
 .slidecontainer {
-  width: 50%; 
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -94,18 +93,19 @@ display: flex;
   margin: 10px;
 }
 
-.slider{
-  -webkit-appearance: none;  /* Override default CSS styles */
+.slider {
+  -webkit-appearance: none;
+  /* Override default CSS styles */
   appearance: none;
-  width: 100%; 
-  height: 5px; 
-  background: rgb(128, 125, 125); 
-  outline: none; 
-  -webkit-transition: .2s; 
+  width: 100%;
+  height: 5px;
+  background: rgb(128, 125, 125);
+  outline: none;
+  -webkit-transition: .2s;
   transition: opacity .2s;
   margin-bottom: 10px;
   border-radius: 5px;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 .slider::-webkit-slider-thumb {
@@ -113,8 +113,8 @@ display: flex;
   appearance: none;
   width: 15px;
   height: 15px;
-  border-radius: 50%; 
-  background:black;
+  border-radius: 50%;
+  background: black;
   cursor: pointer;
 }
 
@@ -122,7 +122,7 @@ display: flex;
   width: 5%;
   height: 5%;
   border-radius: 50%;
-  background:black;
+  background: black;
   cursor: pointer;
 }
 
@@ -131,11 +131,17 @@ display: flex;
 }
 
 #male:hover, #female:hover {
-  background-color:whitesmoke;
+  background-color: whitesmoke;
   opacity: 1;
 }
 
 .sliderLabels {
   display: flex;
   justify-content: space-between;
+}
+
+.logo {
+  width: 300px;
+  display: block;
+  margin: 0 auto;
 }

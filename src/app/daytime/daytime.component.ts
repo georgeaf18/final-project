@@ -33,6 +33,13 @@ export class DaytimeComponent {
     @Input() apparentTemperature:number;
     @Input() realTemp:number;
 
+    @Input() fullDayArray: [];
+    
+    // hourReturn = () => {
+    //     console.log(`this.fullDayArray IN THE DAYTIME COMPONENT: ${this.fullDayArray}`);
+    //     // let nineAM = this.fullDayArray[5]
+    // };
+    
 
     @Input() theHour;
     @Input() morningTempArray = [];

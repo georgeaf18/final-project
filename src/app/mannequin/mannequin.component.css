@@ -1,0 +1,171 @@
+/* body{
+    background-color: aqua;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+  }
+  
+  div{
+    margin: 0;
+  }
+    
+  .fullPage {
+    background-color: rgb(139, 226, 172);
+    height: 100vh;
+  }
+  
+  nav{
+  border-bottom: 4px solid whitesmoke;
+  }
+  
+  .navBar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  }
+  
+  .bottomHalf, .topHalf{
+  height: 45%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  }
+  
+  .topHalf{
+    border-bottom: 2px solid whitesmoke;
+    object-fit: contain;
+  }
+  
+  .bottomHalf{
+    border-top: 2px solid whitesmoke;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    object-fit: contain;
+  }
+  
+  .weatherPanel{
+    width: 50%;
+    object-fit: contain;
+  }
+  
+  .navButton{
+    margin: 15px;
+  }
+  
+  .swipe{
+    float: right; 
+    margin: 0;
+    height: 70%;
+    border-radius: 7%;
+    border-style: none;
+  }
+  
+  .mannequin{
+    width: auto;
+    max-height: 80%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    
+  }
+  
+  .upperBody{
+    width: auto;
+    max-height: 80%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; 
+    z-index: 0;
+  }
+  
+  
+  #shirt{
+    z-index: 0;
+    position: relative; 
+  }
+
+  #jacket{
+    z-index: 2;
+    position: relative;
+    top: 85px;
+  
+  }
+  
+  .clothing{
+    min-height: 5px;
+    object-fit: contain;
+    z-index: 1;
+    position: relative;
+  }
+  
+  .weatherImg{
+    overflow: hidden;
+    min-height: 5px;
+    min-width: 5px;
+    height: auto;
+    width: 100%;
+  }
+  
+  .gender{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 50%;
+    margin: 0% 10%;
+  }
+  
+  .slidecontainer {
+    width: 50%; 
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    margin: 10px;
+  }
+  
+  .slider{
+    -webkit-appearance: none;  
+    appearance: none;
+    width: 100%; 
+    height: 5px; 
+    background: rgb(128, 125, 125); 
+    outline: none; 
+    -webkit-transition: .2s; 
+    transition: opacity .2s;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer; 
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%; 
+    background:black;
+    cursor: pointer;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 5%;
+    height: 5%;
+    border-radius: 50%;
+    background:black;
+    cursor: pointer;
+  }
+  
+  #male, #female {
+    opacity: 0.6;
+  }
+  
+  #male:hover, #female:hover {
+    background-color:whitesmoke;
+    opacity: 1;
+  }
+  
+  .sliderLabels {
+    display: flex;
+    justify-content: space-between;
+  } */
