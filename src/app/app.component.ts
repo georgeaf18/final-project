@@ -428,6 +428,15 @@ export class AppComponent {
         });
       }
 
+      this.apparentTemperature = data.currently.apparentTemperature;
+      console.log(this.apparentTemperature)
+      if (typeof this.apparentTemperature === 'number') {
+        this.getOutfit();
+        console.log(this.apparentTemperature);
+
+
+      }
+
     })
 
   }
