@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Api } from '../services/api.services';
+import {Router} from '@angular/router';
+
 
 
 
@@ -12,8 +14,19 @@ import { Api } from '../services/api.services';
 export class NightComponent {
     title = 'final-project';
 
+    temp: number;
+    minTemp: number;
+    maxTemp: number;
+
     ngOnInit() {
         this.callDate();
+        this.api.weather.subscribe(data => {
+            console.log(data)
+            this.temp = data.currently.apparentTemperature;
+            this.minTemp = data.daily.data[0].apparentTemperatureLow;
+            this.maxTemp = data.daily.data[0].apparentTemperatureHigh;
+ 
+        });
     }
 
     constructor(private api: Api) { }

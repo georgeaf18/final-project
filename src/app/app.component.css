@@ -1,4 +1,12 @@
-div {
+body{
+  background-color: aqua;
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+div{
   margin: 0;
 }
 
@@ -17,16 +25,14 @@ nav {
   justify-content: space-between;
 }
 
-.bottomHalf, .topHalf {
-  height: 45%;
-  display: flex;
-  /* justify-content: space-between; */
-  /* align-items: center; */
+.bottomHalf, .topHalf{
+height: 45%;
+display: flex;
+justify-content: space-between;
+align-items: center;
 }
 
-.topHalf {
-  display: flex;
-  flex-direction: column;
+.topHalf{
   border-bottom: 2px solid whitesmoke;
   object-fit: contain;
 }
@@ -63,9 +69,33 @@ nav {
   overflow: hidden;
 }
 
-.clothing {
+.upperBody{
+  width: auto;
+  max-height: 80%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; 
+  z-index: 0;
+}
+
+
+#shirt{
+  z-index: 0;
+  position: relative; 
+}
+/* *********top 85px will need to be changed for a scalable solution***** */
+#jacket{
+  z-index: 2;
+  position: relative;
+  top: 85px;
+
+}
+
+.clothing{
   min-height: 5px;
   object-fit: contain;
+  z-index: 1;
+  position: relative;
 }
 
 .weatherImg {

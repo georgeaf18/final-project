@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-// import { AppComponent } from '../app.component';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 
 export class Api {
 
-
- 
+    private _weather = new BehaviorSubject(null);
+    weather = this._weather.asObservable();
 
     server = 'https://thingproxy.freeboard.io/fetch/'
     apiUrl = 'https://api.darksky.net/forecast';
@@ -16,18 +15,24 @@ export class Api {
     time = '';
     // time = '2019-06-18T00:00:00'; //needed to finish the Time Machine Callback for the Darksky API
     exclude = ''; //'minutely,flags,alerts';
-    // lat = '42.3314';
-    // long = '-83.0458';
     // https://api.darksky.net/forecast/a37531bbb850d56fe736c132b318ead7/42.3314,-83.0458
 
    
-
+    
     constructor(private http: HttpClient) { }
+    
+    
+    updateWeather = (data) => {
+        this._weather.next(data);
+    }
 
-    latitudeTest = '42.3601';
-    longitudeTest = '-71.0589';
+    getWeather = (lat, long) => {
+        return this.http.get(`${this.server}${this.apiUrl}/${this.apiKey}/${lat},${long},${this.dateStringShort}${this.time}?exclude=${this.exclude}`)
+
+    }
 
 
+    
     dateString;
     dateStringShort: string = '';
     timeString: string = '';
@@ -126,13 +131,10 @@ export class Api {
             // this.dateStringShort = this.dateStringShort.slice(changeLastNumber,this.dateStringShort.length-1);
         }
 
+    
 
     }
 
-    getWeather = (lat, long) => {
-        return this.http.get(`${this.server}${this.apiUrl}/${this.apiKey}/${lat},${long},${this.callDate()}T00:00:00?exclude=${this.exclude}`)
-
-    }
 
 
 
