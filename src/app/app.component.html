@@ -45,6 +45,8 @@
 
    </div>
    <div class="bottomHalf">
+
+
       <div class="slidecontainer">
           <input type="range" min="1" max="3" [(ngModel)]='preEvent' (change)='getEvent()' class="slider" id="myRange" />
           <div class='sliderLabels'>
@@ -60,6 +62,7 @@
         <img *ngIf='showFaceWear' class='clothing' src="../assets/{{facewearUrl}}">
         <img *ngIf='showUpperbodyOuter' id='jacket' src="../assets/{{upperbodyOuterUrl}}">
         <img *ngIf='showUpperbody' id='shirt' class='clothing' src="../assets/{{upperbodyUrl}}">
+
         <img *ngIf='showLowerbody' class='clothing' src="../assets/{{lowerbodyUrl}}">
         <img *ngIf='showFootwear' class='clothing' src="../assets/{{footwearUrl}}">
     </div>
