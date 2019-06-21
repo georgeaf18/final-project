@@ -22,29 +22,75 @@ border-bottom: 4px solid whitesmoke;
 
 .navBar{
 display: flex;
-flex-direction: row;
-justify-content: space-between;
+justify-content: center;
+height: 10%;
+overflow: hidden;
 }
 
 .bottomHalf, .topHalf{
-height: 45%;
 display: flex;
 justify-content: space-between;
 align-items: center;
+overflow: hidden;
 }
 
 .topHalf{
   border-bottom: 2px solid whitesmoke;
   object-fit: contain;
+  height: 30%;
 }
 
 .bottomHalf{
   border-top: 2px solid whitesmoke;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  display: flex;
+  height: 55%;
+  flex-direction: column;
+}
+
+/* ********Mannequin styling********* */
+
+.mannequinDiv{
+  width: auto;
+  height: 85%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   object-fit: contain;
 }
 
+.clothing{
+  min-height: 5px;
+  object-fit: contain;
+  z-index: 2;
+  position: relative;
+  bottom: 120px;
+}
+
+#person{
+  min-height: 5px;
+  object-fit: contain;
+  z-index: 0;
+  position: relative;
+  top: 30px;
+}
+
+#shirt{
+  z-index: 2;
+  position: relative; 
+}
+
+#jacket{
+  z-index: 3;
+  position: relative;
+  bottom: 65px;
+  min-height: 5px;
+  object-fit: contain;
+}
+
+
+/* ***********END mennequin styling*********** */
+
+/* **************BUTTON styling****************** */
 .weatherPanel{
   width: 50%;
   object-fit: contain;
@@ -62,42 +108,12 @@ align-items: center;
   border-style: none;
 }
 
-.mannequin{
+.icon{
   width: auto;
   max-height: 80%;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  
-}
-
-.upperBody{
-  width: auto;
-  max-height: 80%;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden; 
-  z-index: 0;
-}
-
-
-#shirt{
-  z-index: 0;
-  position: relative; 
-}
-/* *********top 85px will need to be changed for a scalable solution***** */
-#jacket{
-  z-index: 2;
-  position: relative;
-  top: 85px;
-
-}
-
-.clothing{
-  min-height: 5px;
-  object-fit: contain;
-  z-index: 1;
-  position: relative;
 }
 
 .weatherImg{
@@ -123,6 +139,7 @@ align-items: center;
   align-content: center;
   justify-content: center;
   margin: 10px;
+  height: 15%;
 }
 
 .slider{
@@ -171,9 +188,10 @@ align-items: center;
   justify-content: space-between;
 }
 
+/* *************END button styling*************** */
+
 .logo {
-  width: 300px;
-  display: block;
-  margin: 0 auto;
-  background: black;
+  height: 100px;
+  margin: 10px;
+
 }
