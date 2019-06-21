@@ -11,7 +11,8 @@ div{
 }
   
 .fullPage {
-  background-color: rgb(139, 226, 172);
+  background-color: #fff;
+  /* background-image: linear-gradient(to right top, #370505, #742d15, #a9620d, #cca300, #d5eb12); */
   height: 100vh;
 }
 
@@ -174,4 +175,5 @@ align-items: center;
   width: 300px;
   display: block;
   margin: 0 auto;
+  background: black;
 }
