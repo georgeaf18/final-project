@@ -3,6 +3,7 @@ import { Api } from '../services/api.services';
 
 
 
+
 @Component({
     selector: 'daytime-component',
     templateUrl: './daytime.component.html',
@@ -12,11 +13,23 @@ import { Api } from '../services/api.services';
 export class DaytimeComponent {
     title = 'final-project';
 
+    temp: number;
+    minTemp: number;
+    maxTemp: number;
+
     ngOnInit() {
         this.callDate();
+       this.api.weather.subscribe(data => {
+           console.log(data)
+           this.temp = data.currently.apparentTemperature;
+           this.minTemp = data.daily.data[0].apparentTemperatureLow;
+           this.maxTemp = data.daily.data[0].apparentTemperatureHigh;
+
+       });
     }
 
     constructor(private api: Api) { }
+
 
     dateString;
     pictureUrl = '../../assets/images/sun-pic.png';
@@ -28,21 +41,21 @@ export class DaytimeComponent {
 
     }
 
-    @Input() lowTemp:number;
-    @Input() highTemp:number;
-    @Input() apparentTemperature:number;
-    @Input() realTemp:number;
+    // @Input() lowTemp:number;
+    // @Input() highTemp:number;
+    // @Input() apparentTemperature:number;
+    // @Input() realTemp:number;
 
 
-    @Input() theHour;
-    @Input() morningTempArray = [];
-    @Input() morningTempAverage:number;
-    @Input() morningMin;
-    @Input() morningMax;
-    @Input() afternoonTempArray = [];
-    @Input() afternoonTempAverage: number;
-    @Input() afternoonMin;
-    @Input() afternoonMax;
+    // @Input() theHour;
+    // @Input() morningTempArray = [];
+    // @Input() morningTempAverage:number;
+    // @Input() morningMin;
+    // @Input() morningMax;
+    // @Input() afternoonTempArray = [];
+    // @Input() afternoonTempAverage: number;
+    // @Input() afternoonMin;
+    // @Input() afternoonMax;
 
 
 }
