@@ -116,7 +116,7 @@ const outfitMap = {
 
   'chilly:casual': {
     male: [{}, {}, upperbody.tshirt, upperbodyOuterwear.lightJacketHoodie, lowerbody.pants, footwear.tennisShoes],
-    female: [{}, {}, upperbody.tshirt, upperbodyOuterwear.lightJacketHoodie, facewear.scarf, lowerbody.pants, footwear.tennisShoes]
+    female: [{}, {}, facewear.scarf,  upperbody.tshirt, upperbodyOuterwear.lightJacketHoodie, lowerbody.pants, footwear.tennisShoes]
   },
 
   'chilly:formal': {
@@ -257,7 +257,7 @@ export class AppComponent {
   showLowerbody: boolean = false;
   showFootwear: boolean = false;
 
-
+  night: boolean = false;
   gender: string = 'male';
 
 
@@ -416,7 +416,6 @@ export class AppComponent {
           // will get the outfit once the temperature is on hand
           if (typeof this.apparentTemperature === 'number') {
             this.getOutfit();
-            console.log(this.apparentTemperature);
 
 
           }
@@ -427,10 +426,9 @@ export class AppComponent {
       }
 
       this.apparentTemperature = data.currently.apparentTemperature;
-      console.log(this.apparentTemperature)
+     
       if (typeof this.apparentTemperature === 'number') {
         this.getOutfit();
-        console.log(this.apparentTemperature);
 
 
       }
@@ -565,6 +563,33 @@ export class AppComponent {
       this.eventType = 'formal';
       this.getLocation();
 
+    }
+  }
+
+  changeColor = () => {
+    return {
+      'darkTheme': this.night
+    }
+  }
+
+  activateDark = () => {
+    this.night = true;
+
+  }
+
+  activateLight = () => {
+    this.night = false;
+  }
+
+  showArrow = () => {
+    return {
+      'noShow': !this.night
+    }
+  }
+
+  showArrowRight = () => {
+    return {
+      'noShow': this.night
     }
   }
 
