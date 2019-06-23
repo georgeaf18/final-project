@@ -1,11 +1,5 @@
 <div class='day-rectangle'>
 
-    <button (click)='callDate()'>
-        CLICK ME
-    </button>
-    <p>
-        {{dateString}}
-    </p>
 
 
     <div class='icon-and-temp'>
@@ -22,11 +16,10 @@
 
 
     <div class='temp-info-more'>
-        <h1>{{ maxTemp | round }} / {{ minTemp | round }}</h1>
-        <h1>Feels like {{ afternoonTempAverage | round}}</h1>
+        <h3>{{ maxTemp | round }} high / {{ minTemp | round }} low</h3>
     </div>
 
 
-    <h1>NIGHT</h1>
+    <p>PM</p>
 
 </div>
