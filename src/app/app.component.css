@@ -21,8 +21,9 @@ div{
 .navBar{
 display: flex;
 justify-content: center;
-height: 80px;
+height: 90px;
 object-fit: scale-down;
+overflow: hidden;
 }
 
 .logo {
@@ -115,8 +116,9 @@ overflow: hidden;
 #footwear{
   min-height: 5px;
   object-fit: scale-down;
-  z-index: 2;
+  z-index: 3;
   position: relative;
+  bottom: 142px;
 }
 
 /* ***********END mannequin styling*********** */
@@ -193,10 +195,12 @@ overflow: hidden;
 }
 
 .gender{
-  display: flex;
+  position: relative;
+  float: right;
   align-items: center;
   justify-content: space-evenly;
   margin: 10px;
+  bottom: 60px;
 }
 
 .slidecontainer {
@@ -258,8 +262,100 @@ overflow: hidden;
   opacity: 1;
 }
 
-
 /* *************END button styling*************** */
 
 
+/* ***************Media Query***************** */
+
+@media only screen and (min-width: 414px){
+
+.fullpage{
+height: 1024px;
+}
+.navBar{
+height: 80px;
+}
+.topHalf{
+height: 233px;
+}
+.bottomHalf, .mannequinDiv{
+height: 375px;
+}
+#person{
+  top: 46px;
+}
+#jacket{
+  bottom: 72px;
+}
+#footwear{
+  bottom: 144px;
+}
+
+/* **********Needs updates********************* */
+@media only screen and (min-width: 768px){
+  
+  .fullpage{
+    height: 768px;
+    }
+    .navBar{
+    height: 80px;
+    }
+    .topHalf{
+    height: 233px;
+    }
+    .bottomHalf, .mannequinDiv{
+    height: 375px;
+    }
+    #person{
+      top: 46px;
+    }
+    #jacket{
+      bottom: 72px;
+    }
+    #footwear{
+      bottom: 144px;
+    }  
+}
+/* **************Needs Updates******************* */
+@media only screen and (min-width: 1280px){
+   
+  body{
+    height: 950px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .fullpage{
+    height: 950px;
+    flex-wrap: wrap;
+    }
+    .navBar{
+    width: 1280px;
+    height: 80px;
+    }
+    .topHalf{
+    width: 768px;
+    height: 950px;
+    /* margin: 0px; */
+    }
+    .bottomHalf, .mannequinDiv{
+    width: 512px;
+    height: 950px;
+    /* margin: 0px; */
+    }
+    #person{
+      top: 180px;
+    }
+  .clothing{
+    bottom: 295px;
+  }
+    #jacket{
+      bottom: 118px;
+    }
+    #footwear{
+      bottom: 300px;
+    } 
+}
+
+}
+/* ***************END Media Query***************** */
 
