@@ -1,10 +1,17 @@
 body{
-  background-color: aqua;
   font-family: 'Courier New', Courier, monospace;
   display: flex;
   flex-direction: column;
   margin: 0;
 }
+
+/* ********GLOBAL styling********* */
+
+.darkTheme {
+  /* background-image: linear-gradient(to top, #2f1d65, #392082, #4322a0, #4e22bf, #5b21df)!important; */
+  background-image: linear-gradient(to top, #2f1d65, #331e89, #311eaf, #281cd6, #001aff)!important;
+}
+
 
 /* ***********LAYOUT styling*************** */
 
@@ -41,6 +48,8 @@ overflow: hidden;
 .topHalf{
   object-fit: contain;
   height: 250px;
+  margin: 0;
+  width: 100%;
 }
 
 .bottomHalf{
@@ -53,6 +62,19 @@ overflow: hidden;
 }
 
 /* ************END Layout styling************ */
+
+/* ********ARROWS styling********* */
+
+
+.arrows {
+  font-size: 3rem;
+  color: white;
+}
+
+.noShow {
+  display: none;
+}
+
 
 /* ********MANNEQUIN styling********* */
 
