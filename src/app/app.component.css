@@ -63,6 +63,28 @@ overflow: hidden;
 
 /* ************END Layout styling************ */
 
+/* ********Navbar styling********* */
+
+  .navbar-toggler.toggler-example {
+  cursor: pointer;
+  color: white;
+  /* margin-left: 8%; */
+  }
+
+  .fa-1x {
+    font-size: 3rem!important;
+  }
+
+  .inner_gender {
+    display: inline-block;
+    margin: 0 auto;
+  }
+
+  .navbar-nav {
+    display: inline!important;
+  }
+  
+
 /* ********ARROWS styling********* */
 
 
@@ -217,8 +239,6 @@ overflow: hidden;
 }
 
 .gender{
-  position: relative;
-  float: right;
   align-items: center;
   justify-content: space-evenly;
   margin: 10px;

@@ -3,8 +3,6 @@ import { Api } from './services/api.services';
 import {outfitMap} from './clothing-items/clothing'
 
 
-
-
 interface Hourly {
   data;
   apparentTemperature: number;
@@ -76,6 +74,7 @@ export class AppComponent {
   showFootwear: boolean = false;
 
   night: boolean = false;
+  genderInput: boolean; 
   gender: string = 'male';
 
 
@@ -206,14 +205,6 @@ export class AppComponent {
           console.log(`the time: ${data.currently.time}`);
           // console.log(`the alert: ${data.flags.sources[0]}`);
 
-
-
-
-
-
-
-
-
           // Create a new JavaScript Date object based on the timestamp
           // multiplied by 1000 so that the argument is in milliseconds, not seconds.
           let date = new Date(data.currently.time * 1000);
@@ -341,16 +332,6 @@ export class AppComponent {
 
   }
 
-  setMale = () => {
-    this.gender = 'male';
-    this.getLocation();
-  };
-
-  setFemale = () => {
-    this.gender = 'female';
-    this.getLocation();
-  };
-
   setFormal = () => {
     this.eventType = 'formal';
     this.getLocation();
@@ -411,6 +392,16 @@ export class AppComponent {
     }
   }
 
+   setGender = () => {
+     if (this.genderInput === false){
+       this.gender = 'female';
+      this.getData();
+     } else if (this.genderInput === true ){
+      this.gender = 'male';
+      this.getData();
+
+     }
+   }
 
 
 

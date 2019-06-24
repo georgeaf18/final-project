@@ -1,18 +1,42 @@
 <div class='fullPage' [ngClass]="changeColor()">
 
+
   <nav>
-    <div class="navBar">
-      <img class="logo" src="../assets/logo/bundleLogo.png" alt="">
+    <div class="navBar ">
+      <img class="logo navbar-brand" src="../assets/logo/bundleLogo.png" alt="">
+    
+
+
+    <!-- Collapse button -->
+    <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse"
+      data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false"
+      aria-label="Toggle navigation"><span class="dark-blue-text"><i class="fas fa-bars fa-1x"></i></span></button>
+
+    <!-- Collapsible content -->
+    
+  </div>
+  <!-- Collapsible content -->
+  
+  
+</nav>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+  
+      <div class='gender navbar-nav mr-auto'>
+        <div class="inner_gender">
+        <i (click)='setMale()' class='fas fa-male fa-2x' id='male'></i>
+  
+        <ui-switch defaultBgColor="red" [(ngModel)]='genderInput' (change)='setGender()'></ui-switch>
+  
+        <i (click)='setFemale()' class='fas fa-female fa-2x' id='female'></i>
+        </div>
+      </div>
+  
     </div>
-    <div class='gender'>
-      <i (click)='setMale()' class='fas fa-male fa-2x' id='male'></i>
-      <i (click)='setFemale()' class='fas fa-female fa-2x' id='female'></i>
-    </div>
-  </nav>
 
   <div class="topHalf">
 
-    <button [ngClass]="showArrow()" (click) = 'activateLight()'>
+    <button [ngClass]="showArrow()" (click)='activateLight()'>
       <a routerLink='' routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
         <i class="fas fa-chevron-left arrows"></i>
 
@@ -27,7 +51,7 @@
         <i class="fas fa-chevron-right arrows"></i>
       </a>
     </button>
-   
+
   </div>
   <div class="bottomHalf">
     <div class='speech-bubble'>
