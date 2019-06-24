@@ -17,28 +17,88 @@ export class DaytimeComponent {
     minTemp: number;
     maxTemp: number;
 
+
+    lowTemp;
+    highTemp;
+    realTemp;
+
+    theHour;
+    morningTempArray = [];
+    morningTempAverage: number = 0;
+    morningMin;
+    morningMax;
+    afternoonTempArray = [];
+    afternoonTempAverage: number = 0;
+    afternoonMin;
+    afternoonMax;
+
     ngOnInit() {
         this.callDate();
-       this.api.weather.subscribe(data => {
-           console.log(data)
-           this.temp = data.currently.apparentTemperature;
-           this.minTemp = data.daily.data[0].apparentTemperatureLow;
-           this.maxTemp = data.daily.data[0].apparentTemperatureHigh;
-
-       });
-    }
-
-    constructor(private api: Api) { }
+        this.api.weather.subscribe(data => {
+            console.log(data)
+            this.temp = data.currently.apparentTemperature;
+            this.minTemp = data.daily.data[0].apparentTemperatureLow;
+            this.maxTemp = data.daily.data[0].apparentTemperatureHigh;
 
 
-    dateString;
-    pictureUrl = '../../assets/images/sun-pic.png';
 
-    callDate = () => {
+            // Holden's addition to make the correct temperature display 
+            // for both morning and night ... i use a day and night array
+            // of averages for the morning and afternoon times when the 
+            // user will likely be experiencing the weather (before and 
+            // after work)
+            this.theHour = data.hourly.data;
+            let hourCounter: number;
+            for (hourCounter = 5; hourCounter < 12; hourCounter++) {
+                let currentAppTemp = this.theHour[hourCounter].apparentTemperature;
+                this.morningTempAverage += currentAppTemp;
+                this.morningTempArray.push(currentAppTemp);
+                console.log(currentAppTemp);
+            };
+            console.log(`this.morningTempAverage: ${this.morningTempAverage}`);
+            this.morningTempAverage = this.morningTempAverage / this.morningTempArray.length;
+            // for (hourCounter = 12; hourCounter < 25; hourCounter++) {
+            //     let currentAppTemp = this.theHour[hourCounter].apparentTemperature;
+            //     this.afternoonTempAverage += currentAppTemp;
+            //     this.afternoonTempArray.push(currentAppTemp);
+            //     console.log(currentAppTemp);
+            // };
+            this.afternoonTempAverage = this.afternoonTempAverage / this.afternoonTempArray.length;
+            console.log(`this.morningTempArray: ${this.morningTempArray}`);
+            this.morningMin = Math.min.apply(null, this.morningTempArray);
+            this.morningMax = Math.max.apply(null, this.morningTempArray);
+            console.log(this.morningMin);
+            console.log(this.morningMax);
+            console.log(this.morningTempArray.length)
+            console.log(`this.morningTempAverage: ${this.morningTempAverage}`);
+
+            // console.log(`this.afternoonTempArray: ${this.afternoonTempArray}`);
+            // console.log(this.afternoonTempArray.length)
+            // console.log(`this.afternoonTempAverage: ${this.afternoonTempAverage}`);
+            // this.afternoonMin = Math.min.apply(null, this.afternoonTempArray);
+            // this.afternoonMax = Math.max.apply(null, this.afternoonTempArray);
+            // console.log(this.afternoonMin);
+            // console.log(this.afternoonMax);
+        });
+
+}
+
+constructor(private api: Api) { }
+
+
+dateString;
+pictureUrl = '../../assets/images/sun-pic.png';
+
+    private _callDate = () => {
         let now = new Date();
-        this.dateString = now; 
+        this.dateString = now;
         console.log(`now: ${now}`);
-
+    };
+    public get callDate() {
+        return this._callDate;
+    }
+    public set callDate(value) {
+        this._callDate = value;
     }
 
     // @Input() lowTemp:number;
