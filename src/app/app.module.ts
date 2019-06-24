@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DaytimeComponent } from './daytime/daytime.component';
 import { NightComponent } from './night/night.component';
 import { Round } from './pipes/round.pipe';
+import { UiSwitchModule } from 'ngx-toggle-switch';
 
 const appRoutes: Routes = [
   {path: '', component: DaytimeComponent},
@@ -28,7 +29,8 @@ const appRoutes: Routes = [
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    UiSwitchModule
 
   ],
   providers: [Api],
