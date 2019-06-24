@@ -74,7 +74,7 @@ export class AppComponent {
   showFootwear: boolean = false;
 
   night: boolean = false;
-  genderInput: boolean; 
+  genderInput: boolean = false; 
   gender: string = 'male';
 
 
@@ -393,14 +393,16 @@ export class AppComponent {
   }
 
    setGender = () => {
-     if (this.genderInput === false){
-       this.gender = 'female';
-      this.getData();
-     } else if (this.genderInput === true ){
+       if (this.genderInput === true ){
       this.gender = 'male';
       this.getData();
 
-     }
+     } 
+     
+     if (this.genderInput === false){
+      this.gender = 'female';
+     this.getData();
+    }
    }
 
 
