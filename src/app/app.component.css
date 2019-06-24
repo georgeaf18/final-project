@@ -131,9 +131,9 @@ width: 100vw;
   bottom: 80px;
 }
 
-.clothing{
+/* .clothing{
   bottom: 140px;
-}
+} */
 
 #person{
   z-index: 0;
@@ -303,14 +303,14 @@ width: 100vw;
   cursor: pointer;
 }
 
-#male, #female {
+/* #male, #female {
   opacity: 0.6;
 }
 
 #male:hover, #female:hover {
   background-color:whitesmoke;
   opacity: 1;
-}
+} */
 
 /* *************END button styling*************** */
 
@@ -345,7 +345,11 @@ width: 100vw;
 /* **************Needs Updates******************* */
 @media only screen and (min-width: 769px){
    
+    nav{
+      height: 20vh;
+    }  
     .mainLayout{
+    height: 80vh;
     display: flex;
     }
     .navBar{
