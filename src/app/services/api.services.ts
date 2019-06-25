@@ -29,7 +29,6 @@ export class Api {
     getWeather = (lat, long) => {
         console.log('called')
         return this.http.get(`${this.server}${this.apiUrl}/${this.apiKey}/${lat},${long},${this.dateStringShort}${this.time}?exclude=${this.exclude}`)
-
     }
 
 

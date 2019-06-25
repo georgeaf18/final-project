@@ -33,8 +33,15 @@ export class DaytimeComponent {
     afternoonMin;
     afternoonMax;
 
-    ngOnInit() {
-        this.callDate();
+    constructor(private api: Api) { }
+
+
+    dateString;
+    pictureUrl = '../../assets/images/sun-pic.png';
+
+    littleTimeout() {
+        setTimeout(() => {
+            this.callDate();
         this.api.weather.subscribe(data => {
             console.log(data)
             this.temp = data.currently.apparentTemperature;
@@ -77,7 +84,7 @@ export class DaytimeComponent {
             //     this.afternoonTempArray.push(currentAppTemp);
             //     console.log(currentAppTemp);
             //     this.afternoonTempAverage = this.afternoonTempAverage / this.afternoonTempArray.length;
-    
+
             //     this.afternoonMin = Math.min.apply(null, this.afternoonTempArray);
             //     this.afternoonMax = Math.max.apply(null, this.afternoonTempArray);
             // };
@@ -88,13 +95,12 @@ export class DaytimeComponent {
             // console.log(`this.afternoonTempAverage: ${this.afternoonTempAverage}`);
         });
 
-}
+        }, 500);   
+    }
 
-constructor(private api: Api) { }
-
-
-dateString;
-pictureUrl = '../../assets/images/sun-pic.png';
+    ngOnInit() {
+        this.littleTimeout();
+    }
 
     private _callDate = () => {
         let now = new Date();
@@ -108,7 +114,7 @@ pictureUrl = '../../assets/images/sun-pic.png';
         this._callDate = value;
     }
 
-    
+
 
     // @Input() lowTemp:number;
     // @Input() highTemp:number;
