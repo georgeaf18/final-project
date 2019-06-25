@@ -16,6 +16,7 @@ export class DaytimeComponent {
     temp: number;
     minTemp: number;
     maxTemp: number;
+    icon: string;
 
 
     lowTemp;
@@ -57,14 +58,7 @@ export class DaytimeComponent {
             };
             console.log(`this.morningTempAverage: ${this.morningTempAverage}`);
             this.morningTempAverage = this.morningTempAverage / this.morningTempArray.length;
-            // for (hourCounter = 12; hourCounter < 25; hourCounter++) {
-            //     let currentAppTemp = this.theHour[hourCounter].apparentTemperature;
-            //     this.afternoonTempAverage += currentAppTemp;
-            //     this.afternoonTempArray.push(currentAppTemp);
-            //     console.log(currentAppTemp);
-            // };
-            this.afternoonTempAverage = this.afternoonTempAverage / this.afternoonTempArray.length;
-            console.log(`this.morningTempArray: ${this.morningTempArray}`);
+
             this.morningMin = Math.min.apply(null, this.morningTempArray);
             this.morningMax = Math.max.apply(null, this.morningTempArray);
             console.log(this.morningMin);
@@ -72,13 +66,26 @@ export class DaytimeComponent {
             console.log(this.morningTempArray.length)
             console.log(`this.morningTempAverage: ${this.morningTempAverage}`);
 
-            // console.log(`this.afternoonTempArray: ${this.afternoonTempArray}`);
-            // console.log(this.afternoonTempArray.length)
+
+
+
+
+
+            // for (hourCounter = 12; hourCounter < 25; hourCounter++) {
+            //     let currentAppTemp = this.theHour[hourCounter].apparentTemperature;
+            //     this.afternoonTempAverage += currentAppTemp;
+            //     this.afternoonTempArray.push(currentAppTemp);
+            //     console.log(currentAppTemp);
+            //     this.afternoonTempAverage = this.afternoonTempAverage / this.afternoonTempArray.length;
+    
+            //     this.afternoonMin = Math.min.apply(null, this.afternoonTempArray);
+            //     this.afternoonMax = Math.max.apply(null, this.afternoonTempArray);
+            // };
             // console.log(`this.afternoonTempAverage: ${this.afternoonTempAverage}`);
-            // this.afternoonMin = Math.min.apply(null, this.afternoonTempArray);
-            // this.afternoonMax = Math.max.apply(null, this.afternoonTempArray);
             // console.log(this.afternoonMin);
             // console.log(this.afternoonMax);
+            // console.log(`this.afternoonTempArray: ${this.afternoonTempArray}`);
+            // console.log(`this.afternoonTempAverage: ${this.afternoonTempAverage}`);
         });
 
 }
@@ -100,6 +107,8 @@ pictureUrl = '../../assets/images/sun-pic.png';
     public set callDate(value) {
         this._callDate = value;
     }
+
+    
 
     // @Input() lowTemp:number;
     // @Input() highTemp:number;
