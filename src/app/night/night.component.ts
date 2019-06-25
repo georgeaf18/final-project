@@ -44,6 +44,8 @@ export class NightComponent {
             this.temp = data.currently.apparentTemperature;
             this.minTemp = data.daily.data[0].apparentTemperatureLow;
             this.maxTemp = data.daily.data[0].apparentTemperatureHigh;
+            this.icon = data.currently.icon;
+            
 
 
             // Holden's addition to make the correct temperature display 

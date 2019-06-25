@@ -47,6 +47,7 @@ export class DaytimeComponent {
             this.temp = data.currently.apparentTemperature;
             this.minTemp = data.daily.data[0].apparentTemperatureLow;
             this.maxTemp = data.daily.data[0].apparentTemperatureHigh;
+            this.icon = data.currently.icon;
 
 
 
