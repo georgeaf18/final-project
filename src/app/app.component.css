@@ -1,4 +1,4 @@
-body{
+body {
   font-family: 'Courier New', Courier, monospace;
   display: flex;
   flex-direction: column;
@@ -9,50 +9,53 @@ body{
 
 .darkTheme {
   /* background-image: linear-gradient(to top, #2f1d65, #392082, #4322a0, #4e22bf, #5b21df)!important; */
-  background-image: linear-gradient(to top, #2f1d65, #331e89, #311eaf, #281cd6, #001aff)!important;
+  background-image: linear-gradient(to top, #2f1d65, #331e89, #311eaf, #281cd6, #001aff) !important;
 }
 
 
 /* ***********LAYOUT styling*************** */
 
 .fullPage {
-  background: rgb(136,220,255);
-  background: linear-gradient(0deg, rgba(136,220,255,1) 0%, rgba(15,163,224,1) 50%, rgba(57,137,255,1) 100%);
+  background: rgb(136, 220, 255);
+  background: linear-gradient(0deg, rgba(136, 220, 255, 1) 0%, rgba(15, 163, 224, 1) 50%, rgba(57, 137, 255, 1) 100%);
   height: 100vh;
   width: 100vw;
 }
-.mainLayout{
+
+.mainLayout {
   height: 85vh;
 }
 
-nav{
+nav {
   height: 15vh;
   width: 100vw;
   object-fit: scale-down;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   overflow: hidden;
 }
 
-img{
+img {
   min-width: 5px;
   min-height: 5px;
   object-fit: scale-down;
   /* max-height: 100%; */
 }
 
-.logoDiv{
-height: 100%;
-width: auto;
-margin: 10px;
-object-fit: scale-down;
+.logoDiv {
+  height: 100%;
+  width: auto;
+  margin: 10px 0px 0px 20px;
+  object-fit: scale-down;
 }
-#logoImg{
+
+#logoImg {
   object-fit: scale-down;
   max-height: 100%;
 }
-.settings{
+
+.settings {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -61,20 +64,21 @@ object-fit: scale-down;
   position: relative;
 }
 
-.bottomHalf, .topHalf{
-display: flex;
-justify-content: space-between;
-align-items: center;
-overflow: hidden;
-width: 100vw;
+.bottomHalf,
+.topHalf {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  width: 100vw;
 }
 
-.topHalf{
+.topHalf {
   /* object-fit: scale-down; */
   height: 35%;
 }
 
-.bottomHalf{
+.bottomHalf {
   flex-direction: row;
   flex-wrap: nowrap;
   display: flex;
@@ -87,25 +91,40 @@ width: 100vw;
 
 /* ********Navbar styling********* */
 
-  .navbar-toggler.toggler-example {
+.navbar-toggler.toggler-example {
   cursor: pointer;
   color: white;
   /* margin-left: 8%; */
-  }
+}
 
-  .fa-1x {
-    font-size: 2.5rem!important;
-  }
+.fa-1x {
+  font-size: 2.5rem !important;
+}
 
-  .inner_gender {
-    display: inline-block;
-    margin: 0 auto;
-  }
 
-  .navbar-nav {
-    display: inline!important;
-  }
-  
+
+.inner_gender {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.navbar-nav {
+  margin: 0 auto;
+  margin: 0px auto;
+  float: none;
+  display: table !important;
+}
+
+.navbar-collapse {
+  margin: 10px 0;
+  padding: 10px 0;
+  background-color: rgb(248, 247, 247);
+}
+
+.switch {
+  margin: 0 20px; 
+}
+
 
 /* ********ARROWS styling********* */
 
@@ -122,7 +141,7 @@ width: 100vw;
 
 /* ********MANNEQUIN styling********* */
 
-.mannequinDiv{
+.mannequinDiv {
   width: auto;
   height: 100%;
   display: flex;
@@ -135,39 +154,39 @@ width: 100vw;
   bottom: 140px;
 } */
 
-#person{
+#person {
   z-index: 0;
   position: relative;
   top: 65px;
 }
 
-#headwear{
+#headwear {
   z-index: 2;
   position: relative;
 }
 
-#facewear{
+#facewear {
   z-index: 4;
   position: relative;
 }
 
-#jacket{
+#jacket {
   z-index: 3;
   position: relative;
   bottom: 65px;
 }
 
-#shirt{
+#shirt {
   z-index: 2;
   position: relative;
 }
 
-#lowerBody{
+#lowerBody {
   z-index: 2;
   position: relative;
 }
 
-#footwear{
+#footwear {
   z-index: 3;
   position: relative;
   bottom: 142px;
@@ -178,29 +197,29 @@ width: 100vw;
 /* ******************SPEECH BUBBLE styling**************** */
 
 .speech-bubble {
-	position: relative;
-	background: #ffffff;
+  position: relative;
+  background: #ffffff;
   border-radius: .4em;
   top: 10px;
   z-index: 1;
 }
 
 .speech-bubble:after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 50%;
-	width: 0;
-	height: 0;
-	border: 31px solid transparent;
-	border-top-color: #ffffff;
-	border-bottom: 0;
-	border-right: 0;
-	margin-left: -50px;
-	margin-bottom: -31px;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border: 31px solid transparent;
+  border-top-color: #ffffff;
+  border-bottom: 0;
+  border-right: 0;
+  margin-left: -50px;
+  margin-bottom: -31px;
 }
 
-.speech{
+.speech {
   margin: 15px;
   font-size: 1em;
   font-weight: bold;
@@ -213,24 +232,24 @@ width: 100vw;
 
 /* **************BUTTON styling****************** */
 
-.weatherPanel{
+.weatherPanel {
   width: 50%;
   object-fit: contain;
 }
 
-.navButton{
+.navButton {
   margin: 15px;
 }
 
-.swipe{
-  float: right; 
+.swipe {
+  float: right;
   margin: 0;
   height: 70%;
   border-radius: 7%;
   border-style: none;
 }
 
-.icon{
+.icon {
   width: auto;
   max-height: 80%;
   display: flex;
@@ -238,7 +257,7 @@ width: 100vw;
   overflow: hidden;
 }
 
-.weatherImg{
+.weatherImg {
   overflow: hidden;
   /* min-height: 5px; */
   /* min-width: 5px; */
@@ -246,15 +265,16 @@ width: 100vw;
   width: 100%;
 }
 
-.gender{
+.gender {
   align-items: center;
   justify-content: space-evenly;
-  margin: 10px;
+  margin: 0 auto;
   bottom: 60px;
+  display: inline-block;
 }
 
 .slidecontainer {
-  width: 50%; 
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -271,18 +291,18 @@ width: 100vw;
   justify-content: space-between;
 }
 
-.slider{
-  -webkit-appearance: none; 
+.slider {
+  -webkit-appearance: none;
   appearance: none;
-  width: 100%; 
-  height: 5px; 
-  background: rgb(128, 125, 125); 
-  outline: none; 
-  -webkit-transition: .2s; 
+  width: 100%;
+  height: 5px;
+  background: rgb(128, 125, 125);
+  outline: none;
+  -webkit-transition: .2s;
   transition: opacity .2s;
   margin-bottom: 10px;
   border-radius: 5px;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 .slider::-webkit-slider-thumb {
@@ -290,8 +310,8 @@ width: 100vw;
   appearance: none;
   width: 15px;
   height: 15px;
-  border-radius: 50%; 
-  background:black;
+  border-radius: 50%;
+  background: black;
   cursor: pointer;
 }
 
@@ -299,7 +319,7 @@ width: 100vw;
   width: 5%;
   height: 5%;
   border-radius: 50%;
-  background:black;
+  background: black;
   cursor: pointer;
 }
 
@@ -317,68 +337,83 @@ width: 100vw;
 
 /* ***************Media Query***************** */
 
-@media only screen and (min-width: 414px){
+@media only screen and (min-width: 414px) {
 
-#person{
-  top: 46px;
-}
-#jacket{
-  bottom: 72px;
-}
-#footwear{
-  bottom: 144px;
-}
+  #person {
+    top: 46px;
+  }
 
-/* **********Needs updates********************* */
-@media only screen and (min-width: 768px){
+  #jacket {
+    bottom: 72px;
+  }
 
-    #person{
+  #footwear {
+    bottom: 144px;
+  }
+
+  /* **********Needs updates********************* */
+  @media only screen and (min-width: 768px) {
+
+    #person {
       top: 46px;
     }
-    #jacket{
+
+    #jacket {
       bottom: 72px;
     }
-    #footwear{
+
+    #footwear {
       bottom: 144px;
-    }  
-}
-/* **************Needs Updates******************* */
-@media only screen and (min-width: 769px){
-   
-    nav{
+    }
+  }
+
+  /* **************Needs Updates******************* */
+  @media only screen and (min-width: 769px) {
+
+    nav {
       height: 20vh;
-    }  
-    .mainLayout{
-    height: 80vh;
-    display: flex;
     }
-    .navBar{
-    width: 100vw;
+
+    .mainLayout {
+      height: 80vh;
+      display: flex;
     }
-    .topHalf{
-    width: 60vw;
-    height: 100%;
+
+    .navBar {
+      width: 100vw;
     }
-    .bottomHalf{
-    width: 40vw;
+
+    .topHalf {
+      width: 60vw;
+      height: 100%;
     }
-    .bottomHalf, .mannequinDiv{
-    height: 100%;
+
+    .bottomHalf {
+      width: 40vw;
     }
-    #person{
+
+    .bottomHalf,
+    .mannequinDiv {
+      height: 100%;
+    }
+
+    #person {
       top: 180px;
     }
-  .clothing{
-    bottom: 295px;
-  }
-    #jacket{
+
+    .clothing {
+      bottom: 295px;
+    }
+
+    #jacket {
       bottom: 118px;
     }
-    #footwear{
+
+    #footwear {
       bottom: 300px;
-    } 
-}
+    }
+  }
 
 }
+
 /* ***************END Media Query***************** */
-

@@ -3,3 +3,9 @@ img {
   max-width: none;
   
 }
+
+html {
+  overflow: hidden;
+  position:fixed;
+
+}
