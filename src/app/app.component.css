@@ -45,7 +45,7 @@ img{
 .logoDiv{
 height: 100%;
 width: auto;
-margin: 10px;
+padding: 10px;
 object-fit: scale-down;
 }
 #logoImg{
@@ -131,9 +131,9 @@ width: 100vw;
   bottom: 80px;
 }
 
-/* .clothing{
-  bottom: 140px;
-} */
+.clothing{
+  bottom: 150px;
+}
 
 #person{
   z-index: 0;
