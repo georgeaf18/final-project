@@ -9,11 +9,11 @@ export class Api {
     private _weather = new BehaviorSubject(null);
     weather = this._weather.asObservable();
 
-    server = 'https://thingproxy.freeboard.io/fetch/'
+    server = 'https://thingproxy.freeboard.io/fetch/';
     apiUrl = 'https://api.darksky.net/forecast';
     apiKey = 'a37531bbb850d56fe736c132b318ead7';
     // time = '1996-05-04T12:05:01';
-    time = '2019-06-24T00:00:00'; //needed to finish the Time Machine Callback for the Darksky API
+    time = '2019-06-24'; //needed to finish the Time Machine Callback for the Darksky API
     exclude = ''; //'minutely,flags,alerts';
     // https://api.darksky.net/forecast/a37531bbb850d56fe736c132b318ead7/42.3314,-83.0458
 
@@ -26,11 +26,14 @@ export class Api {
         this._weather.next(data);
     }
 
-    getWeather = (lat, long) => {
-        console.log('called')
-        return this.http.get(`${this.server}${this.apiUrl}/${this.apiKey}/${lat},${long},${this.dateStringShort}${this.time}?exclude=${this.exclude}`)
+    getWeather = (lat, long, time=this.time) => {
+        console.log(`called: ${time}`);
+        return this.http.get(`${this.server}${this.apiUrl}/${this.apiKey}/${lat},${long},${this.dateStringShort}${time}T00:00:00?exclude=${this.exclude}`)
     }
 
+    newDate = () => {
+
+    }
 
     
     dateString;

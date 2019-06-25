@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Api } from './services/api.services';
 import { outfitMap } from './clothing-items/clothing'
 
@@ -78,16 +78,131 @@ export class AppComponent {
   gender: string = 'male';
   speech: string = 'Have a great day today!'
 
+  
+
+
+
 
   ngOnInit() {
     this.getLocation();
   }
 
-
-
   constructor(private api: Api) {
 
   }
+
+
+
+
+  inputDate: string;
+
+  @Output() add = new EventEmitter<object>();
+  addDate = (inputValue) => {
+    console.log(`inputValue: ${inputValue}`);
+    this.inputDate = inputValue;
+    console.log(`this.inputDate: ${this.inputDate}`);
+    this.add.emit({ inputDate: inputValue });
+    // this.inputDate = '';
+    console.log(`this.inputDate: ${this.inputDate}`);
+
+
+
+    this.api.getWeather(this.lat, this.long, this.inputDate).subscribe((apiData: ApiData) => {
+      let data = apiData;
+      this.api.updateWeather(data);
+      this.apparentTemperature = data.currently.apparentTemperature;
+
+      this.realTemp = data.currently.temperature;
+
+      this.icon = data.currently.icon;
+      console.log("TCL: AppComponent -> getData -> this.icon", this.icon)
+      this.humidity = data.currently.humidity;
+      console.log(data);
+
+      this.theHour = data.hourly.data;
+
+      console.log(data);
+
+      this.lowTemp = data.daily.data[0].apparentTemperatureLow;
+      this.highTemp = data.daily.data[0].apparentTemperatureHigh;
+      console.log(`this.lowTemp: ${this.lowTemp}`);
+      console.log(`this.highTemp: ${this.highTemp}`);
+
+
+      console.log(`the time: ${data.currently.time}`);
+      // console.log(`the alert: ${data.flags.sources[0]}`);
+
+      // Create a new JavaScript Date object based on the timestamp
+      // multiplied by 1000 so that the argument is in milliseconds, not seconds.
+      let date = new Date(data.currently.time * 1000);
+      // Hours part from the timestamp
+      let hours = date.getHours();
+      // Minutes part from the timestamp
+      let minutes = "0" + date.getMinutes();
+      // Seconds part from the timestamp
+      let seconds = "0" + date.getSeconds();
+
+      // Will display time in 10:30:23 format
+      let formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+
+      console.log(`formatted time: ${formattedTime}`);
+
+
+
+
+
+
+
+
+      // console.log(`the location is: latitude=${data.latitude}, longitude=${data.longitude}`);
+
+      // will get the outfit once the temperature is on hand
+      if (typeof this.apparentTemperature === 'number') {
+        this.getOutfit();
+
+
+      }
+
+    })
+
+
+
+
+  };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   //******************************** get location through navigator's geolocation function */ 
 
@@ -412,7 +527,7 @@ export class AppComponent {
 
     } else if (this.icon === 'snow') {
       this.speech = 'Don\'t forget to grab your snow boots';
-    } 
+    }
   }
 
 

@@ -76,6 +76,9 @@ export class DaytimeComponent {
 
 
 
+            this.morningTempArray.length = 0;
+            console.log(`this.morningTempArray.length: ${this.morningTempArray.length}`);
+
 
 
 
