@@ -3,27 +3,33 @@
 
   <nav>
     <div class="logoDiv">
-      <img id= 'logoImg' class="logo navbar-brand" src="../assets/logo/bundleLogo.png" alt="">
-    </div>  
-      <!-- Collapse button -->
-    <div class= "settings">
+      <img id='logoImg' class="logo navbar-brand" src="../assets/logo/bundleLogo.png" alt="">
+    </div>
+    <!-- Collapse button -->
+    <div class="settings">
       <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse"
-      data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false"
-      aria-label="Toggle navigation"><span class="dark-blue-text"><i class="fas fa-bars fa-1x"></i></span></button>
+        data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="dark-blue-text">
+          <i class="fas fa-bars fa-1x"></i>
+        </span>
+      </button>
       <!-- Collapsible content -->
-      <!-- Collapsible content -->
-      <div class="collapse navbar-collapse" id="navbarSupportedContent1">
-        <div class='gender navbar-nav mr-auto'>
-          <div class="inner_gender">
-            <i (click)='setMale()' class='fas fa-male fa-2x' id='male'></i>
-            <ui-switch defaultBgColor="red" [(ngModel)]='genderInput' (change)='setGender()'></ui-switch>
-            <i (click)='setFemale()' class='fas fa-female fa-2x' id='female'></i>
-          </div>
-        </div>
-      </div>
     </div>
   </nav>
-  <div class = mainLayout>
+
+  <!-- Collapsible content -->
+  <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+    <div class='gender navbar-nav mr-auto'>
+      <div class="inner_gender">
+        <i class='fas fa-male fa-2x' id='male'></i>
+        <ui-switch defaultBgColor="#0000ff" [(ngModel)]='genderInput' (change)='setGender()' color="red" class="switch"></ui-switch>
+        <i class='fas fa-female fa-2x' id='female'></i>
+      </div>
+    </div>
+  </div>
+
+  <div class=mainLayout>
 
     <div class="topHalf">
 
@@ -44,9 +50,11 @@
       </button>
 
     </div>
+
+
     <div class="bottomHalf">
       <div class='speech-bubble'>
-        <h4 class='speech'>Don't forget to bring your...</h4>
+        <h4 class='speech'>{{speech}}</h4>
       </div>
       <div class='mannequinDiv'>
         <img id='person' src='../assets/clothes/icon.png'>
@@ -59,16 +67,16 @@
       </div>
       <div class="slidecontainer">
 
-          <input type="range" min="1" max="3" [(ngModel)]='preEvent' (change)='getEvent()' class="slider" id="myRange" />
-          <div class='sliderLabels'>
-            <i class="fas fa-tshirt"></i>
-            <i class="fas fa-briefcase"></i>
-            <i class="fas fa-user-tie"></i>
-          </div>
-
+        <input type="range" min="1" max="3" [(ngModel)]='preEvent' (change)='getEvent()' class="slider" id="myRange" />
+        <div class='sliderLabels'>
+          <i class="fas fa-tshirt"></i>
+          <i class="fas fa-briefcase"></i>
+          <i class="fas fa-user-tie"></i>
         </div>
+
       </div>
+    </div>
   </div>
 
-  
+
 </div>

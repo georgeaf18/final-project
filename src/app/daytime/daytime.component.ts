@@ -16,6 +16,7 @@ export class DaytimeComponent {
     temp: number;
     minTemp: number;
     maxTemp: number;
+    icon: string;
 
     ngOnInit() {
         this.callDate();
@@ -24,6 +25,7 @@ export class DaytimeComponent {
            this.temp = data.currently.apparentTemperature;
            this.minTemp = data.daily.data[0].apparentTemperatureLow;
            this.maxTemp = data.daily.data[0].apparentTemperatureHigh;
+           this.icon = data.currently.icon;
 
        });
     }
@@ -40,6 +42,8 @@ export class DaytimeComponent {
         console.log(`now: ${now}`);
 
     }
+
+    
 
     // @Input() lowTemp:number;
     // @Input() highTemp:number;
