@@ -4,19 +4,22 @@
 
     <div class='icon-and-temp'>
         <div class='sun-icon'>
-            <img class='sun-pic' src='{{pictureUrl}}'>
+            <!-- <img class='sun-pic' src='{{pictureUrl}}'> -->
+            <sc-skycons [weather]="'clear-night'" [color]="'white'"></sc-skycons>
+
         </div>
 <!-- All these  numbers are being rounded by the round pipe I created in the pipes folder -->
         <div class='temp-number'>
             <h1>
-                {{ temp | round }}
+                {{ afternoonTempAverage*12 | round }} average
             </h1>
         </div>
     </div>
 
 
     <div class='temp-info-more'>
-        <h3>{{ maxTemp | round }} high / {{ minTemp | round }} low</h3>
+        <h3>{{ afternoonMax | round }} high / {{ afternoonMin | round }} low</h3>
+        <h3>( {{ temp | round }} right now ) </h3>
     </div>
 
 

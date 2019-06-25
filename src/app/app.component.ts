@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Api } from './services/api.services';
-import {outfitMap} from './clothing-items/clothing'
+import { outfitMap } from './clothing-items/clothing'
 
 
 interface Hourly {
@@ -74,8 +74,9 @@ export class AppComponent {
   showFootwear: boolean = false;
 
   night: boolean = false;
-  genderInput: boolean; 
+  genderInput: boolean = false;
   gender: string = 'male';
+  speech: string = 'Have a great day today!'
 
 
   ngOnInit() {
@@ -117,14 +118,10 @@ export class AppComponent {
   afternoonTempAverage: number = 0;
   afternoonMin;
   afternoonMax;
-  dataChildren = [
-    this.apparentTemperature,
-    this.lowTemp,
-    this.highTemp
-  ];
+
 
   getData = () => {
-    this.api.weather.subscribe((response:ApiData) => {
+    this.api.weather.subscribe((response: ApiData) => {
       let data = response
       if (!data) {
         this.api.getWeather(this.lat, this.long).subscribe((apiData: ApiData) => {
@@ -133,9 +130,9 @@ export class AppComponent {
           this.apparentTemperature = data.currently.apparentTemperature;
 
           this.realTemp = data.currently.temperature;
-          console.log(`this.realTemp: ${this.realTemp}`);
 
           this.icon = data.currently.icon;
+          console.log("TCL: AppComponent -> getData -> this.icon", this.icon)
           this.humidity = data.currently.humidity;
           console.log(data);
 
@@ -193,7 +190,7 @@ export class AppComponent {
           // this.hourlyArray = data.
 
 
-          console.log(`data.hourly.data: ${data.hourly.data[0]}`);
+          // console.log(`data.hourly.data: ${data.hourly.data[0].apparentTemperature}`);
           console.log(data);
 
           this.lowTemp = data.daily.data[0].apparentTemperatureLow;
@@ -235,7 +232,7 @@ export class AppComponent {
       }
 
       this.apparentTemperature = data.currently.apparentTemperature;
-     
+
       if (typeof this.apparentTemperature === 'number') {
         this.getOutfit();
 
@@ -243,6 +240,8 @@ export class AppComponent {
       }
 
     })
+
+
 
   }
 
@@ -252,39 +251,41 @@ export class AppComponent {
 
   getOutfit = () => {
 
-      if ( typeof this.weatherType !== 'string'){
-    if (this.apparentTemperature >= 95) {
+    if (typeof this.weatherType !== 'string') {
+      if (this.apparentTemperature >= 95) {
 
-      this.weatherType = 'very hot';
+        this.weatherType = 'very hot';
 
-    } else if (this.apparentTemperature >= 80 && this.apparentTemperature <= 94) {
+      } else if (this.apparentTemperature >= 80 && this.apparentTemperature <= 94) {
 
-      this.weatherType = 'hot';
+        this.weatherType = 'hot';
 
-    } else if (this.apparentTemperature > 69 && this.apparentTemperature <= 79) {
+      } else if (this.apparentTemperature > 69 && this.apparentTemperature <= 79) {
 
-      this.weatherType = 'warm';
+        this.weatherType = 'warm';
 
-    } else if (this.apparentTemperature > 50 && this.apparentTemperature <= 68) {
+      } else if (this.apparentTemperature > 50 && this.apparentTemperature <= 68) {
 
-      this.weatherType = 'chilly';
+        this.weatherType = 'chilly';
 
-    } else if (this.apparentTemperature > 33 && this.apparentTemperature <= 49) {
+      } else if (this.apparentTemperature > 33 && this.apparentTemperature <= 49) {
 
-      this.weatherType = 'cold';
+        this.weatherType = 'cold';
 
-    } else if (this.apparentTemperature > 1 && this.apparentTemperature <= 32) {
+      } else if (this.apparentTemperature > 1 && this.apparentTemperature <= 32) {
 
-      this.weatherType = 'very cold';
-      
-    } else if (this.apparentTemperature < 0) {
+        this.weatherType = 'very cold';
 
-      this.weatherType = 'extremely cold';
+      } else if (this.apparentTemperature < 0) {
+
+        this.weatherType = 'extremely cold';
+      }
     }
-  }
 
     if (typeof this.weatherType === 'string') {
       this.getOutfitUrl();
+
+      this.setSpeech();
     }
 
   }
@@ -392,16 +393,27 @@ export class AppComponent {
     }
   }
 
-   setGender = () => {
-     if (this.genderInput === false){
-       this.gender = 'female';
-      this.getData();
-     } else if (this.genderInput === true ){
+  setGender = () => {
+    if (this.genderInput === true) {
       this.gender = 'male';
       this.getData();
 
-     }
-   }
+    }
+
+    if (this.genderInput === false) {
+      this.gender = 'female';
+      this.getData();
+    }
+  }
+
+  setSpeech = () => {
+    if (this.icon === 'rainy' || this.icon === 'sleet') {
+      this.speech = 'Don\'t forget to grab an umbrella and some rain boots!';
+
+    } else if (this.icon === 'snow') {
+      this.speech = 'Don\'t forget to grab your snow boots';
+    } 
+  }
 
 
 
