@@ -10,9 +10,9 @@
 
     <div class='icon-and-temp'>
         <div class='sun-icon'>
-            <img class='sun-pic' src='{{pictureUrl}}'>
+            <!-- <img class='sun-pic' src='{{pictureUrl}}'> -->
             <!-- <sc-skycons class="icon" [weather]="'clear-day'" [color]="'white'"></sc-skycons> -->
-            <!-- <sc-skycons [weather]="'{{icon}}'" [color]="'white'"></sc-skycons> -->
+            <sc-skycons [weather]="icon" [color]="'white'"></sc-skycons>
         </div>
 <!-- All these  numbers are being rounded by the round pipe I created in the pipes folder -->
         <div class='temp-number'>
