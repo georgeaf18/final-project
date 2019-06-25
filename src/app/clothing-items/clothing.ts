@@ -113,7 +113,7 @@
   
     'chilly:casual': {
       male: [{}, {}, upperbody.tshirt, upperbodyOuterwear.lightJacketHoodie, lowerbody.pants, footwear.tennisShoes],
-      female: [{}, {}, facewear.scarf,  upperbody.tshirt, upperbodyOuterwear.lightJacketHoodie, lowerbody.pants, footwear.tennisShoes]
+      female: [{}, facewear.scarf,  upperbody.tshirt, upperbodyOuterwear.lightJacketHoodie, lowerbody.pants, footwear.tennisShoes]
     },
   
     'chilly:formal': {
