@@ -6,7 +6,6 @@ import { outfitMap } from './clothing-items/clothing.1'
 interface Hourly {
   data;
   apparentTemperature: number;
-  humidity: number;
   icon: string;
   precipProbability: number;
   summary: string;
@@ -58,13 +57,8 @@ export class AppComponent {
   eventType: string = 'casual';
   preEvent: number = 1;
 
+  picurlHOLDEN;
 
-  headwearUrl;
-  facewearUrl;
-  upperbodyUrl;
-  upperbodyOuterUrl;
-  lowerbodyUrl;
-  footwearUrl;
 
   showHeadwear: boolean = false;
   showFacewear: boolean = false;
@@ -78,7 +72,17 @@ export class AppComponent {
   gender: string = 'male';
   speech: string = 'Have a great day today!'
 
-  
+  morningTempArray = [];
+  morningTempAverage: number = 0;
+  morningMin;
+  morningMax;
+  afternoonTempArray = [];
+  afternoonTempAverage: number = 0;
+  afternoonMin;
+  afternoonMax;
+
+  inputDate: string;
+
 
 
 
@@ -93,44 +97,43 @@ export class AppComponent {
 
 
 
+  //******************************** get location through navigator's geolocation function */ 
 
-  inputDate: string;
+  getLocation = () => {
+    
+    if (window.navigator.geolocation) {
+      window.navigator.geolocation.getCurrentPosition(this.sendLocation);
+      console.log(window.navigator.geolocation.getCurrentPosition(this.sendLocation));
+    }
+  }
+  
+  sendLocation = (position) => {
+    this.lat = position.coords.latitude;
+    this.long = position.coords.longitude;
+    this.getData();
+  }
 
-  @Output() add = new EventEmitter<object>();
-  addDate = (inputValue) => {
-    console.log(`inputValue: ${inputValue}`);
-    this.inputDate = inputValue;
-    console.log(`this.inputDate: ${this.inputDate}`);
-    this.add.emit({ inputDate: inputValue });
-    // this.inputDate = '';
-    console.log(`this.inputDate: ${this.inputDate}`);
+  //******************************** gets data from Dark Sky api  */ 
 
+  
 
+  getData = () => {
+    this.api.weather.subscribe((response: ApiData) => {
+      
+      let data = response
+      // this.inputDate = inputValue;
+
+    if (!data ) {
 
     this.api.getWeather(this.lat, this.long, this.inputDate).subscribe((apiData: ApiData) => {
       let data = apiData;
       this.api.updateWeather(data);
-      this.apparentTemperature = data.currently.apparentTemperature;
-
-      this.realTemp = data.currently.temperature;
-
-      this.icon = data.currently.icon;
-      console.log("TCL: AppComponent -> getData -> this.icon", this.icon)
-      this.humidity = data.currently.humidity;
-      console.log(data);
-
-      this.theHour = data.hourly.data;
-
-      console.log(data);
-
-      this.lowTemp = data.daily.data[0].apparentTemperatureLow;
-      this.highTemp = data.daily.data[0].apparentTemperatureHigh;
-      console.log(`this.lowTemp: ${this.lowTemp}`);
-      console.log(`this.highTemp: ${this.highTemp}`);
 
 
-      console.log(`the time: ${data.currently.time}`);
-      // console.log(`the alert: ${data.flags.sources[0]}`);
+      // this.apparentTemperature = data.currently.apparentTemperature;
+      // this.icon = data.currently.icon;
+
+
 
       // Create a new JavaScript Date object based on the timestamp
       // multiplied by 1000 so that the argument is in milliseconds, not seconds.
@@ -149,218 +152,40 @@ export class AppComponent {
 
 
 
+      this.apparentTemperature = data.currently.apparentTemperature;
+      this.icon = data.currently.icon;
 
 
 
 
-
-      // console.log(`the location is: latitude=${data.latitude}, longitude=${data.longitude}`);
-
-      // will get the outfit once the temperature is on hand
       if (typeof this.apparentTemperature === 'number') {
         this.getOutfit();
-        this.weatherType = '';
+
+
+      }
+      
+      
+      
+    })
+    
+  }
+  
+  this.apparentTemperature = data.currently.apparentTemperature;
+  this.icon = data.currently.icon;
+
+  
+  // will get the outfit once the temperature is on hand
+      if (typeof this.apparentTemperature === 'number') {
         this.getOutfit();
-        this.getOutfitUrlHOLDEN();
+
 
       }
 
-    })
 
-
+})
 
 
   };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  //******************************** get location through navigator's geolocation function */ 
-
-  getLocation = () => {
-    if (window.navigator.geolocation) {
-      window.navigator.geolocation.getCurrentPosition(this.sendLocation);
-    }
-  }
-
-  sendLocation = (position) => {
-    this.lat = position.coords.latitude;
-    this.long = position.coords.longitude;
-    this.getData();
-  }
-
-  //******************************** gets data from Dark Sky api  */ 
-
-  lowTemp;
-  highTemp;
-  realTemp;
-
-  theHour;
-  morningTempArray = [];
-  morningTempAverage: number = 0;
-  morningMin;
-  morningMax;
-  afternoonTempArray = [];
-  afternoonTempAverage: number = 0;
-  afternoonMin;
-  afternoonMax;
-
-
-  getData = () => {
-    this.api.weather.subscribe((response: ApiData) => {
-      let data = response
-      if (!data) {
-        this.api.getWeather(this.lat, this.long).subscribe((apiData: ApiData) => {
-          data = apiData;
-          this.api.updateWeather(data);
-          this.apparentTemperature = data.currently.apparentTemperature;
-
-          this.realTemp = data.currently.temperature;
-
-          this.icon = data.currently.icon;
-          console.log("TCL: AppComponent -> getData -> this.icon", this.icon)
-          this.humidity = data.currently.humidity;
-          console.log(data);
-
-
-
-          this.theHour = data.hourly.data;
-          // let hourCounter: number;
-          // for (hourCounter = 5; hourCounter < 12; hourCounter++) {
-          //   let currentAppTemp = this.theHour[hourCounter].apparentTemperature;
-          //   this.morningTempAverage += currentAppTemp;
-          //   this.morningTempArray.push(currentAppTemp);
-          //   console.log(currentAppTemp);
-          // };
-          // console.log(`this.morningTempAverage: ${this.morningTempAverage}`);
-          // this.morningTempAverage = this.morningTempAverage / this.morningTempArray.length;
-          // for (hourCounter = 12; hourCounter < 25; hourCounter++) {
-          //   let currentAppTemp = this.theHour[hourCounter].apparentTemperature;
-          //   this.afternoonTempAverage += currentAppTemp;
-          //   this.afternoonTempArray.push(currentAppTemp);
-          //   console.log(currentAppTemp);
-          // };
-          // this.afternoonTempAverage = this.afternoonTempAverage / this.afternoonTempArray.length;
-          // console.log(`this.morningTempArray: ${this.morningTempArray}`);
-          // this.morningMin = Math.min.apply(null, this.morningTempArray);
-          // this.morningMax = Math.max.apply(null, this.morningTempArray);
-          // console.log(this.morningMin);
-          // console.log(this.morningMax);
-          // console.log(this.morningTempArray.length)
-          // console.log(`this.morningTempAverage: ${this.morningTempAverage}`);
-
-          // console.log(`this.afternoonTempArray: ${this.afternoonTempArray}`);
-          // console.log(this.afternoonTempArray.length)
-          // console.log(`this.afternoonTempAverage: ${this.afternoonTempAverage}`);
-          // this.afternoonMin = Math.min.apply(null, this.afternoonTempArray);
-          // this.afternoonMax = Math.max.apply(null, this.afternoonTempArray);
-          // console.log(this.afternoonMin);
-          // console.log(this.afternoonMax);
-
-
-          // need to call the Time Machine Request by feeding it the unix value of the 9am and 6pm times for that day
-          // and then feed the temp results into the night and daytime components
-          //          https://api.darksky.net/forecast/[key]/[latitude],[longitude],[time]
-
-
-
-
-
-
-          // let hourlyData = data.hourly.data;
-          // let i;
-          // for (i = 0; i < hourlyData.length; i++) {
-          //   console.log(`hourlyData.apparentTemperature: ${i.apparentTemperature}`)
-          // }
-          // for (hour in )
-          // this.hourlyArray = data.
-
-
-          // console.log(`data.hourly.data: ${data.hourly.data[0].apparentTemperature}`);
-          console.log(data);
-
-          this.lowTemp = data.daily.data[0].apparentTemperatureLow;
-          this.highTemp = data.daily.data[0].apparentTemperatureHigh;
-          console.log(`this.lowTemp: ${this.lowTemp}`);
-          console.log(`this.highTemp: ${this.highTemp}`);
-
-
-          console.log(`the time: ${data.currently.time}`);
-          // console.log(`the alert: ${data.flags.sources[0]}`);
-
-          // Create a new JavaScript Date object based on the timestamp
-          // multiplied by 1000 so that the argument is in milliseconds, not seconds.
-          let date = new Date(data.currently.time * 1000);
-          // Hours part from the timestamp
-          let hours = date.getHours();
-          // Minutes part from the timestamp
-          let minutes = "0" + date.getMinutes();
-          // Seconds part from the timestamp
-          let seconds = "0" + date.getSeconds();
-
-          // Will display time in 10:30:23 format
-          let formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
-
-          console.log(`formatted time: ${formattedTime}`);
-
-          // console.log(`the location is: latitude=${data.latitude}, longitude=${data.longitude}`);
-
-          // will get the outfit once the temperature is on hand
-          if (typeof this.apparentTemperature === 'number') {
-            this.getOutfit();
-
-
-          }
-
-        }, error => {
-          console.log(error.message);
-        });
-      }
-
-      this.apparentTemperature = data.currently.apparentTemperature;
-
-      if (typeof this.apparentTemperature === 'number') {
-        this.getOutfit();
-
-
-      }
-
-    })
-
-
-
-  }
 
 
 
@@ -409,71 +234,70 @@ export class AppComponent {
 
 
 
-  picurlHOLDEN;
 
   getOutfitUrlHOLDEN = () => {
     this.picurlHOLDEN = outfitMap[`${this.weatherType}:${this.eventType}`][this.gender];
 
   }
 
-  getOutfitUrl = () => {
+  // getOutfitUrl = () => {
 
     //this is assigning the correct images to the variables based on the gender, event type and weather
-    this.headwearUrl = outfitMap[`${this.weatherType}:${this.eventType}`][this.gender][0];
-    this.facewearUrl = outfitMap[`${this.weatherType}:${this.eventType}`][this.gender][1];
-    this.upperbodyUrl = outfitMap[`${this.weatherType}:${this.eventType}`][this.gender][2];
-    this.upperbodyOuterUrl = outfitMap[`${this.weatherType}:${this.eventType}`][this.gender][3];
-    this.lowerbodyUrl = outfitMap[`${this.weatherType}:${this.eventType}`][this.gender][4];
-    this.footwearUrl = outfitMap[`${this.weatherType}:${this.eventType}`][this.gender][5];
+    // this.headwearUrl = outfitMap[`${this.weatherType}:${this.eventType}`][this.gender][0];
+    // this.facewearUrl = outfitMap[`${this.weatherType}:${this.eventType}`][this.gender][1];
+    // this.upperbodyUrl = outfitMap[`${this.weatherType}:${this.eventType}`][this.gender][2];
+    // this.upperbodyOuterUrl = outfitMap[`${this.weatherType}:${this.eventType}`][this.gender][3];
+    // this.lowerbodyUrl = outfitMap[`${this.weatherType}:${this.eventType}`][this.gender][4];
+    // this.footwearUrl = outfitMap[`${this.weatherType}:${this.eventType}`][this.gender][5];
 
     // this is making the pictures show if they not of type object which means they're holding a img url
-    if (typeof this.headwearUrl !== 'object') {
-      this.showHeadwear = true;
+    // if (typeof this.headwearUrl !== 'object') {
+    //   this.showHeadwear = true;
 
-    }
+    // }
 
-    if (typeof this.facewearUrl !== 'object') {
-      this.showFacewear = true;
+    // if (typeof this.facewearUrl !== 'object') {
+    //   this.showFacewear = true;
 
-    }
+    // }
 
-    if (typeof this.upperbodyUrl !== 'object') {
-      this.showUpperbody = true;
+    // if (typeof this.upperbodyUrl !== 'object') {
+    //   this.showUpperbody = true;
 
-    }
+    // }
 
-    if (typeof this.upperbodyOuterUrl !== 'object') {
-      this.showUpperbodyOuter = true;
+    // if (typeof this.upperbodyOuterUrl !== 'object') {
+    //   this.showUpperbodyOuter = true;
 
-    }
+    // }
 
-    if (typeof this.lowerbodyUrl !== 'object') {
-      this.showLowerbody = true;
+    // if (typeof this.lowerbodyUrl !== 'object') {
+    //   this.showLowerbody = true;
 
-    }
+    // }
 
-    if (typeof this.footwearUrl !== 'object') {
-      this.showFootwear = true;
-    }
+    // if (typeof this.footwearUrl !== 'object') {
+    //   this.showFootwear = true;
+    // }
 
-  }
+  // }
 
-  setFormal = () => {
-    this.eventType = 'formal';
-    this.getLocation();
-  }
+  // setFormal = () => {
+  //   this.eventType = 'formal';
+  //   this.getLocation();
+  // }
 
-  setBusinessCasual = () => {
-    this.eventType = 'business_casual';
-    this.getLocation();
+  // setBusinessCasual = () => {
+  //   this.eventType = 'business_casual';
+  //   this.getLocation();
 
-  }
+  // }
 
-  setCasual = () => {
-    this.eventType = 'casual';
-    this.getLocation();
+  // setCasual = () => {
+  //   this.eventType = 'casual';
+  //   this.getLocation();
 
-  }
+  // }
 
   getEvent = () => {
     if (this.preEvent === 1) {
@@ -506,17 +330,17 @@ export class AppComponent {
     this.night = false;
   }
 
-  showArrow = () => {
-    return {
-      'noShow': !this.night
-    }
-  }
+  // showArrow = () => {
+  //   return {
+  //     'noShow': !this.night
+  //   }
+  // }
 
-  showArrowRight = () => {
-    return {
-      'noShow': this.night
-    }
-  }
+  // showArrowRight = () => {
+  //   return {
+  //     'noShow': this.night
+  //   }
+  // }
 
   setGender = () => {
     if (this.genderInput === true) {
