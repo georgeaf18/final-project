@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Api } from './services/api.services';
-import { outfitMap } from './clothing-items/clothing'
+import { outfitMap } from './clothing-items/clothing.1'
 
 
 interface Hourly {
@@ -36,7 +36,7 @@ interface ApiData {
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  templateUrl: './app.component.1.html',
   styleUrls: ['./app.component.css']
 })
 
@@ -159,7 +159,9 @@ export class AppComponent {
       // will get the outfit once the temperature is on hand
       if (typeof this.apparentTemperature === 'number') {
         this.getOutfit();
-
+        this.weatherType = '';
+        this.getOutfit();
+        this.getOutfitUrlHOLDEN();
 
       }
 
@@ -398,13 +400,21 @@ export class AppComponent {
     }
 
     if (typeof this.weatherType === 'string') {
-      this.getOutfitUrl();
+      this.getOutfitUrlHOLDEN();
 
       this.setSpeech();
     }
 
   }
 
+
+
+  picurlHOLDEN;
+
+  getOutfitUrlHOLDEN = () => {
+    this.picurlHOLDEN = outfitMap[`${this.weatherType}:${this.eventType}`][this.gender];
+
+  }
 
   getOutfitUrl = () => {
 
