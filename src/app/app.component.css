@@ -291,6 +291,7 @@ img {
 .sliderLabels {
   display: flex;
   justify-content: space-between;
+  color: grey;
 }
 
 .slider {
@@ -313,7 +314,7 @@ img {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background: black;
+  background: grey;
   cursor: pointer;
 }
 
