@@ -1,29 +1,15 @@
 <div class='day-rectangle'>
 
+  <sc-skycons [weather]="icon" [color]="'white'"></sc-skycons>
 
-
-    <div class='icon-and-temp'>
-        <div class='sun-icon'>
-            <!-- <img class='sun-pic' src='{{pictureUrl}}'> -->
-            <sc-skycons [weather]="icon" [color]="'white'"></sc-skycons>
-
-
-        </div>
 <!-- All these  numbers are being rounded by the round pipe I created in the pipes folder -->
-        <div class='temp-number'>
-            <h1>
-                {{ afternoonTempAverage*12 | round }} average
-            </h1>
-        </div>
-    </div>
-
 
     <div class='temp-info-more'>
-        <h3>{{ afternoonMax | round }} high / {{ afternoonMin | round }} low</h3>
-        <h3>( {{ temp | round }} right now ) </h3>
+        <h1 class='avgTemp'>Avg {{ afternoonTempAverage*12 | round }}&deg;</h1>
+        <h3 class='tempRange'>{{ afternoonMax | round }}&deg; / {{ afternoonMin | round }}&deg;</h3>
+        <h3 class='currentTemp'>({{ temp | round }}&deg; Now)</h3>
     </div>
 
-
-    <p>PM</p>
+    <!-- <p>PM</p> -->
 
 </div>
