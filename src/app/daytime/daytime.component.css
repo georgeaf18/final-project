@@ -21,10 +21,11 @@ box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
+    justify-content: center;
     height: 100%;
     left: 0px;
     top: 0px;
+    object-fit: scale-down;
 
 
     /* background: rgb(136,220,255);
@@ -33,39 +34,74 @@ box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-family: Arial, Helvetica, sans-serif;
     /* border-radius: 5px;
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25); */
-
 }
+
+
 
 .icon-and-temp {
     display: flex;
     flex-direction: row;
-    /* justify-content: space-between; */
+    /* width: 100vw; */
+    justify-content: space-between;
 }
 
-.sun-icon {
-    margin-right: 35px;
-    
+
+canvas.skycons__canvas {
+    /* width: 100px!important; */
+    object-fit: scale-down;
+    display: flex;
 }
 
-canvas {
-    width: 100px!important;
+sc-skycons{
+    object-fit: scale-down;
+}
+
+.skycons__canvas{
+    /* width: 15vw; */
+    object-fit: scale-down;
+}
+.skycon{
+    display: flex;
+    object-fit: scale-down;
+    /* width: 150px; */
+    /* height: 75px; */
 }
 
 .temp-number {
-    margin-left: 35px;
+    /* margin-left: 35px; */
+    display: flex;
+    justify-content: center;
+    /* margin: 0vw 5vw 0vw 15vw; */
 }
 
 .temp-info-more {
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
+    /* flex-direction: column; */
 }
-.temp-info-more h1 {
+.temp-info-more h3 {
     margin: 0 30px;
 }
 
-.sun-pic {
-    width: 100px;
-    height: 100px;
+.currentTemp{
+    display: none;
+}
+
+@media only screen and (min-width: 414px) {
+
+   
+}
+  
+
+@media only screen and (min-width: 768px) {
+  
+     
+}
+  
+
+@media only screen and (min-width: 769px) {
+  
 }
 
 
