@@ -38,7 +38,7 @@
 
     <div class="topHalf">
 
-      <button [ngClass]="showArrow()" (click)='activateLight()'>
+      <button [ngClass]="showArrow()" (click)='activateLight()' class='leftButton'>
         <a routerLink='' routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
           <i class="fas fa-chevron-left arrows"></i>
 
@@ -48,7 +48,7 @@
       <router-outlet></router-outlet>
 
 
-      <button [ngClass]="showArrowRight()" (click)="activateDark()">
+      <button [ngClass]="showArrowRight()" (click)="activateDark()" id='rightButton'>
         <a routerLink='night' routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
           <i class="fas fa-chevron-right arrows"></i>
         </a>

@@ -6,16 +6,21 @@
     <p>
         {{dateString}}
     </p> -->
-
-    <sc-skycons [weather]="icon" [color]="'white'" class='skycon'></sc-skycons>
-<!-- All these  numbers are being rounded by the round pipe I created in the pipes folder -->
-        
-
     <div class='temp-info-more'>
         <h1 class='avgTemp'>Avg {{ morningTempAverage | round }}&deg;</h1>
-        <h3 class='tempRange'>{{ morningMax | round }}&deg; / {{ morningMin | round }}&deg;</h3>
         <h3 class='currentTemp'>({{ temp | round }}&deg; Now)</h3>
+        <h3 class='tempRange'>{{ morningMax | round }}&deg; / {{ morningMin | round }}&deg;</h3>
     </div>
+    <div class='skycon'>
+        <sc-skycons [weather]="icon" [color]="'white'" class='skycon'></sc-skycons>
+    </div>
+    <!-- All these  numbers are being rounded by the round pipe I created in the pipes folder -->
+
+
+
+        
+
+   
 
     <!-- <p>AM</p> -->
 
