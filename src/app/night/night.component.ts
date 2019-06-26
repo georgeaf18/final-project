@@ -77,6 +77,11 @@ export class NightComponent {
                 console.log(`this.afternoonTempAverage: ${this.afternoonTempAverage}`);
                 this.afternoonTempAverage = this.afternoonTempAverage / this.afternoonTempArray.length;
 
+
+
+                this.afternoonTempArray.length = 0;
+
+
             };
             console.log(`this.afternoonTempArray THE END: ${this.afternoonTempArray}`);
             console.log(`this.afternoonTempAverage: ${this.afternoonTempAverage}`);
@@ -89,6 +94,9 @@ export class NightComponent {
             console.log(`this.afternoonTempAverage: ${this.afternoonTempAverage}`);
 
 
+
+
+            
 
 
 
