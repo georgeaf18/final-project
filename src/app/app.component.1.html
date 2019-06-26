@@ -1,6 +1,5 @@
 <div class='fullPage' [ngClass]="changeColor()">
 
-
   <nav>
     <div class="logoDiv">
       <img id='logoImg' class="logo navbar-brand" src="../assets/logo/bundleLogo.png" alt="">
@@ -35,10 +34,10 @@
 
 
   <div class="mainLayout">
-
     <div class="topHalf">
 
-      <button [ngClass]="" (click)='activateLight()' class='leftButton'>
+      <button [ngClass]="showArrow()" (click)='activateLight()' id='leftButton'>
+
         <a routerLink='' routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
           <i class="fas fa-chevron-left arrows"></i>
 
@@ -61,9 +60,7 @@
       <div class='speech-bubble'>
         <h4 class='speech'>{{speech}}</h4>
       </div>
-      <!-- <div class='picurlHOLDEN'>
 
-      </div> -->
       <div class='mannequinDiv'>
         <img src='../assets/{{picurlHOLDEN}}.png'>
         <!-- <img id='person' src='../assets/clothes/icon.png'>

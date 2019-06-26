@@ -12,7 +12,7 @@
         <h3 class='tempRange'>{{ morningMax | round }}&deg; / {{ morningMin | round }}&deg;</h3>
     </div>
     <div class='skycon'>
-        <sc-skycons [weather]="icon" [color]="'white'" class='skycon'></sc-skycons>
+        <sc-skycons width='12' height='12' [weather]="icon" [color]="'white'" class='skycon'></sc-skycons>
     </div>
     <!-- All these  numbers are being rounded by the round pipe I created in the pipes folder -->
 
