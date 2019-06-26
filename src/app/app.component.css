@@ -8,9 +8,10 @@ body {
 /* ********GLOBAL styling********* */
 
 .darkTheme {
-  /* background-image: linear-gradient(to top, #2f1d65, #392082, #4322a0, #4e22bf, #5b21df)!important; */
+  background-image: linear-gradient(to top, #2f1d65, #392082, #4322a0, #4e22bf, #5b21df)!important; 
   background-image: linear-gradient(to top, #2f1d65, #331e89, #311eaf, #281cd6, #001aff) !important;
 }
+
 
 
 /* ***********LAYOUT styling*************** */
@@ -335,6 +336,8 @@ img {
 } */
 
 /* *************END button styling*************** */
+
+
 
 
 /* ***************Media Query***************** */
