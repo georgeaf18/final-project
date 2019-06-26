@@ -23,8 +23,9 @@ box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
     align-items: center;
     justify-content: center;
     height: 100%;
+    width: 100%;
     left: 0px;
-    top: 0px;
+    /* top: 0px; */
     object-fit: scale-down;
 
 
@@ -63,25 +64,27 @@ sc-skycons{
 .skycon{
     display: flex;
     object-fit: scale-down;
-    /* width: 150px; */
-    /* height: 75px; */
 }
 
 .temp-number {
-    /* margin-left: 35px; */
     display: flex;
     justify-content: center;
-    /* margin: 0vw 5vw 0vw 15vw; */
 }
 
 .temp-info-more {
+    width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    /* flex-direction: column; */
+    justify-content: space-between;
+    margin-top: 10px;
 }
-.temp-info-more h3 {
-    margin: 0 30px;
+
+.avgTemp{
+    margin: 15px;
+}
+
+.tempRange{
+    margin: 15px;
 }
 
 .currentTemp{
@@ -101,7 +104,34 @@ sc-skycons{
   
 
 @media only screen and (min-width: 769px) {
-  
+
+    .day-rectangle{
+        width: 40vw;
+        height: 80vh;
+        flex-direction: column-reverse;
+    }
+
+    .skycon{
+        margin: 20px 0px;
+    }
+
+    .temp-info-more{
+        flex-direction: column;
+        margin: 20px 0px;
+    }
+
+    .currentTemp{
+        display: flex;
+        margin: 15px;
+    }
+
+    .avgTemp, .tempRange {
+        margin: 15px;
+    }
+
+
+
+
 }
 
 

@@ -28,7 +28,7 @@ body {
 }
 
 nav {
-  height: 15vh;
+  height: 10vh;
   width: 100vw;
   object-fit: scale-down;
   display: flex;
@@ -91,15 +91,6 @@ img {
 }
 
 
-
-
-
-
-
-
-
-
-
 /* ************END Layout styling************ */
 
 /* ********Navbar styling********* */
@@ -113,8 +104,6 @@ img {
 .fa-1x {
   font-size: 2.5rem !important;
 }
-
-
 
 .inner_gender {
   display: inline-block;
@@ -147,6 +136,16 @@ img {
   color: white;
 }
 
+#rightButton{
+  position: relative;
+  float: right;
+}
+
+#leftButton{
+  position: relative;
+  float: left;
+}
+
 .noShow {
   display: none;
 }
@@ -162,7 +161,7 @@ img {
   z-index: 0;
   bottom: 80px;
 }
-
+/* 
 .clothing{
   bottom: 150px;
 }
@@ -203,17 +202,12 @@ img {
   z-index: 3;
   position: relative;
   bottom: 142px;
-}
-
-
+} */
 
 .picurlHOLDEN {
   height: 100px;
   width: 100px;
 }
-
-
-
 
 
 /* ***********END mannequin styling*********** */
@@ -366,7 +360,7 @@ img {
 
 @media only screen and (min-width: 414px) {
 
-  #person {
+  /* #person {
     top: 46px;
   }
 
@@ -376,12 +370,12 @@ img {
 
   #footwear {
     bottom: 144px;
-  }
+  } */
 
   /* **********Needs updates********************* */
   @media only screen and (min-width: 768px) {
 
-    #person {
+    /* #person {
       top: 46px;
     }
 
@@ -391,7 +385,7 @@ img {
 
     #footwear {
       bottom: 144px;
-    }
+    } */
   }
 
   /* **************Needs Updates******************* */
@@ -411,19 +405,26 @@ img {
     }
 
     .topHalf {
-      width: 60vw;
+      width: 50vw;
       height: 100%;
+      justify-content: center;
     }
 
     .bottomHalf {
-      width: 40vw;
+      width: 50vw;
+      justify-content: center;
     }
 
     .bottomHalf,
     .mannequinDiv {
       height: 100%;
+      object-fit: scale-down;
     }
 
+
+
+
+/* 
     #person {
       top: 180px;
     }
@@ -438,7 +439,7 @@ img {
 
     #footwear {
       bottom: 300px;
-    }
+    } */
   }
 
 }
