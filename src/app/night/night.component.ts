@@ -59,39 +59,35 @@ export class NightComponent {
                 let currentAppTemp = this.theHour[hourCounter].apparentTemperature;
                 this.afternoonTempAverage += currentAppTemp;
                 this.afternoonTempArray.push(currentAppTemp);
-                console.log(`currentAppTemp: ${currentAppTemp}`);
-                console.log(`this.afternoonTempAverage: ${this.afternoonTempAverage}`);
-                console.log(`this.afternoonTempArray: ${this.afternoonTempArray}`);
+                // console.log(`currentAppTemp: ${currentAppTemp}`);
+                // console.log(`this.afternoonTempAverage: ${this.afternoonTempAverage}`);
+                // console.log(`this.afternoonTempArray: ${this.afternoonTempArray}`);
                 if (currentAppTemp > Math.max.apply(null, this.afternoonTempArray)) {
                     this.afternoonMax = currentAppTemp;
                 } 
                 if (currentAppTemp < Math.min.apply(null, this.afternoonTempArray)) {
                     this.afternoonMin = currentAppTemp;
                 }
-                console.log(`this.afternoonMax: ${this.afternoonMax}`);
-                console.log(`this.afternoonMin: ${this.afternoonMin}`);
+                // console.log(`this.afternoonMax: ${this.afternoonMax}`);
+                // console.log(`this.afternoonMin: ${this.afternoonMin}`);
                 this.afternoonMin = Math.min.apply(null, this.afternoonTempArray);
                 this.afternoonMax = Math.max.apply(null, this.afternoonTempArray);
-                console.log(`this.afternoonMax: ${this.afternoonMax}`);
-                console.log(`this.afternoonMin: ${this.afternoonMin}`);
-                console.log(`this.afternoonTempAverage: ${this.afternoonTempAverage}`);
+                // console.log(`this.afternoonMax: ${this.afternoonMax}`);
+                // console.log(`this.afternoonMin: ${this.afternoonMin}`);
+                // console.log(`this.afternoonTempAverage: ${this.afternoonTempAverage}`);
                 this.afternoonTempAverage = this.afternoonTempAverage / this.afternoonTempArray.length;
 
 
 
                 this.afternoonTempArray.length = 0;
+                
+                this.api.updateNightAvg(this.afternoonTempAverage/12);
 
 
             };
-            console.log(`this.afternoonTempArray THE END: ${this.afternoonTempArray}`);
-            console.log(`this.afternoonTempAverage: ${this.afternoonTempAverage}`);
 
             // this.afternoonMin = Math.min.apply(null, this.afternoonTempArray);
             // this.afternoonMax = Math.max.apply(null, this.afternoonTempArray);
-            console.log(this.afternoonMin);
-            console.log(this.afternoonMax);
-            console.log(`this.afternoonTempArray: ${this.afternoonTempArray}`);
-            console.log(`this.afternoonTempAverage: ${this.afternoonTempAverage}`);
 
 
 
@@ -157,72 +153,7 @@ export class NightComponent {
         this._callDate = value;
     }
 
-    // callDate = () => {
-    //     let now = new Date();
-    //     this.dateString = now.toISOString();
-    //     console.log(this.dateString);
-    //     let i;
-    //     for (i = 0; i < 10; i++) {
-    //         this.dateStringShort += this.dateString[i];
-    //     };
-    //     console.log(`this.dateStringShort: ${this.dateStringShort}`);
-    //     console.log(`this.dateStringShort[-1]: ${this.dateStringShort[this.dateStringShort.length - 1]}`)
-
-    //     let timeStringShort: string = '';
-    //     for (i = 11; i < 13; i++) {
-    //         this.timeString = now.toISOString();
-    //         timeStringShort += this.timeString[i];
-
-    //         console.log(`this.timeString[i]: ${this.timeString[i]}`);
-    //     }
-    //     console.log(`this.timeString: ${this.timeString}`);
-    //     console.log(`timeStringShort: ${timeStringShort}`);
-    //     let timeStringNumber = parseInt(timeStringShort);
-    //     if (timeStringNumber >= 20 || timeStringNumber <= 4) {
-    //         let newTimeString: string = '';
-    //         let lastNumberOfDate = parseInt(this.dateStringShort[this.dateStringShort.length - 1]);
-    //         let changeLastNumberOfDate = lastNumberOfDate - 1;
-    //         changeLastNumberOfDate.toString();
-    //         for (i = 0; i < this.dateStringShort.length - 1; i++) {
-    //             newTimeString += this.dateStringShort[i];
-    //             console.log(newTimeString);
-    //         }
-    //         newTimeString += changeLastNumberOfDate;
-    //         newTimeString += 'T00:00:00';
-    //         console.log(`newTimeString: ${newTimeString}`);
-    //         this.dateStringShort = newTimeString;
-
-
-    //         // let changeLastNumber = parseInt(this.dateStringShort[this.dateStringShort.length-1]);
-    //         // console.log(`changeLastNumber: ${changeLastNumber}`);
-    //         // changeLastNumber -= 1;
-    //         // console.log(`changeLastNumber: ${changeLastNumber}`);
-    //         // changeLastNumber.toString();
-    //         // this.dateStringShort = this.dateStringShort.slice(changeLastNumber,this.dateStringShort.length-1);
-    //     }
-
-    //     console.log(`this.dateStringShort: ${this.dateStringShort}`);
-    //     console.log(typeof this.dateStringShort);
-
-    // }
-
-
-    // @Input() lowTemp: number;
-    // @Input() highTemp: number;
-    // @Input() apparentTemperature: number;
-    // @Input() realTemp: number;
-
-
-    // @Input() theHour;
-    // @Input() morningTempArray = [];
-    // @Input() morningTempAverage: number;
-    // @Input() morningMin;
-    // @Input() morningMax;
-    // @Input() afternoonTempArray = [];
-    // @Input() afternoonTempAverage: number;
-    // @Input() afternoonMin;
-    // @Input() afternoonMax;
-
+    
 
 
 

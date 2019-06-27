@@ -9,6 +9,9 @@ export class Api {
     private _weather = new BehaviorSubject(null);
     weather = this._weather.asObservable();
 
+    private _nightAvg = new BehaviorSubject(null);
+    nightAvg = this._nightAvg.asObservable();
+
     server = 'https://thingproxy.freeboard.io/fetch/';
     apiUrl = 'https://api.darksky.net/forecast';
     apiKey = 'a6b163791b23867f78166369b89ffa02';
@@ -31,6 +34,11 @@ export class Api {
         return this.http.get(`${this.server}${this.apiUrl}/${this.apiKey}/${lat},${long},${this.dateStringShort}${time}T00:00:00?exclude=${this.exclude}`)
     }
 
+
+    updateNightAvg = (data) => {
+        this._nightAvg.next(data);
+        console.log(data);
+    }
     
 
     
