@@ -1,7 +1,7 @@
 <div class='fullPage' [ngClass]="changeColor()">
   <nav>
     <div class="logoDiv">
-      <img id='logoImg' class="logo navbar-brand" src="../assets/logo/bundleLogo.png" alt="">
+      <img id='logoImg' class="logo navbar-brand" src="../assets/logo/bundleLogo.png" title="Bundle">
     </div>
     <!-- Collapse button -->
     <div class="settings">
@@ -9,7 +9,7 @@
         data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false"
         aria-label="Toggle navigation">
         <span class="dark-blue-text">
-          <i class="fas fa-bars fa-1x"></i>
+          <i class="fas fa-bars fa-1x" title="Change Gender"></i>
         </span>
       </button>
       <!-- Collapsible content -->
@@ -19,10 +19,10 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent1">
     <div class='gender navbar-nav mr-auto'>
       <div class="inner_gender">
-        <i class='fas fa-male fa-2x' id='male'></i>
+        <i class='fas fa-male fa-2x' id='male' title="male"></i>
         <ui-switch defaultBgColor="#0000ff" [(ngModel)]='genderInput' (change)='setGender()' color="red" class="switch">
         </ui-switch>
-        <i class='fas fa-female fa-2x' id='female'></i>
+        <i class='fas fa-female fa-2x' id='female' title="female"></i>
         <!-- <span>Choose your date: </span>
         <input #inputValue placeholder="yyyy-mm-dd" />
         <button (click)="getData(inputValue.value)">select</button> -->
@@ -36,14 +36,14 @@
 
       <a (click)='activateLight()' id='leftButton' routerLink='' routerLinkActive="active"
         [routerLinkActiveOptions]="{exact: true}">
-        <i class="  fas fa-chevron-left arrows"></i>
+        <i class="  fas fa-chevron-left arrows" title="Daytime"></i>
       </a>
 
       <router-outlet></router-outlet>
 
       <a id='rightButton' (click)='activateDark()' routerLink='night' routerLinkActive="active"
         [routerLinkActiveOptions]="{exact: true}">
-        <i (click)='activateDark()' class="fas fa-chevron-right arrows"></i>
+        <i (click)='activateDark()' class="fas fa-chevron-right arrows" title="Night-Time"></i>
       </a>
     </div>
 
@@ -61,14 +61,14 @@
       <div class="slidecontainer">
         <input type="range" min="1" max="3" [(ngModel)]='preEvent' (change)='getEvent()' class="slider" id="myRange" />
         <div class='sliderLabels'>
-          <i class="fas fa-tshirt"></i>
-          <i class="fas fa-briefcase"></i>
-          <i class="fas fa-user-tie"></i>
+          <i class="fas fa-tshirt" title="Casual"></i>
+          <i class="fas fa-briefcase" title="Business-Casual"></i>
+          <i class="fas fa-user-tie" title="Formal"></i>
         </div>
       </div>
     </div>
     <a href="https://darksky.net/poweredby/" target="_blank">
-      <img class='darksky' src="../assets/logo/poweredby.png" alt="">
+      <img class='darksky' src="../assets/logo/poweredby.png" title="Powered by Dark Sky">
     </a>
   </div>
 </div>

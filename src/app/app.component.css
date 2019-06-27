@@ -8,8 +8,9 @@ body {
 /* ********GLOBAL styling********* */
 
 .darkTheme {
-  background-image: linear-gradient(to top, #2f1d65, #392082, #4322a0, #4e22bf, #5b21df) !important;
-  background-image: linear-gradient(to top, #2f1d65, #331e89, #311eaf, #281cd6, #001aff) !important;
+  /* background-image: linear-gradient(to top, #2f1d65, #392082, #4322a0, #4e22bf, #5b21df) !important;
+  background-image: linear-gradient(to top, #2f1d65, #331e89, #311eaf, #281cd6, #001aff) !important; */
+  background: linear-gradient(0deg, rgba(235,4,250,1) 0%, rgba(155,0,250,1) 30%, rgba(1,52,128,1) 100%) !important;
 }
 
 
@@ -106,6 +107,12 @@ img {
   /* margin-left: 8%; */
 }
 
+.navbar-toggler.toggler-example:hover {
+  cursor: pointer;
+  color: grey;
+  /* margin-left: 8%; */
+}
+
 .fa-1x {
   font-size: 2.5rem !important;
 }
@@ -139,6 +146,11 @@ img {
 .arrows {
   font-size: 3rem;
   color: white;
+}
+
+.arrows:hover {
+  font-size: 3rem;
+  color: grey;
 }
 
 #rightButton {
