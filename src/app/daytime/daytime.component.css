@@ -106,7 +106,7 @@ sc-skycons{
 @media only screen and (min-width: 769px) {
 
     .day-rectangle{
-        width: 100vw;
+        width: 40vw;
         height: 80vh;
         flex-direction: column-reverse;
     }
@@ -118,6 +118,7 @@ sc-skycons{
     .temp-info-more{
         flex-direction: column;
         margin: 20px 0px;
+        align-items: center;
     }
 
     .currentTemp{

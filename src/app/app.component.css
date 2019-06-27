@@ -24,13 +24,12 @@ body {
 }
 
 .mainLayout {
-  height: 85vh;
+  height: 90vh;
 }
 
 nav {
   height: 10vh;
   width: 100vw;
-  object-fit: scale-down;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -41,7 +40,7 @@ img {
   min-width: 5px;
   min-height: 5px;
   object-fit: scale-down;
-  /* max-height: 100%; */
+
 }
 
 
@@ -87,6 +86,8 @@ img {
   display: flex;
   height: 65%;
   flex-direction: column;
+  justify-content: space-evenly;
+  margin: 15px 0px 15px 0px;
   /* object-fit: scale-down; */
 }
 
@@ -139,11 +140,13 @@ img {
 #rightButton{
   position: absolute;
   left: 90%;
+  z-index: 1;
 }
 
 #leftButton{
   position: absolute;
   right: 90%;
+  z-index: 1;
 }
 
 .noShow {
@@ -155,54 +158,12 @@ img {
 
 .mannequinDiv {
   width: auto;
-  height: 80%;
+  height: 50%;
   display: flex;
   flex-direction: column;
   z-index: 0;
-  bottom: 80px;
+  top: 20px;
 }
-/* 
-.clothing{
-  bottom: 150px;
-}
-
-#person {
-  z-index: 0;
-  position: relative;
-  top: 65px;
-}
-
-#headwear {
-  z-index: 2;
-  position: relative;
-}
-
-#facewear {
-  z-index: 4;
-  position: relative;
-}
-
-#jacket {
-  z-index: 3;
-  position: relative;
-  bottom: 65px;
-}
-
-#shirt {
-  z-index: 2;
-  position: relative;
-}
-
-#lowerBody {
-  z-index: 2;
-  position: relative;
-}
-
-#footwear {
-  z-index: 3;
-  position: relative;
-  bottom: 142px;
-} */
 
 
 /* ***********END mannequin styling*********** */
@@ -213,8 +174,8 @@ img {
   position: relative;
   background: #ffffff;
   border-radius: .4em;
-  top: 10px;
   z-index: 1;
+  bottom: 20px;
 }
 
 .speech-bubble:after {
@@ -254,14 +215,6 @@ img {
   margin: 15px;
 }
 
-.swipe {
-  float: right;
-  margin: 0;
-  height: 70%;
-  border-radius: 7%;
-  border-style: none;
-}
-
 .icon {
   width: auto;
   max-height: 80%;
@@ -272,8 +225,6 @@ img {
 
 .weatherImg {
   overflow: hidden;
-  /* min-height: 5px; */
-  /* min-width: 5px; */
   height: auto;
   width: 100%;
 }
@@ -287,13 +238,12 @@ img {
 }
 
 .slidecontainer {
-  width: 50%;
+  width: 40%;
   display: flex;
   flex-direction: column;
   align-content: center;
   justify-content: center;
   margin: 10px;
-  height: 15%;
   position: relative;
   z-index: 1;
 }
@@ -336,17 +286,8 @@ img {
   cursor: pointer;
 }
 
-/* #male, #female {
-  opacity: 0.6;
-}
-
-#male:hover, #female:hover {
-  background-color:whitesmoke;
-  opacity: 1;
-} */
 
 /* *************END button styling*************** */
-
 
 
 
@@ -354,32 +295,16 @@ img {
 
 @media only screen and (min-width: 414px) {
 
-  /* #person {
-    top: 46px;
-  }
 
-  #jacket {
-    bottom: 72px;
-  }
 
-  #footwear {
-    bottom: 144px;
-  } */
-
+}
   /* **********Needs updates********************* */
   @media only screen and (min-width: 768px) {
-
-    /* #person {
-      top: 46px;
+    
+    .slidecontainer{
+      width: 30%;
     }
 
-    #jacket {
-      bottom: 72px;
-    }
-
-    #footwear {
-      bottom: 144px;
-    } */
   }
 
   /* **************Needs Updates******************* */
@@ -405,35 +330,35 @@ img {
     }
 
     .bottomHalf {
-      width: 50vw;
+      width: 60vw;
       justify-content: center;
     }
 
-    .bottomHalf,
-    .mannequinDiv {
+    .bottomHalf {
       height: 100%;
-      object-fit: scale-down;
+      justify-content: space-evenly;
+      margin: 0px 0px 20px 0px;
+    }
+
+    .mannequinDiv {
+      height: 70%;
+    }
+
+    .slidecontainer{
+      width: 40%;
+    }
+
+    .settings, .logoDiv{
+      margin: 20px;
+    }
+
+    .logoDiv{
+      height: 80%;
     }
 
 
-/* 
-    #person {
-      top: 180px;
-    }
 
-    .clothing {
-      bottom: 295px;
-    }
 
-    #jacket {
-      bottom: 118px;
-    }
-
-    #footwear {
-      bottom: 300px;
-    } */
   }
-
-}
 
 /* ***************END Media Query***************** */
