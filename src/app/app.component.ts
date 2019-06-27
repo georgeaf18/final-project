@@ -89,7 +89,8 @@ export class AppComponent {
 
 
   ngOnInit() {
-    // this.getLocation();
+    this.getLocation();
+
     this.getData();
   }
 
@@ -104,10 +105,10 @@ export class AppComponent {
   getLocation = () => {
 
     if (window.navigator.geolocation) {
-      window.navigator.geolocation.getCurrentPosition(this.sendLocation);
-      // window.navigator.geolocation.getCurrentPosition(this.sendLocation, function errorCallback(error) {
-      //   console.log(error);
-      // }, { maximumAge: 6000, timeout: 5000, enableHighAccuracy: false });
+      // window.navigator.geolocation.getCurrentPosition(this.sendLocation);
+      window.navigator.geolocation.getCurrentPosition(this.sendLocation, function errorCallback(error) {
+        console.log(error);
+      }, { maximumAge: 6000, timeout: 5000, enableHighAccuracy: false });
 
       // console.log(window.navigator.geolocation.getCurrentPosition(this.sendLocation));
     }
@@ -117,6 +118,8 @@ export class AppComponent {
     this.lat = position.coords.latitude;
     this.long = position.coords.longitude;
     this.getData();
+    console.log('works')
+
   }
 
   //******************************** gets data from Dark Sky api  */ 
