@@ -8,7 +8,7 @@ body {
 /* ********GLOBAL styling********* */
 
 .darkTheme {
-  background-image: linear-gradient(to top, #2f1d65, #392082, #4322a0, #4e22bf, #5b21df)!important; 
+  background-image: linear-gradient(to top, #2f1d65, #392082, #4322a0, #4e22bf, #5b21df) !important;
   background-image: linear-gradient(to top, #2f1d65, #331e89, #311eaf, #281cd6, #001aff) !important;
 }
 
@@ -91,6 +91,10 @@ img {
   /* object-fit: scale-down; */
 }
 
+.line {
+  display: none;
+}
+
 
 /* ************END Layout styling************ */
 
@@ -125,7 +129,7 @@ img {
 }
 
 .switch {
-  margin: 0 20px; 
+  margin: 0 20px;
 }
 
 
@@ -137,13 +141,13 @@ img {
   color: white;
 }
 
-#rightButton{
+#rightButton {
   position: absolute;
   left: 90%;
   z-index: 1;
 }
 
-#leftButton{
+#leftButton {
   position: absolute;
   right: 90%;
   z-index: 1;
@@ -293,72 +297,75 @@ img {
 
 /* ***************Media Query***************** */
 
-@media only screen and (min-width: 414px) {
+@media only screen and (min-width: 414px) {}
+
+/* **********Needs updates********************* */
+@media only screen and (min-width: 768px) {
+
+  .slidecontainer {
+    width: 30%;
+  }
+
+}
+
+/* **************Needs Updates******************* */
+@media only screen and (min-width: 769px) {
+
+  nav {
+    height: 20vh;
+  }
+
+  .mainLayout {
+    height: 80vh;
+    display: flex;
+  }
+
+  .navBar {
+    width: 100vw;
+  }
+
+  .topHalf {
+    width: 50vw;
+    height: 100%;
+    justify-content: center;
+  }
+
+  .bottomHalf {
+    width: 60vw;
+    justify-content: center;
+  }
+
+  .bottomHalf {
+    height: 100%;
+    justify-content: space-evenly;
+    margin: 0px 0px 20px 0px;
+  }
+
+  .mannequinDiv {
+    height: 70%;
+  }
+
+  .slidecontainer {
+    width: 40%;
+  }
+
+  .settings,
+  .logoDiv {
+    margin: 20px;
+  }
+
+  .logoDiv {
+    height: 80%;
+  }
+
+  .line {
+    display: inline-block;
+    width: 2px;
+    height: 80%;
+  }
 
 
 
 }
-  /* **********Needs updates********************* */
-  @media only screen and (min-width: 768px) {
-    
-    .slidecontainer{
-      width: 30%;
-    }
-
-  }
-
-  /* **************Needs Updates******************* */
-  @media only screen and (min-width: 769px) {
-
-    nav {
-      height: 20vh;
-    }
-
-    .mainLayout {
-      height: 80vh;
-      display: flex;
-    }
-
-    .navBar {
-      width: 100vw;
-    }
-
-    .topHalf {
-      width: 50vw;
-      height: 100%;
-      justify-content: center;
-    }
-
-    .bottomHalf {
-      width: 60vw;
-      justify-content: center;
-    }
-
-    .bottomHalf {
-      height: 100%;
-      justify-content: space-evenly;
-      margin: 0px 0px 20px 0px;
-    }
-
-    .mannequinDiv {
-      height: 70%;
-    }
-
-    .slidecontainer{
-      width: 40%;
-    }
-
-    .settings, .logoDiv{
-      margin: 20px;
-    }
-
-    .logoDiv{
-      height: 80%;
-    }
-
-
-
-
-  }
 
 /* ***************END Media Query***************** */

@@ -58,35 +58,34 @@
     //******************************** very hot */
   
     'very_hot:casual': {
-      male: [headwear.baseballCap, facewear.sunglasses, upperbody.tshirt, {}, lowerbody.shorts, footwear.flipFlops],
-      female: [headwear.baseballCap, facewear.sunglasses, upperbody.tshirt, {}, lowerbody.shorts, footwear.flipFlops]
+      male: 'mannequin/very-hot-casual-male',
+      female: 'mannequin/very-hot-casual-female'
     },
   
     'very_hot:formal': {
-  
-      male: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat, lowerbody.formalPants, footwear.dressShoes],
-      female: [{}, {}, upperbody.dressTop, upperbodyOuterwear.suitCoat, lowerbody.dressBottom, footwear.heels]
+      male: 'very-hot-formal-male',
+      female: 'very-hot-formal-female'
+
     },
     'very_hot:business_casual': {
-      male: [{}, {}, upperbody.formalShirtTie, {}, lowerbody.formalPants, footwear.dressShoes],
-      female: [{}, {}, upperbody.dressTop, {}, lowerbody.dressBottom, footwear.heels]
+      male: 'mannequin/very-hot-businessCasual-male',
+      female: 'mannequin/very-hot-businessCasual-female'
     },
   
   
     //******************************** hot */
   
     'hot:casual': {
-      male: [headwear.baseballCap, facewear.sunglasses, upperbody.tshirt, {}, lowerbody.shorts, footwear.flipFlops],
-      female: [headwear.baseballCap, facewear.sunglasses, upperbody.tshirt, {}, lowerbody.shorts, footwear.flipFlops]
+      male: 'mannequin/hot-casual-male',
+      female: 'mannequin/hot-casual-female'
     },
     'hot:formal': {
-  
-      male: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat, lowerbody.formalPants, footwear.dressShoes],
-      female: [{}, {}, upperbody.dressTop, upperbodyOuterwear.suitCoat, lowerbody.dressBottom, footwear.heels]
+      male: 'mannequin/hot-formal-male',
+      female: 'mannequin/hot-formal-female'
     },
     'hot:business_casual': {
-      male: [{}, {}, upperbody.formalShirtTie, {}, lowerbody.formalPants, footwear.dressShoes],
-      female: [{}, {}, upperbody.dressTop, {}, lowerbody.dressBottom, footwear.heels]
+      male: 'mannequin/hot-businessCasual-male',
+      female: 'mannequin/hot-businessCasual-female'
     },
   
   
@@ -94,17 +93,16 @@
   
   
     'warm:casual': {
-      male: [{}, {}, upperbody.tshirt, {}, lowerbody.pants, footwear.tennisShoes],
-      female: [{}, {}, upperbody.tshirt, {}, lowerbody.pants, footwear.tennisShoes]
+      male: 'mannequin/warm-casual-male',
+      female: 'mannequin/warm-casual-female'
     },
     'warm:formal': {
-  
-      male: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat, lowerbody.formalPants, footwear.dressShoes],
-      female: [{}, {}, upperbody.dressTop, upperbodyOuterwear.suitCoat, lowerbody.formalPants, footwear.heels]
+      male: 'mannequin/warm-formal-male',
+      female: 'mannequin/warm-formal-female'
     },
     'warm:business_casual': {
-      male: [{}, {}, upperbody.formalShirtTie, {}, lowerbody.formalPants, footwear.dressShoes],
-      female: [{}, {}, upperbody.dressTop, {}, lowerbody.formalPants, footwear.heels]
+      male: 'mannequin/warm-businessCasual-male',
+      female: 'mannequin/warm-businessCasual-female'
     },
   
   
@@ -112,35 +110,33 @@
   
   
     'chilly:casual': {
-      male: [{}, {}, upperbody.tshirt, upperbodyOuterwear.lightJacketHoodie, lowerbody.pants, footwear.tennisShoes],
-      female: [{}, facewear.scarf,  upperbody.tshirt, upperbodyOuterwear.lightJacketHoodie, lowerbody.pants, footwear.tennisShoes]
+      male: 'mannequin/chilly-casual-male',
+      female: 'mannequin/chilly-casual-female'
     },
   
     'chilly:formal': {
-  
-      male: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.suitCoat, lowerbody.formalPants, footwear.dressShoes],
-      female: [{}, {}, upperbody.dressTop, upperbodyOuterwear.suitCoat, lowerbody.formalPants, footwear.heels]
+      male: 'mannequin/chilly-formal-male',
+      female: 'mannequin/chilly-formal-female'
     },
   
     'chilly:business_casual': {
-      male: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.lightJacketHoodie, lowerbody.formalPants, footwear.dressShoes],
-      female: [{}, {}, upperbody.dressTop, upperbodyOuterwear.lightJacketHoodie, lowerbody.formalPants, footwear.heels]
+      male: 'mannequin/chilly-businessCasual-male',
+      female: 'mannequin/chilly-businessCasual-female'
     },
     //******************************** cold */
   
   
     'cold:casual': {
-      male: [headwear.winterHat, facewear.scarf, upperbody.tshirt, upperbodyOuterwear.winterCoat, lowerbody.pants, footwear.winterBoots],
-      female: [headwear.winterHat, facewear.scarf, upperbody.tshirt, upperbodyOuterwear.winterCoat, lowerbody.pants, footwear.winterBoots]
+      male: 'mannequin/cold-casual-male',
+      female: 'mannequin/cold-casual-female'
     },
     'cold:formal': {
-  
-      male: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat, lowerbody.formalPants, footwear.dressShoes],
-      female: [{}, {}, upperbody.dressTop, upperbodyOuterwear.winterCoat, lowerbody.formalPants, footwear.dressShoes]
+      male: 'mannequin/cold-formal-male',
+      female: 'mannequin/cold-formal-female'
     },
     'cold:business_casual': {
-      male: [{}, {}, upperbody.formalShirtTie, upperbodyOuterwear.winterCoat, lowerbody.formalPants, footwear.winterBoots],
-      female: [{}, {}, upperbody.dressTop, upperbodyOuterwear.winterCoat, lowerbody.formalPants, footwear.winterBoots]
+      male: 'mannequin/cold-businessCasual-male',
+      female: 'mannequin/cold-businessCasual-female'
     },
   
   

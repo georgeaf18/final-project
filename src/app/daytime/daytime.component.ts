@@ -75,9 +75,11 @@ export class DaytimeComponent {
 
             this.morningTempArray.length = 0;
 
+            this.api.updateDayAvg(this.morningTempAverage);
+
         });
 
-        }, 800);   
+        }, 1000);   
     }
 
 

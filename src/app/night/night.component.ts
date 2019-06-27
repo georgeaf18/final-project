@@ -34,6 +34,7 @@ export class NightComponent {
     afternoonTempAverage: number = 0;
     afternoonMin: number = 0;
     afternoonMax: number = 0;
+    currentAppTemp;
 
 
 
@@ -45,7 +46,7 @@ export class NightComponent {
             this.minTemp = data.daily.data[0].apparentTemperatureLow;
             this.maxTemp = data.daily.data[0].apparentTemperatureHigh;
             this.icon = data.currently.icon;
-            
+
 
 
             // Holden's addition to make the correct temperature display 
@@ -54,37 +55,35 @@ export class NightComponent {
             // user will likely be experiencing the weather (before and 
             // after work)
             this.theHour = data.hourly.data;
-            let hourCounter: number;
-            for (hourCounter = 12; hourCounter < 25; hourCounter++) {
-                let currentAppTemp = this.theHour[hourCounter].apparentTemperature;
-                this.afternoonTempAverage += currentAppTemp;
-                this.afternoonTempArray.push(currentAppTemp);
+
+
+            for (let hourCounter = 12; hourCounter < 25; hourCounter++) {
+                this.currentAppTemp = this.theHour[hourCounter].apparentTemperature;
+                this.afternoonTempAverage += this.currentAppTemp;
+                this.afternoonTempArray.push(this.currentAppTemp);
                 // console.log(`currentAppTemp: ${currentAppTemp}`);
                 // console.log(`this.afternoonTempAverage: ${this.afternoonTempAverage}`);
                 // console.log(`this.afternoonTempArray: ${this.afternoonTempArray}`);
-                if (currentAppTemp > Math.max.apply(null, this.afternoonTempArray)) {
-                    this.afternoonMax = currentAppTemp;
-                } 
-                if (currentAppTemp < Math.min.apply(null, this.afternoonTempArray)) {
-                    this.afternoonMin = currentAppTemp;
-                }
-                // console.log(`this.afternoonMax: ${this.afternoonMax}`);
-                // console.log(`this.afternoonMin: ${this.afternoonMin}`);
-                this.afternoonMin = Math.min.apply(null, this.afternoonTempArray);
-                this.afternoonMax = Math.max.apply(null, this.afternoonTempArray);
-                // console.log(`this.afternoonMax: ${this.afternoonMax}`);
-                // console.log(`this.afternoonMin: ${this.afternoonMin}`);
-                // console.log(`this.afternoonTempAverage: ${this.afternoonTempAverage}`);
-                this.afternoonTempAverage = this.afternoonTempAverage / this.afternoonTempArray.length;
-
-
-
-                this.afternoonTempArray.length = 0;
-                
-                this.api.updateNightAvg(this.afternoonTempAverage/12);
 
 
             };
+            
+            // if (this.currentAppTemp > Math.max.apply(null, this.afternoonTempArray)) {
+            //     this.afternoonMax = this.currentAppTemp;
+            // } 
+            // if (this.currentAppTemp < Math.min.apply(null, this.afternoonTempArray)) {
+            //     this.afternoonMin = this.currentAppTemp;
+            // }
+            // // console.log(`this.afternoonMax: ${this.afternoonMax}`);
+            // // console.log(`this.afternoonMin: ${this.afternoonMin}`);
+            // this.afternoonMin = Math.min.apply(null, this.afternoonTempArray);
+            // this.afternoonMax = Math.max.apply(null, this.afternoonTempArray);
+            // // console.log(`this.afternoonMax: ${this.afternoonMax}`);
+            // // console.log(`this.afternoonMin: ${this.afternoonMin}`);
+            // // console.log(`this.afternoonTempAverage: ${this.afternoonTempAverage}`);
+            // this.afternoonTempAverage = this.afternoonTempAverage / this.afternoonTempArray.length;
+
+
 
             // this.afternoonMin = Math.min.apply(null, this.afternoonTempArray);
             // this.afternoonMax = Math.max.apply(null, this.afternoonTempArray);
@@ -92,7 +91,7 @@ export class NightComponent {
 
 
 
-            
+
 
 
 
@@ -121,8 +120,19 @@ export class NightComponent {
         });
 
 
-        // !> end of copied over from app.component.ts
 
+        this.afternoonTempAverage = this.afternoonTempAverage / this.afternoonTempArray.length;
+
+        this.afternoonMin = Math.min.apply(null, this.afternoonTempArray);
+        this.afternoonMax = Math.max.apply(null, this.afternoonTempArray);
+        console.log("TCL: NightComponent -> ngOnInit -> this.afternoonTempArray", this.afternoonTempArray)
+
+
+
+        this.afternoonTempArray.length = 0;
+
+
+        this.api.updateNightAvg(this.afternoonTempAverage );
 
 
     }
@@ -153,7 +163,7 @@ export class NightComponent {
         this._callDate = value;
     }
 
-    
+
 
 
 
