@@ -157,6 +157,10 @@ img {
   display: none;
 }
 
+.inactive {
+  opacity: 0!important;
+}
+
 
 /* ********MANNEQUIN styling********* */
 
@@ -290,6 +294,12 @@ img {
   cursor: pointer;
 }
 
+.darksky {
+  position: fixed;
+  bottom: 10px;
+  width: 100px;
+}
+
 
 /* *************END button styling*************** */
 
@@ -362,6 +372,11 @@ img {
     display: inline-block;
     width: 2px;
     height: 80%;
+  }
+
+  .darksky {
+    left: 20px;
+    width: 150px;
   }
 
 
