@@ -29,18 +29,27 @@
       </div>
     </div>
   </div>
+
+
   <div class="mainLayout">
     <div class="topHalf">
-        <a (click)='activateLight()' id='leftButton' routerLink='' routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-          <i class="fas fa-chevron-left arrows"></i>
-        </a>
+
+      <a (click)='activateLight()' id='leftButton' routerLink='' routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}">
+        <i class="  fas fa-chevron-left arrows"></i>
+      </a>
+
       <router-outlet></router-outlet>
-        <a id='rightButton' (click)='activateDark()' routerLink='night' routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-          <i class="fas fa-chevron-right arrows"></i>
-        </a>
+
+      <a id='rightButton' (click)='activateDark()' routerLink='night' routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}">
+        <i (click)='activateDark()' class="fas fa-chevron-right arrows"></i>
+      </a>
     </div>
 
-    <hr class="line"/>
+
+
+    <hr class="line" />
 
     <div class="bottomHalf">
       <div class='speech-bubble'>
@@ -58,5 +67,8 @@
         </div>
       </div>
     </div>
+    <a href="https://darksky.net/poweredby/" target="_blank">
+      <img class='darksky' src="../assets/logo/poweredby.png" alt="">
+    </a>
   </div>
 </div>

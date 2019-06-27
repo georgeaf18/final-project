@@ -19,7 +19,7 @@ export class Api {
     apiUrl = 'https://api.darksky.net/forecast';
     apiKey = 'a6b163791b23867f78166369b89ffa02';
     // time = '1996-05-04T12:05:01';
-    time = '2019-06-24'; //needed to finish the Time Machine Callback for the Darksky API
+    time = '2019-06-24'; //needed for the Time Machine Callback for the Darksky API
     exclude = ''; //'minutely,flags,alerts';
     // https://api.darksky.net/forecast/a37531bbb850d56fe736c132b318ead7/42.3314,-83.0458${lat},${long}
 

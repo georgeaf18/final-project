@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Api } from './services/api.services';
 import { outfitMap } from './clothing-items/clothing'
 
@@ -164,15 +164,15 @@ export class AppComponent {
           this.apparentTemperature = data.currently.apparentTemperature;
           this.icon = data.currently.icon;
 
-          if (this.night === true){
+          if (this.night === true) {
             this.api.nightAvg.subscribe(data => this.apparentTemperature = data);
             console.log('worksNight')
-    
+
           } else {
             this.apparentTemperature = data.currently.apparentTemperature;
             console.log('worksDay')
 
-    
+
           }
 
 
@@ -192,7 +192,7 @@ export class AppComponent {
       // will get the outfit once the temperature is on hand
       if (typeof this.apparentTemperature === 'number') {
         this.getOutfit();
-        
+
 
       }
 
@@ -209,58 +209,58 @@ export class AppComponent {
 
   getOutfit = () => {
     setTimeout(() => {
-    
-    if (this.night === true){
-      this.api.nightAvg.subscribe(data => this.apparentTemperature = data);
-      console.log('worksNight')
-      
 
-
-    } else {
-      this.api.dayAvg.subscribe(data => this.apparentTemperature = data);
-      console.log('worksDay')
-
-    }
+      if (this.night === true) {
+        this.api.nightAvg.subscribe(data => this.apparentTemperature = data);
+        console.log('worksNight')
 
 
 
-    if (typeof this.weatherType !== 'string') {
-      if (this.apparentTemperature >= 95) {
+      } else {
+        this.api.dayAvg.subscribe(data => this.apparentTemperature = data);
+        console.log('worksDay')
 
-        this.weatherType = 'very hot';
-
-      } else if (this.apparentTemperature >= 80 && this.apparentTemperature <= 94) {
-
-        this.weatherType = 'hot';
-
-      } else if (this.apparentTemperature > 69 && this.apparentTemperature <= 79) {
-
-        this.weatherType = 'warm';
-
-      } else if (this.apparentTemperature > 50 && this.apparentTemperature <= 68) {
-
-        this.weatherType = 'chilly';
-
-      } else if (this.apparentTemperature > 33 && this.apparentTemperature <= 49) {
-
-        this.weatherType = 'cold';
-
-      } else if (this.apparentTemperature > 1 && this.apparentTemperature <= 32) {
-
-        this.weatherType = 'very cold';
-
-      } else if (this.apparentTemperature < 0) {
-
-        this.weatherType = 'extremely cold';
       }
-    }
 
-    if (typeof this.weatherType === 'string') {
-      this.getOutfitUrl();
 
-      this.setSpeech();
-    }
-  }, 1000);   
+
+      if (typeof this.weatherType !== 'string') {
+        if (this.apparentTemperature >= 95) {
+
+          this.weatherType = 'very hot';
+
+        } else if (this.apparentTemperature >= 80 && this.apparentTemperature <= 94) {
+
+          this.weatherType = 'hot';
+
+        } else if (this.apparentTemperature > 69 && this.apparentTemperature <= 79) {
+
+          this.weatherType = 'warm';
+
+        } else if (this.apparentTemperature > 50 && this.apparentTemperature <= 68) {
+
+          this.weatherType = 'chilly';
+
+        } else if (this.apparentTemperature > 33 && this.apparentTemperature <= 49) {
+
+          this.weatherType = 'cold';
+
+        } else if (this.apparentTemperature > 1 && this.apparentTemperature <= 32) {
+
+          this.weatherType = 'very cold';
+
+        } else if (this.apparentTemperature < 0) {
+
+          this.weatherType = 'extremely cold';
+        }
+      }
+
+      if (typeof this.weatherType === 'string') {
+        this.getOutfitUrl();
+
+        this.setSpeech();
+      }
+    }, 1000);
   }
 
 
@@ -295,6 +295,7 @@ export class AppComponent {
 
   activateDark = () => {
     this.night = true;
+    
 
   }
 
@@ -302,17 +303,7 @@ export class AppComponent {
     this.night = false;
   }
 
-  // showArrow = () => {
-  //   return {
-  //     'noShow': !this.night
-  //   }
-  // }
 
-  // showArrowRight = () => {
-  //   return {
-  //     'noShow': this.night
-  //   }
-  // }
 
   setGender = () => {
     if (this.genderInput === true) {
