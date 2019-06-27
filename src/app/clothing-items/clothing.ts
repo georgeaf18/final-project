@@ -138,6 +138,36 @@
       male: 'mannequin/cold-businessCasual-male',
       female: 'mannequin/cold-businessCasual-female'
     },
+
+    // **********very cold*************
+
+    'very cold:casual': {
+      male: 'mannequin/cold-casual-male',
+      female: 'mannequin/cold-casual-female'
+    },
+    'very cold:formal': {
+      male: 'mannequin/cold-formal-male',
+      female: 'mannequin/cold-formal-female'
+    },
+    'very cold:business_casual': {
+      male: 'mannequin/cold-businessCasual-male',
+      female: 'mannequin/cold-businessCasual-female'
+    },
+
+    // *******extremely cold**************
+    
+    'extremely cold:casual': {
+      male: 'mannequin/cold-casual-male',
+      female: 'mannequin/cold-casual-female'
+    },
+    'extremely cold:formal': {
+      male: 'mannequin/cold-formal-male',
+      female: 'mannequin/cold-formal-female'
+    },
+    'extremely cold:business_casual': {
+      male: 'mannequin/cold-businessCasual-male',
+      female: 'mannequin/cold-businessCasual-female'
+    },
   
   
     //******************************** very cold*/

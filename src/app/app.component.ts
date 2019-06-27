@@ -325,7 +325,7 @@ export class AppComponent {
     } else if (this.icon === 'snow') {
       this.speech = 'Don\'t forget to grab your snow boots';
     }
-  }
+  };
 
 
 
