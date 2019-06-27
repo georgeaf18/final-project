@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Api } from './services/api.services';
-import { outfitMap } from './clothing-items/clothing.1'
+import { outfitMap } from './clothing-items/clothing'
 
 
 interface Hourly {
@@ -35,7 +35,7 @@ interface ApiData {
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.1.html',
+  templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 
@@ -188,30 +188,17 @@ export class AppComponent {
 
       }
 
-      if (this.night === true){
-        this.api.nightAvg.subscribe(data => this.apparentTemperature = data);
-        console.log('worksNight')
-
-
-      } else {
-        this.apparentTemperature = data.currently.apparentTemperature;
-        console.log('worksDay')
-
-      }
-
-
-      
-
 
       // will get the outfit once the temperature is on hand
       if (typeof this.apparentTemperature === 'number') {
         this.getOutfit();
-
+        
 
       }
 
 
     })
+    console.log("TCL: getData -> this.apparentTemperature", this.apparentTemperature)
 
 
   };
@@ -221,6 +208,20 @@ export class AppComponent {
   //******************** returns a weather type depending the temperature ********************/
 
   getOutfit = () => {
+    setTimeout(() => {
+    
+    if (this.night === true){
+      this.api.nightAvg.subscribe(data => this.apparentTemperature = data);
+      console.log('worksNight')
+      
+
+
+    } else {
+      this.api.dayAvg.subscribe(data => this.apparentTemperature = data);
+      console.log('worksDay')
+
+    }
+
 
 
     if (typeof this.weatherType !== 'string') {
@@ -255,79 +256,20 @@ export class AppComponent {
     }
 
     if (typeof this.weatherType === 'string') {
-      this.getOutfitUrlHOLDEN();
+      this.getOutfitUrl();
 
       this.setSpeech();
     }
-
+  }, 1000);   
   }
 
 
 
 
-  getOutfitUrlHOLDEN = () => {
+  getOutfitUrl = () => {
     this.picurlHOLDEN = outfitMap[`${this.weatherType}:${this.eventType}`][this.gender];
 
   }
-
-  // getOutfitUrl = () => {
-
-  //this is assigning the correct images to the variables based on the gender, event type and weather
-  // this.headwearUrl = outfitMap[`${this.weatherType}:${this.eventType}`][this.gender][0];
-  // this.facewearUrl = outfitMap[`${this.weatherType}:${this.eventType}`][this.gender][1];
-  // this.upperbodyUrl = outfitMap[`${this.weatherType}:${this.eventType}`][this.gender][2];
-  // this.upperbodyOuterUrl = outfitMap[`${this.weatherType}:${this.eventType}`][this.gender][3];
-  // this.lowerbodyUrl = outfitMap[`${this.weatherType}:${this.eventType}`][this.gender][4];
-  // this.footwearUrl = outfitMap[`${this.weatherType}:${this.eventType}`][this.gender][5];
-
-  // this is making the pictures show if they not of type object which means they're holding a img url
-  // if (typeof this.headwearUrl !== 'object') {
-  //   this.showHeadwear = true;
-
-  // }
-
-  // if (typeof this.facewearUrl !== 'object') {
-  //   this.showFacewear = true;
-
-  // }
-
-  // if (typeof this.upperbodyUrl !== 'object') {
-  //   this.showUpperbody = true;
-
-  // }
-
-  // if (typeof this.upperbodyOuterUrl !== 'object') {
-  //   this.showUpperbodyOuter = true;
-
-  // }
-
-  // if (typeof this.lowerbodyUrl !== 'object') {
-  //   this.showLowerbody = true;
-
-  // }
-
-  // if (typeof this.footwearUrl !== 'object') {
-  //   this.showFootwear = true;
-  // }
-
-  // }
-
-  // setFormal = () => {
-  //   this.eventType = 'formal';
-  //   this.getLocation();
-  // }
-
-  // setBusinessCasual = () => {
-  //   this.eventType = 'business_casual';
-  //   this.getLocation();
-
-  // }
-
-  // setCasual = () => {
-  //   this.eventType = 'casual';
-  //   this.getLocation();
-
-  // }
 
   getEvent = () => {
     if (this.preEvent === 1) {
