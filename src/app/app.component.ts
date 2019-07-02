@@ -33,6 +33,11 @@ interface ApiData {
   daily: Daily;
 }
 
+interface LocationData {
+  latitude: number;
+  longitude: number;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -104,23 +109,14 @@ export class AppComponent {
 
   getLocation = () => {
 
-    if (window.navigator.geolocation) {
-      // window.navigator.geolocation.getCurrentPosition(this.sendLocation);
-      window.navigator.geolocation.getCurrentPosition(this.sendLocation, function errorCallback(error) {
-        console.log(error);
-      }, { maximumAge: 6000, timeout: 5000, enableHighAccuracy: false });
-
-      // console.log(window.navigator.geolocation.getCurrentPosition(this.sendLocation));
-    }
+    this.api.getLocationAPI().subscribe( (data:LocationData) => {
+      this.lat = data.latitude;
+      this.long = data.longitude;
+    });
+    
   }
 
-  sendLocation = (position) => {
-    this.lat = position.coords.latitude;
-    this.long = position.coords.longitude;
-    this.getData();
-    console.log('works')
-
-  }
+  
 
   //******************************** gets data from Dark Sky api  */ 
 
@@ -138,12 +134,6 @@ export class AppComponent {
           let data = apiData;
           this.api.updateWeather(data);
 
-
-          // this.apparentTemperature = data.currently.apparentTemperature;
-          // this.icon = data.currently.icon;
-
-
-
           // Create a new JavaScript Date object based on the timestamp
           // multiplied by 1000 so that the argument is in milliseconds, not seconds.
           let date = new Date(data.currently.time * 1000);
@@ -157,20 +147,15 @@ export class AppComponent {
           // Will display time in 10:30:23 format
           let formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
 
-          console.log(`formatted time: ${formattedTime}`);
-
-
 
           this.apparentTemperature = data.currently.apparentTemperature;
           this.icon = data.currently.icon;
 
           if (this.night === true) {
             this.api.nightAvg.subscribe(data => this.apparentTemperature = data);
-            console.log('worksNight')
 
           } else {
             this.apparentTemperature = data.currently.apparentTemperature;
-            console.log('worksDay')
 
 
           }
@@ -198,7 +183,6 @@ export class AppComponent {
 
 
     })
-    console.log("TCL: getData -> this.apparentTemperature", this.apparentTemperature)
 
 
   };
@@ -212,13 +196,11 @@ export class AppComponent {
 
       if (this.night === true) {
         this.api.nightAvg.subscribe(data => this.apparentTemperature = data);
-        console.log('worksNight')
 
 
 
       } else {
         this.api.dayAvg.subscribe(data => this.apparentTemperature = data);
-        console.log('worksDay')
 
       }
 

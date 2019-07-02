@@ -19,7 +19,6 @@ export class NightComponent {
     maxTemp: number;
     icon: string;
 
-    // <! copied in from app.component.ts
     lowTemp;
     highTemp;
     realTemp;
@@ -61,55 +60,13 @@ export class NightComponent {
                 this.currentAppTemp = this.theHour[hourCounter].apparentTemperature;
                 this.afternoonTempAverage += this.currentAppTemp;
                 this.afternoonTempArray.push(this.currentAppTemp);
-                // console.log(`currentAppTemp: ${currentAppTemp}`);
-                // console.log(`this.afternoonTempAverage: ${this.afternoonTempAverage}`);
-                // console.log(`this.afternoonTempArray: ${this.afternoonTempArray}`);
-
+                // co
 
             };
             
-            // if (this.currentAppTemp > Math.max.apply(null, this.afternoonTempArray)) {
-            //     this.afternoonMax = this.currentAppTemp;
-            // } 
-            // if (this.currentAppTemp < Math.min.apply(null, this.afternoonTempArray)) {
-            //     this.afternoonMin = this.currentAppTemp;
-            // }
-            // // console.log(`this.afternoonMax: ${this.afternoonMax}`);
-            // // console.log(`this.afternoonMin: ${this.afternoonMin}`);
-            // this.afternoonMin = Math.min.apply(null, this.afternoonTempArray);
-            // this.afternoonMax = Math.max.apply(null, this.afternoonTempArray);
-            // // console.log(`this.afternoonMax: ${this.afternoonMax}`);
-            // // console.log(`this.afternoonMin: ${this.afternoonMin}`);
-            // // console.log(`this.afternoonTempAverage: ${this.afternoonTempAverage}`);
-            // this.afternoonTempAverage = this.afternoonTempAverage / this.afternoonTempArray.length;
 
 
 
-            // this.afternoonMin = Math.min.apply(null, this.afternoonTempArray);
-            // this.afternoonMax = Math.max.apply(null, this.afternoonTempArray);
-
-
-
-
-
-
-
-
-            // for (hourCounter = 5; hourCounter < 12; hourCounter++) {
-            //     let currentAppTemp = this.theHour[hourCounter].apparentTemperature;
-            //     this.morningTempAverage += currentAppTemp;
-            //     this.morningTempArray.push(currentAppTemp);
-            //     console.log(currentAppTemp);
-            // };
-            // console.log(`this.morningTempAverage: ${this.morningTempAverage}`);
-            // this.morningTempAverage = this.morningTempAverage / this.morningTempArray.length;
-
-            // this.morningMin = Math.min.apply(null, this.morningTempArray);
-            // this.morningMax = Math.max.apply(null, this.morningTempArray);
-            // console.log(this.morningMin);
-            // console.log(this.morningMax);
-            // console.log(this.morningTempArray.length)
-            // console.log(`this.morningTempAverage: ${this.morningTempAverage}`);
 
 
 
@@ -125,7 +82,6 @@ export class NightComponent {
 
         this.afternoonMin = Math.min.apply(null, this.afternoonTempArray);
         this.afternoonMax = Math.max.apply(null, this.afternoonTempArray);
-        console.log("TCL: NightComponent -> ngOnInit -> this.afternoonTempArray", this.afternoonTempArray)
 
 
 
@@ -144,17 +100,12 @@ export class NightComponent {
     pictureUrl = '../../assets/images/moon-cloud.png';
 
     timeString: string = '';
-    // callDate = () => {
-    //     let now = new Date();
-    //     this.dateString = now;
-    //     console.log(`now: ${now}`);
-    // }
+    
 
 
     private _callDate = () => {
         let now = new Date();
         this.dateString = now;
-        console.log(`now: ${now}`);
     };
     public get callDate() {
         return this._callDate;
