@@ -19,7 +19,7 @@ export class Api {
     apiUrl = 'https://api.darksky.net/forecast';
     apiKey = 'a6b163791b23867f78166369b89ffa02';
     // time = '1996-05-04T12:05:01';
-    time = '2019-06-24'; //needed for the Time Machine Callback for the Darksky API
+    time = '2019-06-28'; //needed for the Time Machine Callback for the Darksky API
     exclude = ''; //'minutely,flags,alerts';
     // https://api.darksky.net/forecast/a37531bbb850d56fe736c132b318ead7/42.3314,-83.0458${lat},${long}
 
@@ -34,7 +34,11 @@ export class Api {
 
     getWeather = (lat, long, time=this.time) => {
         console.log(`called: ${time}`);
-        return this.http.get(`${this.server}${this.apiUrl}/${this.apiKey}/${lat},${long},${this.dateStringShort}${time}T00:00:00?exclude=${this.exclude}`)
+        return this.http.get(`${this.server}${this.apiUrl}/${this.apiKey}/42.3314,-83.0458,${this.dateStringShort}${time}T00:00:00?exclude=${this.exclude}`)
+    }
+
+    getLocationAPI = () => {
+        return this.http.get('https://ipapi.co/json/');
     }
 
 
