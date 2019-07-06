@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 
@@ -16,7 +16,7 @@ export class Api {
     private _dayAvg = new BehaviorSubject(null);
     dayAvg = this._dayAvg.asObservable();
 
-    server = environment.production ? 'https://thingproxy.freeboard.io/fetch/' : '';
+    server = !environment.production ? 'https://thingproxy.freeboard.io/fetch/' : '';
     apiUrl = 'https://api.darksky.net/forecast';
     apiKey = 'a6b163791b23867f78166369b89ffa02';
     // time = '1996-05-04T12:05:01';
