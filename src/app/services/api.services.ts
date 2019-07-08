@@ -16,9 +16,6 @@ export class Api {
     private _dayAvg = new BehaviorSubject(null);
     dayAvg = this._dayAvg.asObservable();
 
-    server = !environment.production ? 'https://thingproxy.freeboard.io/fetch/' : '';
-    apiUrl = 'https://api.darksky.net/forecast';
-    apiKey = 'a6b163791b23867f78166369b89ffa02';
     // https://api.darksky.net/forecast/a37531bbb850d56fe736c132b318ead7/42.3314,-83.0458${lat},${long}
 
     date = new Date();
@@ -32,7 +29,8 @@ export class Api {
     }
 
     getWeather = (lat, long) => {
-        return this.http.get(`${this.server}${this.apiUrl}/${this.apiKey}/${lat},${long}`)
+        const URL = `${environment.api}/bundle/${lat}/${long}`;
+        return this.http.get(URL)
     }
 
     getLocationAPI = () => {
